@@ -15,17 +15,17 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.70);  /* ← POLARIZADO SUAVE */
+  backdrop-filter: blur(1.5px);
   z-index: -1;
 }
 
-/* CONTRASTE SOLO EN TÍTULOS Y PÁRRAFOS */
+/* POLARIZADO SUAVE SOLO EN TEXTOS IMPORTANTES */
 p, h1, h2, h3 {
   display: inline-block;
-  background: rgba(0,0,0,0.55);
-  padding: 8px 14px;
-  border-radius: 8px;
+  background: rgba(0,0,0,0.28); /* ← POLARIZADO SUAVE */
+  padding: 6px 12px;
+  border-radius: 6px;
 }
 
 /* LINKS, ICONOS, LISTAS = NORMALES */
@@ -42,19 +42,19 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.60); /* ≤ más limpio que antes */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
   z-index: 1000;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(5px);
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 50px;
+  gap: 40px;
   margin: 0;
   padding: 0;
 }
@@ -63,9 +63,9 @@ nav ul li a {
   text-decoration: none;
   color: #39ff14;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  text-shadow: 0 0 6px #39ff14;
   position: relative;
-  transition: color 0.3s;
 }
 
 nav ul li a::after {
@@ -90,12 +90,12 @@ nav ul li a.active::after {
 .hamburger {
   display: none;
   flex-direction: column;
+  gap: 6px;
   cursor: pointer;
-  gap: 5px;
 }
 
 .hamburger div {
-  width: 28px;
+  width: 30px;
   height: 4px;
   background: #39ff14;
   border-radius: 4px;
@@ -107,14 +107,13 @@ nav ul li a.active::after {
    LOGO
 ============================ */
 .logo {
-  margin: 120px 0 50px;
+  margin: 110px 0 50px;
 }
 
 .logo img {
   width: 260px;
   filter: drop-shadow(0 0 15px #39ff14);
   animation: neonPulse 3s infinite alternate;
-  transition: 0.3s;
 }
 
 @keyframes neonPulse {
@@ -146,9 +145,9 @@ section {
 }
 
 .swiper-slide {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.45);
   border-radius: 18px;
-  box-shadow: 0 0 35px #39ff14;
+  box-shadow: 0 0 25px rgba(57,255,20,0.35);
   padding: 20px;
   text-align: center;
 }
@@ -159,10 +158,9 @@ section {
   object-fit: contain;
   border-radius: 12px;
   border: 2px solid #39ff14;
-  margin-bottom: 15px;
-  transition: .3s;
 }
 
+/* botones carrusel */
 .swiper-button-next,
 .swiper-button-prev {
   color: #39ff14;
@@ -171,61 +169,52 @@ section {
 
 .slide-title {
   font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 12px;
   color: #39ff14;
+  margin-top: 12px;
+  text-shadow: 0 0 8px #39ff14;
 }
 
 /* ============================
-   GALERÍA
+   GALERÍA ABAJO
 ============================ */
 .examples {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(135px,1fr));
   gap: 18px;
   margin-top: 20px;
 }
 
 .project {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.04);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,255,128,0.3);
   padding: 10px;
-  transition: 0.3s;
-  position: relative;
+  box-shadow: 0 0 10px rgba(57,255,20,0.25);
 }
 
 .project img {
   width: 100%;
   height: 110px;
   object-fit: contain;
-  border: 2px solid #39ff14;
   border-radius: 10px;
-  background: rgba(0,0,0,0.6);
+  border: 2px solid #39ff14;
 }
 
+/* etiqueta preview */
 .preview-label {
-  position: absolute;
-  top: -12px;
+  background: rgba(0,0,0,0.45);
+  font-size: 0.75rem;
+  padding: 4px;
+  border-radius: 5px;
+  top: -14px;
   left: 0;
   right: 0;
-  font-size: 0.7rem;
-  color: rgba(57,255,20,0.7);
-  text-shadow: 0 0 6px rgba(57,255,20,0.6);
-  font-weight: bold;
+  color: #39ff14;
+  text-shadow: 0 0 6px #39ff14;
+  position: absolute;
 }
 
 /* ============================
-   CONTACTO ICONOS
-============================ */
-.contact-links img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-}
-
-/* ============================
-   BOTÓN WHATSAPP LATERAL
+   WHATSAPP LATERAL
 ============================ */
 .whatsapp-float {
   position: fixed;
@@ -236,15 +225,14 @@ section {
 }
 
 .whatsapp-float img {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
+  width: 70px;
+  height: 70px;
   background: #25D366;
   padding: 10px;
-  object-fit: contain;
+  border-radius: 50%;
   box-shadow: 0 0 15px #25D366;
-  transition: .3s;
 }
+
 
 /* ============================
    FOOTER
@@ -260,8 +248,27 @@ footer {
 ============================ */
 @media (max-width: 768px) {
 
+  nav ul {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 70%;
+    flex-direction: column;
+    background: rgba(0,0,0,0.80);
+    padding: 20px;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
   .swiper-slide img {
-    height: 260px;
+    height: 240px;
   }
 
   .whatsapp-float img {
