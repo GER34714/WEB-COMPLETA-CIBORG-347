@@ -20,11 +20,19 @@ body::before {
   z-index: -1;
 }
 
-p, h1, h2, h3, h4, h5, h6, a, span, li {
+/* CONTRASTE SOLO EN TÍTULOS Y PÁRRAFOS */
+p, h1, h2, h3 {
   display: inline-block;
   background: rgba(0,0,0,0.55);
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* LINKS, ICONOS, LISTAS = NORMALES */
+a, span, li {
+  background: none !important;
+  padding: 0 !important;
+  display: inline;
 }
 
 /* ============================
@@ -95,11 +103,6 @@ nav ul li a.active::after {
   transition: .3s;
 }
 
-.hamburger:hover div {
-  background: #00eaff;
-  box-shadow: 0 0 12px #00eaff;
-}
-
 /* ============================
    LOGO
 ============================ */
@@ -116,10 +119,10 @@ nav ul li a.active::after {
 
 @keyframes neonPulse {
   0% { filter: drop-shadow(0 0 10px #39ff14); }
- 25% { filter: drop-shadow(0 0 15px #00f7ff); }
- 50% { filter: drop-shadow(0 0 15px #ff00ff); }
- 75% { filter: drop-shadow(0 0 15px #8a2be2); }
- 100% { filter: drop-shadow(0 0 10px #39ff14); }
+  25% { filter: drop-shadow(0 0 15px #00f7ff); }
+  50% { filter: drop-shadow(0 0 15px #ff00ff); }
+  75% { filter: drop-shadow(0 0 15px #8a2be2); }
+  100% { filter: drop-shadow(0 0 10px #39ff14); }
 }
 
 /* ============================
@@ -174,7 +177,7 @@ section {
 }
 
 /* ============================
-   GALERÍA DES
+   GALERÍA
 ============================ */
 .examples {
   display: grid;
@@ -199,6 +202,26 @@ section {
   border: 2px solid #39ff14;
   border-radius: 10px;
   background: rgba(0,0,0,0.6);
+}
+
+.preview-label {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  font-size: 0.7rem;
+  color: rgba(57,255,20,0.7);
+  text-shadow: 0 0 6px rgba(57,255,20,0.6);
+  font-weight: bold;
+}
+
+/* ============================
+   CONTACTO ICONOS
+============================ */
+.contact-links img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 /* ============================
@@ -238,7 +261,7 @@ footer {
 @media (max-width: 768px) {
 
   .swiper-slide img {
-    height: 270px;
+    height: 260px;
   }
 
   .whatsapp-float img {
