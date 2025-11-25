@@ -14,6 +14,10 @@
 <meta property="og:type" content="website">
 
 <link rel="stylesheet" href="style.css">
+
+<!-- SWIPER CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
 </head>
 
 <body>
@@ -52,6 +56,24 @@
 
 <section>
     <h2>Trabajos Destacados</h2>
+
+
+    <!-- ========================================= -->
+    <!--  CARRUSEL DESTACADO (AUTOMÁTICO)          -->
+    <!-- ========================================= -->
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper" id="carousel-dynamic"></div>
+
+      <!-- FLECHAS -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+
+    <!-- ========================================= -->
+    <!--  GALERÍA ACTUAL (SIN TOCAR NADA)          -->
+    <!-- ========================================= -->
 
     <div class="examples">
 
@@ -111,6 +133,7 @@
 
 <footer>© 2025 Ciborg347™ — Web Designs & Landing Pages</footer>
 
+
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
     <span class="nav-btn prev" onclick="changeSlide(-1)">❮</span>
@@ -121,6 +144,9 @@
     </div>
     <span class="nav-btn next" onclick="changeSlide(1)">❯</span>
 </div>
+
+<!-- SWIPER JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script src="script.js"></script>
 </body>
