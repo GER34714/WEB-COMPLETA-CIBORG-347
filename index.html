@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciborg347™ | Web Designs & Landing Pages</title>
+
+<link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
+
+<!-- OG -->
+<meta property="og:title" content="Ciborg347™ | Web Designs & Landing Pages">
+<meta property="og:description" content="Diseños profesionales, rápidos, modernos y con estética neon. Webs que venden.">
+<meta property="og:image" content="https://iili.io/fHQF3u4.md.jpg">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+    </div>
+
+    <ul id="nav-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="presupuesto.html">Presupuesto</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</nav>
+
+<!-- LOGO -->
+<div class="logo">
+    <img src="https://iili.io/fH74EGa.md.png" alt="Ciborg347™">
+</div>
+
+<!-- SECCIÓN PRINCIPAL -->
+<section>
+    <h2>Bienvenido a Ciborg347™</h2>
+
+    <p>
+        Creamos <b>sitios web completos</b> y <b>landing pages</b> con estilo único, estética moderna y optimizadas para generar resultados reales.
+        <br><br>
+        Diseños hechos a medida para negocios, artistas, radios, pastelerías, barberías, casinos y emprendedores que necesitan presencia digital profesional.
+        <br><br>
+        Navegá por nuestro sitio y descubrí todo lo que podemos hacer por tu marca.
+    </p>
+
+    <br>
+
+    <a href="servicios.html" class="view-btn" style="text-decoration:none;">
+        Ver Servicios
+    </a>
+</section>
+
+<!-- MINI PORTFOLIO DESTACADO -->
+<section>
+    <h2>Trabajos Destacados</h2>
+
+    <div class="examples">
+        <div class="project">
+            <div class="preview-label">Vista previa</div>
+            <img src="https://iili.io/KPyCnHu.jpg" data-link="https://adda-nails.onrender.com/" data-title="Adda Nails">
+            <a href="https://adda-nails.onrender.com/" target="_blank">Adda Nails</a>
+        </div>
+
+        <div class="project">
+            <div class="preview-label">Vista previa</div>
+            <img src="https://iili.io/KPyvEcx.jpg" data-link="https://barberia-elbebu.onrender.com/" data-title="Barber 99">
+            <a href="https://barberia-elbebu.onrender.com/" target="_blank">Barber 99</a>
+        </div>
+
+        <div class="project">
+            <div class="preview-label">Vista previa</div>
+            <img src="https://iili.io/fF5pLGf.jpg" data-link="https://dulce-juana.onrender.com/" data-title="Dulce Juana">
+            <a href="https://dulce-juana.onrender.com/" target="_blank">Dulce Juana</a>
+        </div>
+
+        <div class="project">
+            <div class="preview-label">Vista previa</div>
+            <img src="https://iili.io/KPygQXS.jpg" data-link="https://facucasino.onrender.com/" data-title="Facu Casino">
+            <a href="https://facucasino.onrender.com/" target="_blank">Facu Casino</a>
+        </div>
+    </div>
+
+    <br>
+    <a href="portfolio.html" class="view-btn" style="text-decoration:none;">
+        Ver Portfolio Completo
+    </a>
+</section>
+
+<!-- CONTACTO DIRECTO -->
+<section>
+    <h2>Contacto Rápido</h2>
+
+    <div class="contact-links">
+        <a href="https://wa.me/541164499481" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp
+        </a>
+        <a href="mailto:ciborg347@gmail.com">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"> Email
+        </a>
+        <a href="https://instagram.com/ciborg347" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"> Instagram
+        </a>
+    </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/541164499481?text=Hola%20Ciborg!" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- FOOTER -->
+<footer>
+    © 2025 Ciborg347™ — Web Designs & Landing Pages
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+    <span class="nav-btn prev" onclick="changeSlide(-1)">❮</span>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="">
+        <div class="caption" id="lightbox-title"></div>
+        <a id="lightbox-link" class="view-btn" href="#" target="_blank">Ver landing completa</a>
+    </div>
+    <span class="nav-btn next" onclick="changeSlide(1)">❯</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+  </html>
