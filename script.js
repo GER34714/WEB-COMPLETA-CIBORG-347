@@ -14,47 +14,47 @@ navLinks.forEach(link => {
 
 
 // ============================
-// CARRUSEL AUTOMÁTICO
+// CARRUSEL CON TODAS LAS LANDINGS DEL PORTFOLIO
 // ============================
-
-// TOMAMOS TODAS LAS LANDING DEL PORTFOLIO.HTML
 fetch("portfolio.html")
   .then(res => res.text())
   .then(html => {
     let parser = new DOMParser();
     let doc = parser.parseFromString(html, "text/html");
-    let allPortfolioImages = doc.querySelectorAll(".project img");
+    let portfolioImgs = doc.querySelectorAll(".project img");
 
-    const sliderContainer = document.getElementById("carousel-dynamic");
+    const slider = document.getElementById("carousel-dynamic");
 
-    allPortfolioImages.forEach(img => {
-      sliderContainer.innerHTML += `
+    portfolioImgs.forEach(img => {
+      slider.innerHTML += `
         <div class="swiper-slide">
-            <img src="${img.src}">
-            <div class="slide-title">${img.dataset.title}</div>
-            <a href="${img.dataset.link}" class="view-btn" target="_blank">Ver landing completa</a>
-        </div>`;
+          <img src="${img.src}">
+          <div class="slide-title">${img.dataset.title}</div>
+          <a href="${img.dataset.link}" class="view-btn" target="_blank">Ver landing completa</a>
+        </div>
+      `;
     });
 
-    const swiper = new Swiper(".mySwiper", {
+    new Swiper(".mySwiper", {
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: "auto",
       loop: true,
+
       coverflowEffect: {
         rotate: 0,
         stretch: 0,
-        depth: 220,
+        depth: 260,
         modifier: 2,
         slideShadows: false,
       },
+
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       }
     });
-
   });
 
 
@@ -75,8 +75,7 @@ function openGallery(i) {
   document.getElementById("lightbox-img").src = img.src;
   document.getElementById("lightbox-title").textContent = img.dataset.title;
 
-  const link = document.getElementById("lightbox-link");
-  link.href = img.dataset.link;
+  document.getElementById("lightbox-link").href = img.dataset.link;
 
   document.getElementById("lightbox").style.display = "flex";
 }
@@ -86,7 +85,7 @@ function changeSlide(step) {
   openGallery(currentIndex);
 }
 
-document.getElementById("lightbox").addEventListener("click", (e) => {
+document.getElementById("lightbox").addEventListener("click", e => {
   if (e.target.id === "lightbox") {
     document.getElementById("lightbox").style.display = "none";
   }
