@@ -15,14 +15,12 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- SWIPER CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
     <div class="hamburger" onclick="toggleMenu()">
         <div></div><div></div><div></div>
@@ -38,7 +36,6 @@
     </ul>
 </nav>
 
-<!-- LOGO -->
 <div class="logo">
     <img src="https://iili.io/fH74EGa.md.png" alt="Ciborg347™">
 </div>
@@ -57,50 +54,42 @@
 <section>
     <h2>Trabajos Destacados</h2>
 
-
-    <!-- ========================================= -->
-    <!--  CARRUSEL DESTACADO (AUTOMÁTICO)          -->
-    <!-- ========================================= -->
-
     <div class="swiper mySwiper">
-      <div class="swiper-wrapper" id="carousel-dynamic"></div>
+      <div class="swiper-wrapper">
 
-      <!-- FLECHAS -->
+        <!-- Adda Nails -->
+        <div class="swiper-slide">
+          <img src="https://iili.io/KPyCnHu.jpg">
+          <h3>Adda Nails</h3>
+          <a href="https://adda-nails.onrender.com/" class="view-btn" target="_blank">Ver landing</a>
+        </div>
+
+        <!-- Barber 99 -->
+        <div class="swiper-slide">
+          <img src="https://iili.io/KPyvEcx.jpg">
+          <h3>Barber 99</h3>
+          <a href="https://barberia-elbebu.onrender.com/" class="view-btn" target="_blank">Ver landing</a>
+        </div>
+
+        <!-- Dulce Juana -->
+        <div class="swiper-slide">
+          <img src="https://iili.io/fF5pLGf.jpg">
+          <h3>Dulce Juana</h3>
+          <a href="https://dulce-juana.onrender.com/" class="view-btn" target="_blank">Ver landing</a>
+        </div>
+
+        <!-- Facu Casino -->
+        <div class="swiper-slide">
+          <img src="https://iili.io/KPygQXS.jpg">
+          <h3>Facu Casino</h3>
+          <a href="https://facucasino.onrender.com/" class="view-btn" target="_blank">Ver landing</a>
+        </div>
+
+      </div>
+
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-    </div>
-
-
-    <!-- ========================================= -->
-    <!--  GALERÍA ACTUAL (SIN TOCAR NADA)          -->
-    <!-- ========================================= -->
-
-    <div class="examples">
-
-        <div class="project">
-            <div class="preview-label">Vista previa</div>
-            <img src="https://iili.io/KPyCnHu.jpg" data-link="https://adda-nails.onrender.com/" data-title="Adda Nails">
-            <a href="https://adda-nails.onrender.com/" target="_blank">Adda Nails</a>
-        </div>
-
-        <div class="project">
-            <div class="preview-label">Vista previa</div>
-            <img src="https://iili.io/KPyvEcx.jpg" data-link="https://barberia-elbebu.onrender.com/" data-title="Barber 99">
-            <a href="https://barberia-elbebu.onrender.com/" target="_blank">Barber 99</a>
-        </div>
-
-        <div class="project">
-            <div class="preview-label">Vista previa</div>
-            <img src="https://iili.io/fF5pLGf.jpg" data-link="https://dulce-juana.onrender.com/" data-title="Dulce Juana">
-            <a href="https://dulce-juana.onrender.com/" target="_blank">Dulce Juana</a>
-        </div>
-
-        <div class="project">
-            <div class="preview-label">Vista previa</div>
-            <img src="https://iili.io/KPygQXS.jpg" data-link="https://facucasino.onrender.com/" data-title="Facu Casino">
-            <a href="https://facucasino.onrender.com/" target="_blank">Facu Casino</a>
-        </div>
-
+      <div class="swiper-pagination"></div>
     </div>
 
     <br>
@@ -111,7 +100,8 @@
     <h2>Contacto Rápido</h2>
 
     <div class="contact-links">
-        <a href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20%F0%9F%98%8A" target="_blank">
+        <a href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web"
+           target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp: <b>11 2512-7689</b>
         </a>
 
@@ -125,29 +115,28 @@
     </div>
 </section>
 
-<!-- BOTÓN WHATSAPP OFICIAL -->
-<a href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20%F0%9F%98%8A"
-   class="whatsapp-float" target="_blank">
+<a href="https://wa.me/541125127689?text=Hola Ciborg"
+   class="whatsapp-float">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png">
 </a>
 
 <footer>© 2025 Ciborg347™ — Web Designs & Landing Pages</footer>
 
-
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox">
-    <span class="nav-btn prev" onclick="changeSlide(-1)">❮</span>
-    <div class="lightbox-content">
-        <img id="lightbox-img" src="">
-        <div class="caption" id="lightbox-title"></div>
-        <a id="lightbox-link" class="view-btn" href="#" target="_blank">Ver landing completa</a>
-    </div>
-    <span class="nav-btn next" onclick="changeSlide(1)">❯</span>
-</div>
-
-<!-- SWIPER JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script src="script.js"></script>
+
+<script>
+const swiperPortfolio = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 25,
+    loop: true,
+    centeredSlides: true,
+    speed: 600,
+    grabCursor: true,
+    pagination: { el: ".swiper-pagination", clickable: true },
+    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
+});
+</script>
+
 </body>
 </html>
