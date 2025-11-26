@@ -10,7 +10,7 @@ navLinks.forEach(link => {
   link.addEventListener("click", () => navMenu.classList.remove("active"));
 });
 
-// ----- LIGHTBOX (si usás galería interna) -----
+// ----- LIGHTBOX (si alguna vez lo querés usar) -----
 const galleryItems = document.querySelectorAll(".gallery img");
 let currentIndex = 0;
 
