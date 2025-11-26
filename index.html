@@ -123,16 +123,6 @@ section p {
   font-size: 1.15rem; color: #ccc; line-height: 1.7;
 }
 
-/* TEXTOS VENDEDORES */
-#quienes p {
-  font-size: 1.2rem;
-  color: #d0d0d0;
-}
-#quehacemos p {
-  font-size: 1.15rem;
-  color: #cfcfcf;
-}
-
 /* -----------------------------------
    GALERÍA — TARJETAS IGUALES
 ----------------------------------- */
@@ -174,35 +164,37 @@ section p {
 }
 
 /* -----------------------------------
-   LIGHTBOX — TODAS IGUALES
+   LIGHTBOX — TODAS COMPLETAS IGUALES
 ----------------------------------- */
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.85);
+  background: rgba(0,0,0,.9);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 5000;
 }
+
 .lightbox-content {
   background: #0d0d0d;
-  padding: 25px;
+  padding: 20px;
   border-radius: 15px;
-  max-width: 430px;
+  max-width: 450px;
   width: 90%;
   border: 2px solid #39ff14;
   text-align: center;
 }
 
-/* tamaño fijo para TODAS */
+/* TODAS ENTERAS, SIN CORTAR, IGUALES */
 #lightbox-img {
   width: 100%;
   height: 320px;
-  object-fit: cover;
+  object-fit: contain;      /* 🔥 ENTERA SIN RECORTAR */
+  object-position: center;  /* centrada */
   border-radius: 10px;
   border: 2px solid #39ff14;
-  background: #000;
+  background: #000;         /* marco negro cuando sobra espacio */
 }
 
 .close-btn {
@@ -212,18 +204,6 @@ section p {
   font-size: 2.5rem;
   color: #39ff14;
   cursor: pointer;
-}
-.close-btn:hover { color: #00f7ff; }
-
-.view-btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 8px 20px;
-  background: #39ff14;
-  color: #000;
-  border-radius: 25px;
-  font-weight: bold;
-  text-decoration: none;
 }
 
 /* -----------------------------------
@@ -293,9 +273,8 @@ footer {
 <section id="quienes">
   <h2>Quiénes Somos</h2>
   <p>
-  En <b>Ciborg347™</b> ayudamos a negocios a crecer con páginas diseñadas para vender.
-  No hacemos diseños lindos: <b>hacemos diseños que convierten visitas en clientes</b>.
-  Nuestro enfoque combina estética moderna + estrategia comercial real.
+  En <b>Ciborg347™</b> transformamos ideas en páginas que venden.  
+  Diseñamos experiencias digitales que convierten visitas en clientes reales.
   </p>
 </section>
 
@@ -303,9 +282,8 @@ footer {
 <section id="quehacemos">
   <h2>Qué Hacemos</h2>
   <p>
-  Creamos landings rápidas, profesionales y optimizadas para captar clientes.
-  Tu marca necesita presencia, credibilidad y ventas.  
-  <b>Nosotros te damos las tres.</b>
+  Creamos landings rápidas, modernas y optimizadas para captar clientes.  
+  Tu negocio necesita presencia y ventas: <b>nosotros te damos las dos.</b>
   </p>
 </section>
 
@@ -317,7 +295,7 @@ footer {
     ✔ Sitios web completos<br>
     ✔ Branding visual<br>
     ✔ WhatsApp integrado<br>
-    ✔ Hosting gratis en Render<br>
+    ✔ Hosting gratis Render<br>
   </p>
 </section>
 
@@ -423,7 +401,7 @@ footer {
 
 <!-- WHATSAPP -->
 <a class="whatsapp-float" target="_blank"
-   href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20vi%20sus%20trabajos%20y%20quisiera%20dise%C3%B1ar%20algo%20para%20mi%20negocio.%20%C2%A1Gracias!">
+   href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20dise%C3%B1ar%20algo%20para%20mi%20negocio.%20%C2%A1Gracias!">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
