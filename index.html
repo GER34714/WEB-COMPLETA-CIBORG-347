@@ -101,7 +101,7 @@ section p {
   font-size:1.15rem; line-height:1.7; color:#ccc;
 }
 
-/* ------------------------ CARRUSEL ------------------------ */
+/* ------------------------ CARRUSEL PROTAGONISTA ------------------------ */
 .carousel-container {
   max-width:900px;
   margin:40px auto;
@@ -114,10 +114,10 @@ section p {
   text-align:center;
 }
 
-/* CONTENEDOR DE LA IMAGEN (LA CAJA DEL CARRUSEL) */
+/* Caja de imagen */
 .carousel-image-wrapper {
   width:100%;
-  height:290px;           /* alto controlado escritorio */
+  height:320px;
   background:#000;
   border-radius:15px;
   border:2px solid #39ff14;
@@ -128,30 +128,44 @@ section p {
   overflow:hidden;
 }
 
-/* LA IMAGEN SIEMPRE ADENTRO DEL CONTENEDOR */
 .carousel-image-wrapper img {
   max-width:100%;
   max-height:100%;
-  object-fit:contain;     /* imagen COMPLETA */
+  object-fit:contain;
   display:block;
 }
 
-/* Mobile: un poco más baja */
+/* Mobile */
 @media(max-width:600px){
-  .carousel-image-wrapper {
-    height:220px;
-  }
+  .carousel-image-wrapper { height:240px; }
 }
 
-.carousel-desc {
-  margin-top:15px;
+/* Texto vendedor corto */
+.carousel-short {
+  margin-top:18px;
   color:#00f7ff;
-  font-size:1.05rem;
+  font-size:1.2rem;
   font-weight:bold;
 }
 
+/* Caja glass con info extendida */
+.glass-info {
+  margin-top:15px;
+  padding:20px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(0,255,255,.4);
+  backdrop-filter:blur(6px);
+  border-radius:15px;
+  color:#dff;
+  font-size:1rem;
+  line-height:1.6;
+  box-shadow:0 0 10px rgba(0,255,255,.15);
+  text-align:left;
+}
+
+/* CTA */
 .carousel-btn {
-  margin-top:12px;
+  margin-top:15px;
   padding:10px 22px;
   background:#39ff14;
   color:#000;
@@ -170,14 +184,6 @@ section p {
 .arrow:hover { color:#00f7ff; }
 .left { left:15px; }
 .right { right:15px; }
-
-/* Botón cerrar carrusel */
-.close-carousel {
-  position:absolute; top:10px; right:15px;
-  font-size:2rem; cursor:pointer;
-  color:#39ff14;
-}
-.close-carousel:hover { color:#00f7ff; }
 
 /* ------------------------ FOOTER ------------------------ */
 footer {
@@ -238,7 +244,7 @@ footer {
   <h2>Quiénes Somos</h2>
   <p>
     En <b>Ciborg347™</b> transformamos ideas en páginas que venden.  
-    Creamos experiencias digitales diseñadas para generar impacto y atraer clientes reales.
+    Creamos experiencias digitales diseñadas para atraer clientes reales.
   </p>
 </section>
 
@@ -246,7 +252,7 @@ footer {
 <section id="quehacemos">
   <h2>Qué Hacemos</h2>
   <p>
-    Creamos landings optimizadas, modernas y enfocadas en resultados.  
+    Creamos landings optimizadas y modernas, enfocadas en conversión.  
     Tu negocio necesita presencia, confianza y ventas. Nosotros te damos las tres.
   </p>
 </section>
@@ -263,21 +269,25 @@ footer {
   </p>
 </section>
 
-<!-- CARRUSEL DE EJEMPLOS -->
+<!-- CARRUSEL PROTAGONISTA -->
 <section id="trabajos">
   <h2>Ejemplos de Landings</h2>
 
   <div class="carousel-container" id="carousel">
-    <div class="close-carousel" onclick="closeCarousel()">×</div>
+
     <div class="arrow left" onclick="prevSlide()">❮</div>
     <div class="arrow right" onclick="nextSlide()">❯</div>
 
     <div class="carousel-image-wrapper">
-      <img id="carousel-img" src="" alt="Ejemplo de landing">
+      <img id="carousel-img" src="" alt="Ejemplo">
     </div>
 
-    <div class="carousel-desc" id="carousel-desc"></div>
+    <div class="carousel-short" id="carousel-short"></div>
+
+    <div class="glass-info" id="carousel-info"></div>
+
     <a id="carousel-btn" class="carousel-btn" target="_blank">Ver landing completa</a>
+
   </div>
 </section>
 
@@ -292,9 +302,9 @@ footer {
 
 <!-- WHATSAPP FLOAT -->
 <a class="whatsapp-float" 
-   href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20mi%20propia%20landing."
+   href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20mi%20landing."
    target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
 </a>
 
 <footer>© 2025 Ciborg347™ · Web Agency</footer>
@@ -315,67 +325,80 @@ const slides = [
   {
     img:"https://iili.io/KPyCnHu.jpg",
     link:"https://adda-nails.onrender.com/",
-    desc:"Landing enfocada en atraer clientas y mostrar calidad estética."
+    short:"Potenciá tu estudio y captá más clientas.",
+    info:"Diseñada para servicios de estética que quieren mostrar calidad, estilo y generar confianza inmediata."
   },
   {
     img:"https://iili.io/KPyvEcx.jpg",
     link:"https://barberia-elbebu.onrender.com/",
-    desc:"Diseño masculino con enfoque en turnos y estilo fresco."
+    short:"Presencia fuerte para barberías modernas.",
+    info:"Estilo masculino, dinámico y enfocado en turnos rápidos y fidelización de clientes."
   },
   {
     img:"https://iili.io/KPyUCn1.jpg",
     link:"https://barber-shop-rodri.onrender.com/",
-    desc:"Landing profesional ideal para posicionar tu barbería."
+    short:"Profesionalismo que vende solo.",
+    info:"Ideal para barberías que quieren destacar estilo, servicios premium y diferenciación local."
   },
   {
     img:"https://iili.io/fF5pLGf.jpg",
     link:"https://dulce-juana.onrender.com/",
-    desc:"Diseño dulce y vendedor para negocios gastronómicos."
+    short:"Perfecta para gastronomía.",
+    info:"Diseño dulce, vendedor y orientado a pedidos rápidos y visuales irresistibles."
   },
   {
     img:"https://iili.io/f9a9K5Q.jpg",
     link:"https://tio-sergio.onrender.com",
-    desc:"Landing ideal para eventos, bailes y vida nocturna."
+    short:"Impacto visual para eventos.",
+    info:"Hecha para salones y bailables que necesitan mostrar ambiente, artistas y agenda."
   },
   {
     img:"https://iili.io/f9an4yX.jpg",
     link:"https://radioimagen.onrender.com",
-    desc:"Página para radios con streaming integrado y estilo moderno."
+    short:"Radio con identidad propia.",
+    info:"Streaming integrado, diseño moderno y foco en oyentes y programación."
   },
   {
     img:"https://iili.io/KPygQXS.jpg",
     link:"https://facucasino.onrender.com/",
-    desc:"Landing agresiva y optimizada para captar jugadores."
+    short:"Ideal para captar jugadores.",
+    info:"Estilo agresivo y directo, enfocado en conversiones rápidas en el nicho casino."
   },
   {
     img:"https://iili.io/KPyrMj2.jpg",
     link:"https://dragon-casino.onrender.com/",
-    desc:"Diseño visual impactante para casinos y juegos online."
+    short:"Visual fuego para gaming.",
+    info:"Orientada a casinos con estética poderosa y llamada a la acción intensa."
   },
   {
     img:"https://iili.io/KPyDVHP.jpg",
     link:"https://dinasty-bet.onrender.com/",
-    desc:"Estilo deportivo ideal para apuestas y beneficios VIP."
+    short:"Diseño deportivo top.",
+    info:"Pensada para apuestas, beneficios y fidelización."
   },
   {
     img:"https://iili.io/KigNdVS.jpg",
     link:"https://giraygana-fortunaplay.onrender.com/",
-    desc:"Landing de wheel premium lista para conversión rápida."
+    short:"Wheel lista para convertir.",
+    info:"Enfocada en captar usuarios con CTA agresivo y dinamismo."
   },
   {
     img:"https://iili.io/Kigv3Ij.jpg",
     link:"https://ganamostodosjuntos.onrender.com/",
-    desc:"Landing visual con CTA directo para captar jugadores."
+    short:"Landing visual impactante.",
+    info:"CTA directo para captar clientes de apuestas y ruleta."
   },
   {
     img:"https://iili.io/KiggTcN.jpg",
     link:"https://lions-casino.onrender.com/",
-    desc:"Diseño premium para casinos online categoría top."
+    short:"Casino premium.",
+    info:"Ideal para marcas que quieren presencia fuerte y profesional."
   },
   {
     img:"https://iili.io/f9a9Fdx.jpg",
     link:"https://giraygana-ijae.onrender.com",
-    desc:"Wheel de premios lista para atraer tráfico y conversiones."
+    short:"Wheel rápida y efectiva.",
+    info:"Diseñada para atraer usuarios y generar conversiones inmediatas."
   }
 ];
 
@@ -384,7 +407,8 @@ let index = 0;
 function updateCarousel(){
   const s = slides[index];
   document.getElementById("carousel-img").src = s.img;
-  document.getElementById("carousel-desc").innerText = s.desc;
+  document.getElementById("carousel-short").innerText = s.short;
+  document.getElementById("carousel-info").innerText = s.info;
   document.getElementById("carousel-btn").href = s.link;
 }
 
@@ -395,9 +419,6 @@ function nextSlide(){
 function prevSlide(){
   index = (index - 1 + slides.length) % slides.length;
   updateCarousel();
-}
-function closeCarousel(){
-  document.getElementById("carousel").style.display="none";
 }
 
 /* Swipe táctil */
