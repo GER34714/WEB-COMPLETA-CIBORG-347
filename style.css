@@ -11,7 +11,7 @@ body {
   position: relative;
 }
 
-/* Fondo atenuado sobre la imagen */
+/* Fondo negro suave */
 body::before {
   content: "";
   position: fixed;
@@ -21,7 +21,7 @@ body::before {
   z-index: -1;
 }
 
-/* Fondo oscuro detrás de TODOS los textos */
+/* Fondo detrás de textos */
 p, h1, h2, h3, h4, h5, h6, a, span, li {
   display: inline-block;
   background: rgba(0,0,0,0.55);
@@ -156,7 +156,7 @@ p {
 }
 
 /* ============================
-   BOTONES CELESTE NEÓN
+   BOTONES NEÓN
 ============================ */
 .view-btn {
   display: inline-block;
@@ -177,7 +177,7 @@ p {
 }
 
 /* ============================
-   CARRUSEL DESTACADO (SWIPER)
+   CARRUSEL (SWIPER)
 ============================ */
 
 .mySwiper {
@@ -211,21 +211,58 @@ p {
   transform: scale(1.04);
 }
 
-.slide-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #39ff14;
-  margin-bottom: 10px;
+/* MEJORAS PREMIUM */
+
+.mySwiper .swiper-slide {
+    padding: 25px;
+    border-radius: 16px;
+    background: rgba(0,0,0,0.65);
+    box-shadow: 0 0 30px rgba(57,255,20,0.45);
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.mySwiper .swiper-slide h3 {
+    margin: 12px 0 8px;
+    font-size: 1.3rem;
+    background: transparent;
+    color: #39ff14;
+    text-shadow: 0 0 8px #39ff14;
+}
+
+.mySwiper .swiper-pagination-bullet {
+    background: #39ff14;
+    box-shadow: 0 0 10px #39ff14;
+    opacity: 1;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+    background: #00eaff;
+    box-shadow: 0 0 15px #00eaff;
+}
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
   color: #39ff14;
   text-shadow: 0 0 12px #39ff14;
 }
 
+.mySwiper .swiper-button-next:hover,
+.mySwiper .swiper-button-prev:hover {
+    color: #00eaff;
+    text-shadow: 0 0 15px #00eaff;
+}
+
+/* ESPECIAL PARA CELU */
+@media (max-width: 768px) {
+    .mySwiper .swiper-slide img {
+        height: 230px !important;
+    }
+    .mySwiper {
+        max-width: 95%;
+    }
+}
+
 /* ============================
-   GALERÍA
+   GALERÍA (INDEX)
 ============================ */
 .examples {
   display: grid;
@@ -289,63 +326,6 @@ p {
 }
 
 /* ============================
-   LIGHTBOX
-============================ */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.lightbox-content {
-  background: rgba(15,15,15,0.9);
-  padding: 20px 30px;
-  border-radius: 16px;
-  box-shadow: 0 0 25px #39ff14;
-  max-width: 420px;
-  text-align: center;
-  animation: fadeIn .4s ease;
-}
-
-.lightbox-content img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  border: 2px solid #39ff14;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #39ff14;
-}
-
-.lightbox .caption {
-  margin-top: 10px;
-  color: #39ff14;
-  font-weight: bold;
-}
-
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  color: #39ff14;
-  cursor: pointer;
-  padding: 10px;
-  transition: .3s;
-}
-
-.nav-btn:hover {
-  color: #00f7ff;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-/* ============================
    CONTACTO
 ============================ */
 .contact-links {
@@ -364,7 +344,6 @@ p {
   align-items: center;
   gap: 8px;
   font-weight: bold;
-  transition: 0.3s;
 }
 
 .contact-links a:hover {
@@ -408,7 +387,7 @@ footer {
 }
 
 /* ============================
-   RESPONSIVE
+   RESPONSIVE MENU + FIXES
 ============================ */
 @media (max-width: 768px) {
 
@@ -426,10 +405,6 @@ footer {
 
   nav ul.active {
     display: flex;
-  }
-
-  nav ul li a {
-    text-shadow: 0 0 8px #39ff14;
   }
 
   .hamburger {
