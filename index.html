@@ -44,7 +44,10 @@ nav li a {
 nav li a:hover { color:#39ff14; }
 
 /* Hamburguesa */
-.hamburger { display:none; width:28px; cursor:pointer; flex-direction:column; gap:5px; }
+.hamburger { 
+  display:none; width:28px; cursor:pointer; 
+  flex-direction:column; gap:5px;
+}
 .hamburger div { height:4px; background:#39ff14; border-radius:4px; }
 
 /* Menu móvil */
@@ -54,7 +57,7 @@ nav li a:hover { color:#39ff14; }
   background:#000;
   padding:80px 25px;
   display:flex; flex-direction:column; gap:30px;
-  transition:.3s;
+  transition:.3s ease-in-out;
   z-index:3500;
 }
 #mobile-menu a {
@@ -62,7 +65,15 @@ nav li a:hover { color:#39ff14; }
 }
 .mobile-active { right:0!important; }
 
-/* Overlay para cerrar menú tocando afuera */
+.close-mobile {
+  position:absolute;
+  top:20px; right:20px;
+  font-size:2rem;
+  color:#39ff14;
+  cursor:pointer;
+}
+
+/* Overlay */
 #menu-overlay {
   position:fixed; inset:0;
   background:rgba(0,0,0,.6);
@@ -117,10 +128,37 @@ section p {
   font-weight:bold;
 }
 
-/* ------------------------ CARRUSEL PROTAGONISTA ------------------------ */
+/* ------------------------ CATEGORÍAS ------------------------ */
+.categories {
+  max-width:900px;
+  margin:25px auto 10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+}
+
+.categories button {
+  background:rgba(0,255,255,.1);
+  border:1px solid rgba(0,255,255,.4);
+  color:#00f7ff;
+  padding:10px 16px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.categories button:hover,
+.categories .active {
+  background:#00f7ff;
+  color:#000;
+}
+
+/* ------------------------ CARRUSEL ------------------------ */
 .carousel-container {
   max-width:900px;
-  margin:25px auto;
+  margin:15px auto;
   background:rgba(0,0,0,.65);
   padding:25px;
   border-radius:20px;
@@ -147,7 +185,6 @@ section p {
   max-width:100%;
   max-height:100%;
   object-fit:contain;
-  display:block;
 }
 
 /* Mobile */
@@ -189,18 +226,21 @@ section p {
   display:inline-block;
 }
 
-/* Flechas (OCULTAS EN MOBILE) */
+/* Flechas pequeñas */
 .arrow {
-  position:absolute; top:50%; transform:translateY(-50%);
-  font-size:2.2rem; cursor:pointer; user-select:none;
+  position:absolute; 
+  top:50%; transform:translateY(-50%);
+  font-size:1.6rem;
+  cursor:pointer; user-select:none;
   color:#39ff14;
+  opacity:0.7;
 }
-.arrow:hover { color:#00f7ff; }
+.arrow:hover { color:#00f7ff; opacity:1; }
 
-/* Solo PC */
-.left { left:15px; }
-.right { right:15px; }
+.left { left:10px; }
+.right { right:10px; }
 
+/* Ocultar flechas en mobile */
 @media(max-width:900px){
   .arrow { display:none!important; }
 }
@@ -246,6 +286,7 @@ footer {
 
 <!-- MENÚ MOBILE -->
 <div id="mobile-menu">
+  <span class="close-mobile" onclick="closeMenu()">×</span>
   <a href="#quienes" onclick="closeMenu()">Quiénes Somos</a>
   <a href="#quehacemos" onclick="closeMenu()">Qué Hacemos</a>
   <a href="#servicios" onclick="closeMenu()">Servicios</a>
@@ -298,6 +339,10 @@ footer {
     Tip: Una landing clara convierte más clics en ventas.
   </div>
 
+  <!-- CATEGORÍAS -->
+  <div class="categories" id="category-buttons"></div>
+
+  <!-- CARRUSEL -->
   <div class="carousel-container" id="carousel">
 
     <div class="arrow left" onclick="prevSlide()">❮</div>
@@ -336,48 +381,100 @@ footer {
 
 <script>
 /* -------- MENÚ -------- */
-function toggleMenu(){
-  document.getElementById("mobile-menu").classList.add("mobile-active");
-  document.getElementById("menu-overlay").style.display="block";
+let autoClose;
+function toggleMenu() {
+  const menu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("menu-overlay");
+
+  if(menu.classList.contains("mobile-active")){
+    closeMenu();
+  } else {
+    menu.classList.add("mobile-active");
+    overlay.style.display = "block";
+
+    clearTimeout(autoClose);
+    autoClose = setTimeout(() => closeMenu(), 5000);
+  }
 }
+
 function closeMenu(){
   document.getElementById("mobile-menu").classList.remove("mobile-active");
   document.getElementById("menu-overlay").style.display="none";
+  clearTimeout(autoClose);
 }
 
-/* -------- CARRUSEL -------- */
-const slides = [
-  { img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Potenciá tu estudio y captá más clientas.", info:"Diseñada para servicios de estética que quieren mostrar calidad, estilo y generar confianza inmediata." },
-  { img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte para barberías modernas.", info:"Estilo masculino, dinámico y enfocado en turnos rápidos y fidelización de clientes." },
-  { img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Profesionalismo que vende solo.", info:"Ideal para barberías que quieren destacar estilo, servicios premium y diferenciación local." },
-  { img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Perfecta para gastronomía.", info:"Diseño dulce, vendedor y orientado a pedidos rápidos y visuales irresistibles." },
-  { img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Impacto visual para eventos.", info:"Hecha para salones y bailables que necesitan mostrar ambiente, artistas y agenda." },
-  { img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Radio con identidad propia.", info:"Streaming integrado, diseño moderno y foco en oyentes y programación." },
-  { img:"https://iili.io/KPygQXS.jpg", link:"https://facucasino.onrender.com/", short:"Ideal para captar jugadores.", info:"Estilo agresivo y directo, enfocado en conversiones rápidas en el nicho casino." },
-  { img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Visual fuego para gaming.", info:"Orientada a casinos con estética poderosa y llamada a la acción intensa." },
-  { img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Diseño deportivo top.", info:"Pensada para apuestas, beneficios y fidelización." },
-  { img:"https://iili.io/KigNdVS.jpg", link:"https://giraygana-fortunaplay.onrender.com/", short:"Wheel lista para convertir.", info:"Enfocada en captar usuarios con CTA agresivo y dinamismo." },
-  { img:"https://iili.io/Kigv3Ij.jpg", link:"https://ganamostodosjuntos.onrender.com/", short:"Landing visual impactante.", info:"CTA directo para captar clientes de apuestas y ruleta." },
-  { img:"https://iili.io/KiggTcN.jpg", link:"https://lions-casino.onrender.com/", short:"Casino premium.", info:"Ideal para marcas que quieren presencia fuerte y profesional." },
-  { img:"https://iili.io/f9a9Fdx.jpg", link:"https://giraygana-ijae.onrender.com", short:"Wheel rápida y efectiva.", info:"Diseñada para atraer usuarios y generar conversiones inmediatas." }
+/* -------- CARRUSEL + CATEGORÍAS -------- */
+let allSlides = [
+  {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Potenciá tu estudio y captá más clientas.", info:"Diseñada para servicios de estética que quieren mostrar calidad, estilo y generar confianza inmediata."},
+
+  {category:"barber", img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte para barberías modernas.", info:"Estilo masculino, dinámico y enfocado en turnos rápidos y fidelización de clientes."},
+  {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Profesionalismo que vende solo.", info:"Ideal para barberías que quieren destacar estilo, servicios premium y diferenciación local."},
+
+  {category:"food", img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Perfecta para gastronomía.", info:"Diseño dulce, vendedor y orientado a pedidos rápidos y visuales irresistibles."},
+
+  {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Impacto visual para eventos.", info:"Hecha para salones y bailables que necesitan mostrar ambiente, artistas y agenda."},
+
+  {category:"radio", img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Radio con identidad propia.", info:"Streaming integrado, diseño moderno y foco en oyentes y programación."},
+
+  {category:"casino", img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Ideal para captar jugadores.", info:"Estilo agresivo y directo, enfocado en conversiones rápidas."},
+  {category:"casino", img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Visual fuego para gaming.", info:"Estética poderosa para captar usuarios activos."},
+  {category:"casino", img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Diseño deportivo top.", info:"Pensada para apuestas, beneficios y fidelización."},
+  {category:"casino", img:"https://iili.io/KigNdVS.jpg", link:"https://giraygana-fortunaplay.onrender.com/", short:"Wheel lista para convertir.", info:"Enfocada en dinamismo y CTA agresivo."},
+  {category:"casino", img:"https://iili.io/Kigv3Ij.jpg", link:"https://ganamostodosjuntos.onrender.com/", short:"Landing visual impactante.", info:"Perfecta para captar nuevos jugadores."},
+  {category:"casino", img:"https://iili.io/KiggTcN.jpg", link:"https://lions-casino.onrender.com/", short:"Casino premium.", info:"Diseño con presencia fuerte y profesional."},
+  {category:"casino", img:"https://iili.io/f9a9Fdx.jpg", link:"https://giraygana-ijae.onrender.com", short:"Wheel rápida y efectiva.", info:"Diseñada para atraer usuarios de manera inmediata."}
 ];
 
+let filteredSlides = [];
 let index = 0;
 
+/* Generar botones de categorías */
+const categories = [
+  {id:"estetica", name:"Estética"},
+  {id:"barber", name:"Barberías"},
+  {id:"food", name:"Gastronomía"},
+  {id:"radio", name:"Radios"},
+  {id:"evento", name:"Eventos"},
+  {id:"casino", name:"Casinos"} /* Esto queda último como pediste */
+];
+
+let catContainer = document.getElementById("category-buttons");
+
+categories.forEach(cat => {
+  let btn = document.createElement("button");
+  btn.innerText = cat.name;
+  btn.onclick = () => selectCategory(cat.id, btn);
+  catContainer.appendChild(btn);
+});
+
+/* Al seleccionar categoría */
+function selectCategory(cat, btn){
+  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+
+  filteredSlides = allSlides.filter(x => x.category === cat);
+  index = 0;
+  updateCarousel();
+}
+
+/* Actualizar carrusel */
 function updateCarousel(){
-  const s = slides[index];
+  const s = filteredSlides[index];
+  if(!s) return;
+
   document.getElementById("carousel-img").src = s.img;
   document.getElementById("carousel-short").innerText = s.short;
   document.getElementById("carousel-info").innerText = s.info;
   document.getElementById("carousel-btn").href = s.link;
 }
 
+/* Flechas */
 function nextSlide(){
-  index = (index + 1) % slides.length;
+  index = (index + 1) % filteredSlides.length;
   updateCarousel();
 }
 function prevSlide(){
-  index = (index - 1 + slides.length) % slides.length;
+  index = (index - 1 + filteredSlides.length) % filteredSlides.length;
   updateCarousel();
 }
 
@@ -392,8 +489,8 @@ document.getElementById("carousel").addEventListener("touchend", e => {
   if(endX > startX + 50) prevSlide();
 });
 
-/* Inicializar */
-updateCarousel();
+/* Inicialización automática → al cargar, toma la PRIMER categoría que NO sea casino */
+selectCategory("estetica", document.querySelector(".categories button"));
 
 /* -------- TIPS ROTATIVOS -------- */
 const tips = [
@@ -405,7 +502,6 @@ const tips = [
 ];
 
 let tipIndex = 0;
-
 setInterval(() => {
   tipIndex = (tipIndex + 1) % tips.length;
   document.getElementById("tip-text").innerText = tips[tipIndex];
