@@ -3,78 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ciborg347™ | Agencia Digital & Landing Pages</title>
-
+<title>Ciborg347™ | Landing Pages & Web Designs</title>
 <link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
 
 <style>
-/* ---------------------------------------------------
-   BASE GENERAL
---------------------------------------------------- */
+/* -----------------------------------
+   ESTILOS BASE
+----------------------------------- */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: url("https://iili.io/fH5IORj.jpg") center/cover fixed no-repeat;
+  font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+  background: url('https://iili.io/fH5IORj.jpg') center/cover fixed no-repeat;
   color: #fff;
   scroll-behavior: smooth;
 }
-
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.78);
+  backdrop-filter: blur(4px);
   z-index: -1;
 }
 
-/* ---------------------------------------------------
-   NAVBAR PROFESIONAL
---------------------------------------------------- */
+/* -----------------------------------
+   NAVBAR + HAMBURGUESA RESPONSIVA
+----------------------------------- */
 nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.85);
-  padding: 15px 25px;
-  display: flex;
-  justify-content: space-between;
+  position: fixed; top: 0; width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex; justify-content: space-between;
   align-items: center;
+  padding: 14px 20px;
   z-index: 2000;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
 }
 
 nav .logo-nav {
+  color: #39ff14;
   font-size: 1.3rem;
   font-weight: bold;
-  color: #39ff14;
   letter-spacing: 1px;
 }
 
+/* Desktop */
 nav ul {
   display: flex;
-  gap: 25px;
+  gap: 35px;
+  margin: 0; padding: 0;
   list-style: none;
 }
 nav ul li a {
-  color: #39ff14;
-  font-size: 1rem;
-  font-weight: 600;
+  color: #00f7ff; /* CIAN */
   text-decoration: none;
+  font-size: 1.07rem;
+  font-weight: bold;
   transition: .2s;
 }
-nav ul li a:hover { color: #00f7ff; }
+nav ul li a:hover { color: #39ff14; }
 
 /* HAMBURGUESA */
 .hamburger {
-  width: 30px;
-  height: 22px;
+  width: 32px;
+  height: 23px;
   display: none;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
 
   /* ✔ MÁS ADENTRO */
-  margin-right: 10px;
+  margin-right: 12px;
 }
 .hamburger div {
   height: 4px;
@@ -87,180 +85,178 @@ nav ul li a:hover { color: #00f7ff; }
   position: fixed;
   top: 0;
   right: -100%;
-  width: 65%;
+  width: 68%;
   height: 100%;
   background: #000;
-  padding: 70px 20px;
+  padding: 80px 25px;
   display: flex;
   flex-direction: column;
   gap: 30px;
   transition: .3s;
-  z-index: 2500;
+  z-index: 3000;
 }
 #mobile-menu a {
-  color: #39ff14;
-  font-size: 1.2rem;
+  color: #00f7ff;
   text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .mobile-active { right: 0 !important; }
 
-@media(max-width:900px){
-  nav ul { display:none; }
-  .hamburger { display:flex; }
+@media(max-width: 900px){
+  nav ul { display: none; }
+  .hamburger { display: flex; }
 }
 
-/* ---------------------------------------------------
+/* -----------------------------------
    HERO
---------------------------------------------------- */
+----------------------------------- */
 .hero {
-  text-align:center;
-  padding:160px 20px 80px;
+  padding-top: 140px;
+  text-align: center;
 }
 .hero img {
-  width:260px;
+  width: 260px;
   filter: drop-shadow(0 0 15px #39ff14);
   animation: neonPulse 3s infinite alternate;
 }
 @keyframes neonPulse {
   0% { filter: drop-shadow(0 0 10px #39ff14); }
   50% { filter: drop-shadow(0 0 20px #00f7ff); }
-  100%{ filter: drop-shadow(0 0 10px #39ff14); }
-}
-.hero h1 {
-  font-size:2.2rem;
-  margin-top:15px;
-  color:#39ff14;
+  100% { filter: drop-shadow(0 0 10px #39ff14); }
 }
 
-/* ---------------------------------------------------
+/* -----------------------------------
    SECCIONES
---------------------------------------------------- */
+----------------------------------- */
 section {
-  max-width:1100px;
-  margin:auto;
-  padding:80px 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
 }
 section h2 {
-  color:#39ff14;
-  font-size:2rem;
-  margin-bottom:15px;
+  color: #39ff14;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 section p {
-  font-size:1.1rem;
-  color:#ccc;
-  line-height:1.7;
+  font-size: 1.1rem;
+  color: #ccc;
 }
 
-/* ---------------------------------------------------
-   EJEMPLOS — MISMO TAMAÑO + TEXTO CIAN
---------------------------------------------------- */
+/* -----------------------------------
+   GALERÍA — TARJETAS IGUALES
+----------------------------------- */
 .examples {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 18px;
+  margin-top: 25px;
 }
 
 .project {
-  background:rgba(255,255,255,0.05);
-  border-radius:10px;
-  padding:10px;
-  border:1px solid rgba(57,255,20,0.3);
-  transition:.2s;
+  background: rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid rgba(57,255,20,0.35);
+  transition: .2s;
 }
-.project:hover { transform:scale(1.04); }
+.project:hover { transform: scale(1.04); }
 
-/* ✔ TODAS LAS LANDINGS EXACTO MISMO TAMAÑO */
+/* ✔ TODAS MISMO TAMAÑO REAL */
 .project img {
-  width:100%;
-  height:130px;          /* <-- Ajustado para UNIFICAR tamaño */
-  object-fit:cover;
-  background:#00000050;
-  border-radius:8px;
-  border:2px solid #39ff14;
-  cursor:pointer;
+  width: 100%;
+  height: 135px;
+  object-fit: cover;
+  background: rgba(0,0,0,0.6);
+  border-radius: 10px;
+  border: 2px solid #39ff14;
+  cursor: pointer;
 }
 
-/* ✔ TEXTOS EN COLOR CIAN */
+/* ✔ TEXTO CIAN */
 .project a {
-  display:block;
-  margin-top:8px;
-  color:#00f7ff;    /* CIAN */
-  font-size:.9rem;
-  font-weight:600;
-  text-decoration:none;
+  margin-top: 10px;
+  display: block;
+  color: #00f7ff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: .92rem;
 }
 
-/* ---------------------------------------------------
+/* -----------------------------------
    LIGHTBOX
---------------------------------------------------- */
+----------------------------------- */
 .lightbox {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.85);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:3000;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
 }
 .lightbox-content {
-  background:#0e0e0e;
-  padding:25px;
-  border-radius:15px;
-  max-width:400px;
-  width:85%;
-  text-align:center;
-  border:2px solid #39ff14;
+  background: #0d0d0d;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 80%;
+  border: 2px solid #39ff14;
+  text-align: center;
 }
 #lightbox-img {
-  width:100%;
-  border-radius:10px;
-  border:2px solid #39ff14;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #39ff14;
 }
 .close-btn {
-  position:absolute;
-  top:15px;
-  right:15px;
-  color:#39ff14;
-  font-size:2.5rem;
-  cursor:pointer;
-  transition:.2s;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2.5rem;
+  color: #39ff14;
+  cursor: pointer;
 }
-.close-btn:hover { color:#00f7ff; }
+.close-btn:hover { color: #00f7ff; }
 
 .view-btn {
-  display:inline-block;
-  margin-top:12px;
-  padding:8px 18px;
-  background:#39ff14;
-  color:#000;
-  border-radius:25px;
-  font-weight:bold;
-  text-decoration:none;
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 20px;
+  background: #39ff14;
+  color: #000;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-/* ---------------------------------------------------
+/* -----------------------------------
    WHATSAPP FLOAT
---------------------------------------------------- */
+----------------------------------- */
 .whatsapp-float {
-  position:fixed;
-  bottom:70px;
-  right:20px;
-  z-index:4000;
+  position: fixed;
+  bottom: 65px;
+  right: 20px;
+  z-index: 4000;
 }
 .whatsapp-float img {
-  width:65px;
-  border-radius:50%;
-  filter:drop-shadow(0 0 6px #000);
+  width: 65px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px #000);
 }
 
-/* FOOTER */
+/* -----------------------------------
+   FOOTER
+----------------------------------- */
 footer {
-  padding:20px;
-  background:#00000080;
-  color:#ccc;
-  margin-top:60px;
-  font-size:.9rem;
+  padding: 20px;
+  background: rgba(0,0,0,0.55);
+  color: #aaa;
+  text-align: center;
+  margin-top: 50px;
+  font-size: .9rem;
 }
 </style>
 </head>
@@ -280,9 +276,7 @@ footer {
   </ul>
 
   <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+    <div></div><div></div><div></div>
   </div>
 </nav>
 
@@ -301,76 +295,76 @@ footer {
   <h1>Agencia Digital · Diseño Web & Landing Pages</h1>
 </div>
 
-<!-- SECCIONES -->
+<!-- QUIENES SOMOS -->
 <section id="quienes">
   <h2>Quiénes Somos</h2>
-  <p>Somos una agencia especializada en Landing Pages modernas y sitios web profesionales.</p>
+  <p>Somos un estudio especializado en landings profesionales y diseño web moderno.</p>
 </section>
 
+<!-- QUE HACEMOS -->
 <section id="quehacemos">
   <h2>Qué Hacemos</h2>
-  <p>Diseños rápidos, visuales, responsivos y pensados para convertir clientes.</p>
+  <p>Creamos páginas rápidas, estéticas, responsivas y con alto poder de conversión.</p>
 </section>
 
+<!-- SERVICIOS -->
 <section id="servicios">
   <h2>Servicios</h2>
   <p>
     ✔ Landing Pages premium<br>
-    ✔ Sitios web completos<br>
-    ✔ Branding y estética<br>
+    ✔ Webs completas<br>
+    ✔ Branding visual<br>
     ✔ WhatsApp integrado<br>
-    ✔ Hosting gratuito Render<br>
+    ✔ Hosting gratis Render<br>
   </p>
 </section>
 
-<!-- EJEMPLOS ORDENADOS -->
+<!-- EJEMPLOS COMPLETOS -->
 <section id="ejemplos">
   <h2>Ejemplos</h2>
 
   <h3>💅 Manicuría</h3>
   <div class="examples gallery">
     <div class="project">
-      <img src="https://iili.io/KPyCnHu.jpg" data-title="Adda Nails" data-link="https://adda-nails.onrender.com/">
+      <img src="https://iili.io/KPyCnHu.jpg" data-link="https://adda-nails.onrender.com/" data-title="Adda Nails">
       <a href="https://adda-nails.onrender.com/" target="_blank">Adda Nails</a>
     </div>
   </div>
 
   <h3>💈 Barberías</h3>
   <div class="examples gallery">
-
     <div class="project">
-      <img src="https://iili.io/KPyvEcx.jpg" data-title="Barber 99" data-link="https://barberia-elbebu.onrender.com/">
-      <a target="_blank" href="https://barberia-elbebu.onrender.com/">Barber 99</a>
+      <img src="https://iili.io/KPyvEcx.jpg" data-link="https://barberia-elbebu.onrender.com/" data-title="Barber 99">
+      <a href="https://barberia-elbebu.onrender.com/" target="_blank">Barber 99</a>
     </div>
 
     <div class="project">
-      <img src="https://iili.io/KPyUCn1.jpg" data-title="Barber Shop Rodri" data-link="https://barber-shop-rodri.onrender.com/">
-      <a target="_blank" href="https://barber-shop-rodri.onrender.com/">Barber Shop Rodri</a>
+      <img src="https://iili.io/KPyUCn1.jpg" data-link="https://barber-shop-rodri.onrender.com/" data-title="Barber Shop Rodri">
+      <a href="https://barber-shop-rodri.onrender.com/" target="_blank">Barber Shop Rodri</a>
     </div>
-
   </div>
 
   <h3>🍰 Repostería</h3>
   <div class="examples gallery">
     <div class="project">
-      <img src="https://iili.io/fF5pLGf.jpg" data-title="Dulce Juana" data-link="https://dulce-juana.onrender.com/">
-      <a target="_blank" href="https://dulce-juana.onrender.com/">Dulce Juana™</a>
+      <img src="https://iili.io/fF5pLGf.jpg" data-link="https://dulce-juana.onrender.com/" data-title="Dulce Juana™">
+      <a href="https://dulce-juana.onrender.com/" target="_blank">Dulce Juana™</a>
     </div>
   </div>
 
   <h3>🍻 Bailables</h3>
   <div class="examples gallery">
     <div class="project">
-      <img src="https://iili.io/f9a9K5Q.jpg" data-title="Tío Sergio" data-link="https://tio-sergio.onrender.com">
-      <a target="_blank" href="https://tio-sergio.onrender.com">Tío Sergio™</a>
+      <img src="https://iili.io/f9a9K5Q.jpg" data-link="https://tio-sergio.onrender.com" data-title="Tío Sergio™">
+      <a href="https://tio-sergio.onrender.com" target="_blank">Tío Sergio™</a>
     </div>
   </div>
 
   <h3>📻 Radios</h3>
   <div class="examples gallery">
     <div class="project">
-      <img src="https://iili.io/f9an4yX.jpg" data-title="Radio Imagen" data-link="https://radioimagen.onrender.com">
-      <a target="_blank" href="https://radioimagen.onrender.com">Radio Imagen™</a>
+      <img src="https://iili.io/f9an4yX.jpg" data-link="https://radioimagen.onrender.com" data-title="Radio Imagen™">
+      <a href="https://radioimagen.onrender.com" target="_blank">Radio Imagen™</a>
     </div>
   </div>
 
@@ -378,38 +372,38 @@ footer {
   <div class="examples gallery">
 
     <div class="project">
-      <img src="https://iili.io/KPygQXS.jpg" data-title="Facu Casino" data-link="https://facucasino.onrender.com/">
-      <a target="_blank" href="https://facucasino.onrender.com/">Facu Casino™</a>
+      <img src="https://iili.io/KPygQXS.jpg" data-link="https://facucasino.onrender.com/" data-title="Facu Casino™">
+      <a href="https://facucasino.onrender.com/" target="_blank">Facu Casino™</a>
     </div>
 
     <div class="project">
-      <img src="https://iili.io/KPyrMj2.jpg" data-title="Dragon Casino" data-link="https://dragon-casino.onrender.com/">
-      <a target="_blank" href="https://dragon-casino.onrender.com/">Dragon Casino™</a>
+      <img src="https://iili.io/KPyrMj2.jpg" data-link="https://dragon-casino.onrender.com/" data-title="Dragon Casino™">
+      <a href="https://dragon-casino.onrender.com/" target="_blank">Dragon Casino™</a>
     </div>
 
     <div class="project">
-      <img src="https://iili.io/KPyDVHP.jpg" data-title="Dynasty Bet" data-link="https://dinasty-bet.onrender.com/">
-      <a target="_blank" href="https://dinasty-bet.onrender.com/">Dynasty Bet™</a>
+      <img src="https://iili.io/KPyDVHP.jpg" data-link="https://dinasty-bet.onrender.com/" data-title="Dynasty Bet™">
+      <a href="https://dinasty-bet.onrender.com/" target="_blank">Dynasty Bet™</a>
     </div>
 
     <div class="project">
-      <img src="https://iili.io/KigNdVS.jpg" data-title="Gira y Gana" data-link="https://giraygana-fortunaplay.onrender.com/">
-      <a target="_blank" href="https://giraygana-fortunaplay.onrender.com/">Gira y Gana™</a>
+      <img src="https://iili.io/KigNdVS.jpg" data-link="https://giraygana-fortunaplay.onrender.com/" data-title="Gira y Gana™">
+      <a href="https://giraygana-fortunaplay.onrender.com/" target="_blank">Gira y Gana™</a>
     </div>
 
     <div class="project">
-      <img src="https://iili.io/Kigv3Ij.jpg" data-title="Fortuna Play" data-link="https://ganamostodosjuntos.onrender.com/">
-      <a target="_blank" href="https://ganamostodosjuntos.onrender.com/">Fortuna Play™</a>
+      <img src="https://iili.io/Kigv3Ij.jpg" data-link="https://ganamostodosjuntos.onrender.com/" data-title="Fortuna Play™">
+      <a href="https://ganamostodosjuntos.onrender.com/" target="_blank">Fortuna Play™</a>
     </div>
 
     <div class="project">
-      <img src="https://iili.io/KiggTcN.jpg" data-title="Lions Casino" data-link="https://lions-casino.onrender.com/">
-      <a target="_blank" href="https://lions-casino.onrender.com/">Lions Casino™</a>
+      <img src="https://iili.io/KiggTcN.jpg" data-link="https://lions-casino.onrender.com/" data-title="Lions Casino™">
+      <a href="https://lions-casino.onrender.com/" target="_blank">Lions Casino™</a>
     </div>
 
     <div class="project">
-      <img src="https://iili.io/f9a9Fdx.jpg" data-title="Rueda de Premios" data-link="https://giraygana-ijae.onrender.com">
-      <a target="_blank" href="https://giraygana-ijae.onrender.com">Rueda de Premios™</a>
+      <img src="https://iili.io/f9a9Fdx.jpg" data-link="https://giraygana-ijae.onrender.com" data-title="Rueda de Premios™">
+      <a href="https://giraygana-ijae.onrender.com" target="_blank">Rueda de Premios™</a>
     </div>
 
   </div>
@@ -418,27 +412,26 @@ footer {
 <!-- CONTACTO -->
 <section id="contacto">
   <h2>Contacto</h2>
-  <p>Consultas y proyectos por WhatsApp</p>
-  <a class="view-btn" target="_blank" 
-     href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20dise%C3%B1ar%20algo%20para%20mi%20negocio.%20%C2%A1Gracias!">
-     Escribir por WhatsApp
-  </a>
+  <p>Consultas por WhatsApp:</p>
+  <a class="view-btn" target="_blank"
+     href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20dise%C3%B1ar%20algo%20para%20mi%20negocio.%20%C2%A1Gracias!">Escribir</a>
 </section>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20dise%C3%B1ar%20algo%20para%20mi%20negocio.%20%C2%A1Gracias!"
-class="whatsapp-float" target="_blank">
+<a class="whatsapp-float" target="_blank"
+   href="https://wa.me/541125127689?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20dise%C3%B1ar%20algo%20para%20mi%20negocio.%20%C2%A1Gracias!">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
-<footer>© 2025 Ciborg347™ · Agencia Digital</footer>
+<!-- FOOTER -->
+<footer>© 2025 Ciborg347™</footer>
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
   <span class="close-btn" onclick="closeLb()">×</span>
   <div class="lightbox-content">
     <img id="lightbox-img">
-    <h3 id="lightbox-title"></h3>
+    <div id="lightbox-title"></div>
     <a id="lightbox-link" class="view-btn" target="_blank">Ver landing completa</a>
   </div>
 </div>
@@ -454,8 +447,7 @@ function closeMenu(){
 
 /* LIGHTBOX */
 const items = document.querySelectorAll(".gallery img");
-
-items.forEach((img,i)=>{
+items.forEach(img=>{
   img.addEventListener("click", ()=>{
     document.getElementById("lightbox-img").src = img.src;
     document.getElementById("lightbox-title").innerText = img.dataset.title;
@@ -463,9 +455,7 @@ items.forEach((img,i)=>{
     document.getElementById("lightbox").style.display = "flex";
   });
 });
-function closeLb(){
-  document.getElementById("lightbox").style.display="none";
-}
+function closeLb(){ document.getElementById("lightbox").style.display="none"; }
 document.getElementById("lightbox").addEventListener("click", e=>{
   if(e.target.id==="lightbox") closeLb();
 });
