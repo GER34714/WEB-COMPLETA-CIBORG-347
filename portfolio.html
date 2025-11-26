@@ -9,16 +9,12 @@
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
 </head>
 
 <body>
 
 <nav>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div><div></div><div></div>
-    </div>
-
+    <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
     <ul id="nav-links">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="quienes-somos.html">Quiénes Somos</a></li>
@@ -30,56 +26,52 @@
 </nav>
 
 <div class="logo">
-    <img src="https://iili.io/fH74EGa.md.png" alt="Ciborg347™">
+    <img src="https://iili.io/fH74EGa.md.png">
 </div>
 
 <section>
     <h2>Nuestro Portfolio</h2>
-    <p>
-        En <b>Ciborg347™</b> diseñamos webs y landings que venden e impactan.
-        Acá podés explorar todos nuestros trabajos reales:
-    </p>
+    <p>Landings reales creadas para negocios, barberías, nails, casinos, radios y más.</p>
 </section>
 
 <section>
     <h2>Explorá Nuestro Trabajo</h2>
 
-    <div class="swiper mySwiper">
+    <div class="swiper portfolioSwiper">
         <div class="swiper-wrapper">
 
-            <div class="swiper-slide">
+            <div class="swiper-slide card">
                 <img src="https://iili.io/KPyCnHu.jpg">
                 <h3>Adda Nails</h3>
                 <a href="https://adda-nails.onrender.com" class="view-btn" target="_blank">Ver landing completa</a>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide card">
                 <img src="https://iili.io/KPyvEcx.jpg">
                 <h3>Barber 99</h3>
                 <a href="https://barberia-elbebu.onrender.com" class="view-btn" target="_blank">Ver landing completa</a>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide card">
                 <img src="https://iili.io/fF5pLGf.jpg">
                 <h3>Dulce Juana</h3>
                 <a href="https://dulce-juana.onrender.com" class="view-btn" target="_blank">Ver landing completa</a>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide card">
                 <img src="https://iili.io/KPygQXS.jpg">
                 <h3>Facu Casino</h3>
                 <a href="https://facucasino.onrender.com" class="view-btn" target="_blank">Ver landing completa</a>
             </div>
 
+            <!-- PODÉS AGREGAR TODAS LAS QUE QUIERAS -->
         </div>
 
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
 </section>
 
-<a class="whatsapp-float" href="https://wa.me/541125127689?text=Hola%20Ciborg" target="_blank">
+<a class="whatsapp-float" href="https://wa.me/541125127689?text=Hola%20Ciborg">
   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png">
 </a>
 
@@ -89,15 +81,13 @@
 <script src="script.js"></script>
 
 <script>
-const swiperPortfolio = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 25,
-    loop: true,
+var swiper = new Swiper(".portfolioSwiper", {
+    slidesPerView: 1.1,
+    spaceBetween: 20,
     centeredSlides: true,
-    speed: 600,
+    loop: true,
     grabCursor: true,
-    pagination: { el: ".swiper-pagination", clickable: true },
-    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
+    pagination: { el: ".swiper-pagination", clickable: true }
 });
 </script>
 
