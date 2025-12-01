@@ -104,15 +104,15 @@ nav li a:hover { color:#39ff14; }
 /* ------------------------ SECCIONES ------------------------ */
 section {
   max-width:1100px; margin:auto; padding:80px 20px;
-  text-align:center; /* ← CENTRAMOS TODO */
+  text-align:center;
 }
 section h2 {
   font-size:2rem; color:#39ff14; margin-bottom:15px;
 }
 section p {
   font-size:1.15rem; line-height:1.7; color:#ccc;
-  text-align:center; /* ← CENTRADO REAL */
-  white-space:pre-line; /* ← RESPETA SALTOS */
+  text-align:center;
+  white-space:pre-line;
 }
 
 /* ------------------------ TIPS BAR ------------------------ */
@@ -133,9 +133,14 @@ section p {
 
 /* ------------------------ CATEGORÍAS ------------------------ */
 .categories {
-  max-width:900px; margin:25px auto 10px;
-  display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+  max-width:900px;
+  margin:25px auto 10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
 }
+
 .categories button {
   background:rgba(0,255,255,.1);
   border:1px solid rgba(0,255,255,.4);
@@ -146,9 +151,11 @@ section p {
   font-weight:bold;
   transition:.2s;
 }
+
 .categories button:hover,
 .categories .active {
-  background:#00f7ff; color:#000;
+  background:#00f7ff;
+  color:#000;
 }
 
 /* ------------------------ CARRUSEL ------------------------ */
@@ -164,30 +171,98 @@ section p {
   text-align:center;
 }
 
+/* Caja de imagen */
 .carousel-image-wrapper {
-  width:100%; height:320px; background:#000;
-  border-radius:15px; border:2px solid #39ff14;
-  display:flex; align-items:center; justify-content:center;
+  width:100%;
+  height:320px;
+  background:#000;
+  border-radius:15px;
+  border:2px solid #39ff14;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   overflow:hidden;
 }
 
 .carousel-image-wrapper img {
-  max-width:100%; max-height:100%; object-fit:contain;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
 }
 
-/* FOOTER */
-footer {
-  text-align:center; padding:20px; margin-top:50px;
-  background:rgba(0,0,0,.55); color:#aaa; font-size:.9rem;
+/* Mobile */
+@media(max-width:600px){
+  .carousel-image-wrapper { height:240px; }
 }
+
+/* Texto vendedor corto */
+.carousel-short {
+  margin-top:18px;
+  color:#00f7ff;
+  font-size:1.2rem;
+  font-weight:bold;
+}
+
+/* Caja glass con info extendida */
+.glass-info {
+  margin-top:15px;
+  padding:20px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(0,255,255,.4);
+  backdrop-filter:blur(6px);
+  border-radius:15px;
+  color:#dff;
+  font-size:1rem;
+  line-height:1.6;
+  text-align:left;
+}
+
+/* CTA */
+.carousel-btn {
+  margin-top:15px;
+  padding:10px 22px;
+  background:#39ff14;
+  color:#000;
+  font-weight:bold;
+  border-radius:25px;
+  text-decoration:none;
+  display:inline-block;
+}
+
+/* Flechas */
+.arrow {
+  position:absolute;
+  top:50%; transform:translateY(-50%);
+  font-size:1.4rem;
+  cursor:pointer;
+  user-select:none;
+  color:#39ff14;
+  opacity:0.6;
+}
+.arrow:hover { color:#00f7ff; opacity:1; }
+
+.left { left:5px; }
+.right { right:5px; }
 
 /* WHATSAPP FLOAT */
 .whatsapp-float {
   position:fixed; right:20px; bottom:65px; z-index:4000;
 }
 .whatsapp-float img {
-  width:60px; height:60px; object-fit:contain;
+  width:60px;
+  height:60px;
+  object-fit:contain;
   filter:drop-shadow(0 0 6px #000);
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+  margin-top:50px;
+  background:rgba(0,0,0,.55);
+  color:#aaa;
+  font-size:.9rem;
 }
 </style>
 </head>
@@ -258,9 +333,7 @@ Nosotros te damos las tres. 🚀
 ✔ Integración con WhatsApp  
 ✔ Hosting gratis en Render  
   </p>
-</section>
-
-<!-- EXAMPLES -->
+</section><!-- EJEMPLOS -->
 <section id="trabajos">
   <h2>Ejemplos de Landings</h2>
 
@@ -292,7 +365,8 @@ Nosotros te damos las tres. 🚀
 <section id="contacto">
   <h2>Contacto</h2>
   <p>
-Escribinos y contanos tu idea:
+Escribinos y contanos tu idea.  
+Te respondemos rápido para ayudarte a crear tu proyecto.  
   </p>
 
   <a class="carousel-btn"
@@ -309,6 +383,8 @@ Escribinos y contanos tu idea:
 
 <footer>© 2025 Ciborg347™ · Web Agency</footer>
 
+
+<!-- ======================= SCRIPTS ======================= -->
 <script>
 /* -------- MENÚ -------- */
 let autoClose;
@@ -333,16 +409,125 @@ function closeMenu(){
   clearTimeout(autoClose);
 }
 
-/* -------- CARRUSEL GLOBAL -------- */
+
+/* ===================== CARRUSEL GLOBAL ===================== */
+
 let allSlides = [
   {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},
 
   {category:"barber", img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},
+  {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Elegancia y estilo en cada detalle.", info:"Diseño orientado a barberías que quieren diferenciarse."},
 
-  {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Elegancia y estilo en cada detalle.", info:"Diseño orientado a barberías que quieren diferenciarse."}
+  {category:"food", img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},
+
+  {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Energía y ambiente en un diseño impactante.", info:"Ideal para salones y bailables."},
+
+  {category:"radio", img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},
+
+  {category:"casino", img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Diseño directo para captar jugadores.", info:"Estética intensa y conversiones rápidas."},
+  {category:"casino", img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Energía visual para atraer usuarios.", info:"Landing con estilo fuego y dinamismo."},
+  {category:"casino", img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Identidad deportiva sólida.", info:"Perfecta para apuestas y deportes."},
+  {category:"casino", img:"https://iili.io/KigNdVS.jpg", link:"https://giraygana-fortunaplay.onrender.com/", short:"Diseño veloz y llamativo.", info:"Enfocada en interacción rápida."},
+  {category:"casino", img:"https://iili.io/Kigv3Ij.jpg", link:"https://ganamostodosjuntos.onrender.com/", short:"Impacto fuerte para gaming.", info:"Ideal para promociones continuas."},
+  {category:"casino", img:"https://iili.io/KiggTcN.jpg", link:"https://lions-casino.onrender.com/", short:"Identidad premium.", info:"Estética limpia y profesional."},
+  {category:"casino", img:"https://iili.io/f9a9Fdx.jpg", link:"https://giraygana-ijae.onrender.com", short:"Máxima rapidez para captar curiosos.", info:"Diseño simple y efectivo."}
 ];
 
-/* ... SIGUE TU JS COMPLETO (NO SE CORTÓ NADA) ... */
+let index = 0;
+
+/* --- GENERAR BOTONES DINÁMICOS --- */
+const categories = [
+  {id:"estetica", name:"Estética"},
+  {id:"barber", name:"Barberías"},
+  {id:"food", name:"Gastronomía"},
+  {id:"evento", name:"Eventos"},
+  {id:"radio", name:"Radios"},
+  {id:"casino", name:"Casinos"}
+];
+
+let catContainer = document.getElementById("category-buttons");
+
+categories.forEach(cat => {
+  let btn = document.createElement("button");
+  btn.innerText = cat.name;
+
+  btn.onclick = () => {
+    jumpToCategory(cat.id, btn);
+  };
+
+  catContainer.appendChild(btn);
+});
+
+/* --- ACTUALIZAR CLASE ACTIVA --- */
+function updateCategoryHighlight(){
+  const activeCat = allSlides[index].category;
+
+  document.querySelectorAll(".categories button")
+    .forEach(btn => {
+      btn.classList.remove("active");
+      if(btn.innerText === categories.find(c=>c.id===activeCat).name){
+        btn.classList.add("active");
+      }
+    });
+}
+
+/* --- SALTO A CATEGORÍA --- */
+function jumpToCategory(cat, btn){
+  index = allSlides.findIndex(x => x.category === cat);
+  updateCarousel();
+}
+
+/* --- ACTUALIZAR CARRUSEL --- */
+function updateCarousel(){
+  const s = allSlides[index];
+  if(!s) return;
+
+  document.getElementById("carousel-img").src = s.img;
+  document.getElementById("carousel-short").innerText = s.short;
+  document.getElementById("carousel-info").innerText = s.info;
+  document.getElementById("carousel-btn").href = s.link;
+
+  updateCategoryHighlight();
+}
+
+/* --- FLECHAS --- */
+function nextSlide(){
+  index = (index + 1) % allSlides.length;
+  updateCarousel();
+}
+function prevSlide(){
+  index = (index - 1 + allSlides.length) % allSlides.length;
+  updateCarousel();
+}
+
+/* --- SWIPE --- */
+let startX = 0;
+document.getElementById("carousel").addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+document.getElementById("carousel").addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if(endX < startX - 50) nextSlide();
+  if(endX > startX + 50) prevSlide();
+});
+
+/* --- INICIALIZAR --- */
+updateCarousel();
+
+/* --- TIPS ROTATIVOS --- */
+const tips = [
+  "Tip: Una landing clara convierte más clics en ventas.",
+  "Tip: Un CTA fuerte aumenta conversiones hasta un 40%.",
+  "Tip: Las imágenes profesionales venden más.",
+  "Tip: Tu web debe cargar rápido para retener clientes.",
+  "Tip: La primera impresión define si confían en tu negocio."
+];
+
+let tipIndex = 0;
+setInterval(() => {
+  tipIndex = (tipIndex + 1) % tips.length;
+  document.getElementById("tip-text").innerText = tips[tipIndex];
+}, 4000);
 </script>
 
 </body>
