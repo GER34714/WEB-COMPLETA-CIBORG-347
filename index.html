@@ -112,7 +112,7 @@ section h2 {
 section p {
   font-size:1.15rem; line-height:1.7; color:#ccc;
   text-align:center;
-  white-space:pre-line;
+  white-space:pre-line; /* respeta los saltos que escribís */
 }
 
 /* ------------------------ TIPS BAR ------------------------ */
@@ -288,6 +288,16 @@ footer {
   </div>
 </nav>
 
+<!-- MENÚ MOBILE (ESTO FALTABA) -->
+<div id="mobile-menu">
+  <span class="close-mobile" onclick="closeMenu()">×</span>
+  <a href="#quienes" onclick="closeMenu()">Quiénes Somos</a>
+  <a href="#quehacemos" onclick="closeMenu()">Qué Hacemos</a>
+  <a href="#servicios" onclick="closeMenu()">Servicios</a>
+  <a href="#trabajos" onclick="closeMenu()">Ejemplos</a>
+  <a href="#contacto" onclick="closeMenu()">Contacto</a>
+</div>
+
 <!-- HERO -->
 <div class="hero">
   <img src="https://iili.io/fH74EGa.md.png" alt="Logo Ciborg347">
@@ -333,7 +343,9 @@ Nosotros te damos las tres. 🚀
 ✔ Integración con WhatsApp  
 ✔ Hosting gratis en Render  
   </p>
-</section><!-- EJEMPLOS -->
+</section>
+
+<!-- EJEMPLOS -->
 <section id="trabajos">
   <h2>Ejemplos de Landings</h2>
 
