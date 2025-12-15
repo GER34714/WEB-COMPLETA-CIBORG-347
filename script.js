@@ -133,4 +133,39 @@ setInterval(() => {
   if (!el) return;
   tipIndex = (tipIndex + 1) % tips.length;
   el.innerText = tips[tipIndex];
-}, 4000);
+}, 4000);/* ===================== PORTFOLIO REAL POR CATEGORÍAS ===================== */
+
+function renderPortfolioCategorias() {
+  const container = document.getElementById("portfolio-categorias");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  const categoriasUnicas = [...new Set(allSlides.map(p => p.category))];
+
+  categoriasUnicas.forEach(cat => {
+    const items = allSlides.filter(p => p.category === cat);
+    if (!items.length) return;
+
+    const catName = categories.find(c => c.id === cat)?.name || cat;
+
+    const section = document.createElement("div");
+    section.className = "portfolio-category";
+
+    section.innerHTML = `<h3>${catName}</h3>`;
+
+    const grid = document.createElement("div");
+    grid.className = "portfolio-grid";
+
+    items.forEach(p => {
+      const a = document.createElement("a");
+      a.href = p.link;
+      a.target = "_blank";
+      a.innerHTML = `<img src="${p.img}" alt="${p.title}">`;
+      grid.appendChild(a);
+    });
+
+    section.appendChild(grid);
+    container.appendChild(section);
+  });
+}
