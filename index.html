@@ -111,8 +111,7 @@ section h2 {
 }
 section p {
   font-size:1.15rem; line-height:1.7; color:#ccc;
-  text-align:center;
-  white-space:pre-line; /* respeta los saltos que escribís */
+  white-space:pre-line;
 }
 
 /* ------------------------ TIPS BAR ------------------------ */
@@ -171,7 +170,6 @@ section p {
   text-align:center;
 }
 
-/* Caja de imagen */
 .carousel-image-wrapper {
   width:100%;
   height:320px;
@@ -190,12 +188,10 @@ section p {
   object-fit:contain;
 }
 
-/* Mobile */
 @media(max-width:600px){
   .carousel-image-wrapper { height:240px; }
 }
 
-/* Texto vendedor corto */
 .carousel-short {
   margin-top:18px;
   color:#00f7ff;
@@ -203,7 +199,6 @@ section p {
   font-weight:bold;
 }
 
-/* Caja glass con info extendida */
 .glass-info {
   margin-top:15px;
   padding:20px;
@@ -217,7 +212,6 @@ section p {
   text-align:left;
 }
 
-/* CTA */
 .carousel-btn {
   margin-top:15px;
   padding:10px 22px;
@@ -229,7 +223,6 @@ section p {
   display:inline-block;
 }
 
-/* Flechas */
 .arrow {
   position:absolute;
   top:50%; transform:translateY(-50%);
@@ -240,7 +233,6 @@ section p {
   opacity:0.6;
 }
 .arrow:hover { color:#00f7ff; opacity:1; }
-
 .left { left:5px; }
 .right { right:5px; }
 
@@ -249,10 +241,7 @@ section p {
   position:fixed; right:20px; bottom:65px; z-index:4000;
 }
 .whatsapp-float img {
-  width:60px;
-  height:60px;
-  object-fit:contain;
-  filter:drop-shadow(0 0 6px #000);
+  width:60px; height:60px;
 }
 
 /* FOOTER */
@@ -271,10 +260,8 @@ footer {
 
 <div id="menu-overlay" onclick="closeMenu()"></div>
 
-<!-- NAV -->
 <nav>
   <div class="logo-nav">Ciborg347™</div>
-
   <ul>
     <li><a href="#quienes">Quiénes Somos</a></li>
     <li><a href="#quehacemos">Qué Hacemos</a></li>
@@ -282,13 +269,11 @@ footer {
     <li><a href="#trabajos">Ejemplos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-
   <div class="hamburger" onclick="toggleMenu()">
     <div></div><div></div><div></div>
   </div>
 </nav>
 
-<!-- MENÚ MOBILE (ESTO FALTABA) -->
 <div id="mobile-menu">
   <span class="close-mobile" onclick="closeMenu()">×</span>
   <a href="#quienes" onclick="closeMenu()">Quiénes Somos</a>
@@ -298,254 +283,74 @@ footer {
   <a href="#contacto" onclick="closeMenu()">Contacto</a>
 </div>
 
-<!-- HERO -->
 <div class="hero">
-  <img src="https://iili.io/fH74EGa.md.png" alt="Logo Ciborg347">
-  <h1 style="color:#00f7ff; margin-top:20px;">Impulsamos negocios con diseño web estratégico</h1>
+  <img src="https://iili.io/fH74EGa.md.png">
+  <h1 style="color:#00f7ff;">Impulsamos negocios con diseño web estratégico</h1>
 </div>
 
-<!-- QUIÉNES SOMOS -->
-<section id="quienes">
-  <h2>Quiénes Somos</h2>
-  <p>
-En Ciborg347™ transformamos ideas en páginas que venden.
-Diseñamos landings y sitios web profesionales, modernos y rápidos, pensados para captar clientes y generar confianza desde el primer segundo.
-
-Nos enfocamos en tres pilares esenciales para cualquier negocio:
-• Presencia online
-• Confianza visual
-• Ventas reales
-
-Cada proyecto es único: analizamos tu rubro, tu estilo y tus objetivos para crear una web que represente tu marca al 100%.
-Cuando tu negocio se ve bien… tus clientes confían más. 🚀
-
-  </p>
-</section>
-
-<!-- QUÉ HACEMOS -->
-<section id="quehacemos">
-  <h2>Qué Hacemos</h2>
-  <p>
-Creamos landings y webs  
-modernas, rápidas  
-y optimizadas para convertir.  
-
-Tu negocio necesita:  
-• Presencia  
-• Confianza  
-• Ventas  
-
-Nosotros te damos las tres. 🚀
-  </p>
-</section>
-
-<!-- SERVICIOS -->
-<section id="servicios">
-  <h2>Servicios</h2>
-  <p>
-✔ Landing Pages premium  
-✔ Sitios web completos  
-✔ Branding visual  
-✔ Integración con WhatsApp  
-✔ Hosting gratis en Render  
-  </p>
-</section>
-
-<!-- EJEMPLOS -->
 <section id="trabajos">
-  <h2>Ejemplos de Landings</h2>
+<h2>Ejemplos de Landings</h2>
 
-  <div class="tips-bar" id="tip-text">
-    Tip: Una landing clara convierte más clics en ventas.
-  </div>
+<div class="tips-bar" id="tip-text">Tip: Una landing clara convierte más clics en ventas.</div>
+<div class="categories" id="category-buttons"></div>
 
-  <div class="categories" id="category-buttons"></div>
-
-  <div class="carousel-container" id="carousel">
-
-    <div class="arrow left" onclick="prevSlide()">❮</div>
-    <div class="arrow right" onclick="nextSlide()">❯</div>
-
-    <div class="carousel-image-wrapper">
-      <img id="carousel-img" src="">
-    </div>
-
-    <div class="carousel-short" id="carousel-short"></div>
-
-    <div class="glass-info" id="carousel-info"></div>
-
-    <a id="carousel-btn" class="carousel-btn" target="_blank">Ver landing completa</a>
-
-  </div>
+<div class="carousel-container" id="carousel">
+<div class="arrow left" onclick="prevSlide()">❮</div>
+<div class="arrow right" onclick="nextSlide()">❯</div>
+<div class="carousel-image-wrapper">
+<img id="carousel-img">
+</div>
+<div class="carousel-short" id="carousel-short"></div>
+<div class="glass-info" id="carousel-info"></div>
+<a id="carousel-btn" class="carousel-btn" target="_blank">Ver landing completa</a>
+</div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>
-Escribinos y contanos tu idea.  
-Te respondemos rápido para ayudarte a crear tu proyecto.  
-  </p>
-
-  <a class="carousel-btn"
-     href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20quiero%20dise%C3%B1ar%20algo%20para%20mi%20negocio."
-     target="_blank">WhatsApp</a>
-</section>
-
-<!-- WHATSAPP FLOAT -->
-<a class="whatsapp-float" 
-   href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20mi%20landing."
-   target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+<a class="whatsapp-float" href="https://wa.me/541164499481" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
 <footer>© 2025 Ciborg347™ · Web Agency</footer>
 
-
-<!-- ======================= SCRIPTS ======================= -->
 <script>
-/* -------- MENÚ -------- */
-let autoClose;
-function toggleMenu() {
-  const menu = document.getElementById("mobile-menu");
-  const overlay = document.getElementById("menu-overlay");
-
-  if(menu.classList.contains("mobile-active")){
-    closeMenu();
-  } else {
-    menu.classList.add("mobile-active");
-    overlay.style.display = "block";
-
-    clearTimeout(autoClose);
-    autoClose = setTimeout(() => closeMenu(), 5000);
-  }
-}
-
-function closeMenu(){
-  document.getElementById("mobile-menu").classList.remove("mobile-active");
-  document.getElementById("menu-overlay").style.display="none";
-  clearTimeout(autoClose);
-}
-
-
-/* ===================== CARRUSEL GLOBAL ===================== */
-
 let allSlides = [
-  {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},
+{category:"radio",img:"https://iili.io/f9an4yX.jpg",link:"https://radioimagen.onrender.com",short:"Tu radio con presencia moderna.",info:"Streaming integrado y visual profesional."},
+{category:"radio",img:"https://iili.io/f9an4yX.jpg",link:"https://radiocannafest.onrender.com",short:"Identidad cannábica y estilo urbano.",info:"Radio temática con diseño oscuro y personalidad fuerte."},
 
-  {category:"barber", img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},
-  {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Elegancia y estilo en cada detalle.", info:"Diseño orientado a barberías que quieren diferenciarse."},
+{category:"construccion",img:"https://iili.io/faOp6hP.jpg",link:"https://jyl-refacciones.onrender.com/",short:"Servicios claros que generan confianza.",info:"Landing profesional para refacciones y trabajos generales."},
 
-  {category:"food", img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},
-
-  {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Energía y ambiente en un diseño impactante.", info:"Ideal para salones y bailables."},
-
-  {category:"radio", img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},
-
-  {category:"casino", img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Diseño directo para captar jugadores.", info:"Estética intensa y conversiones rápidas."},
-  {category:"casino", img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Energía visual para atraer usuarios.", info:"Landing con estilo fuego y dinamismo."},
-  {category:"casino", img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Identidad deportiva sólida.", info:"Perfecta para apuestas y deportes."},
-  {category:"casino", img:"https://iili.io/KigNdVS.jpg", link:"https://giraygana-fortunaplay.onrender.com/", short:"Diseño veloz y llamativo.", info:"Enfocada en interacción rápida."},
-  {category:"casino", img:"https://iili.io/Kigv3Ij.jpg", link:"https://ganamostodosjuntos.onrender.com/", short:"Impacto fuerte para gaming.", info:"Ideal para promociones continuas."},
-  {category:"casino", img:"https://iili.io/KiggTcN.jpg", link:"https://lions-casino.onrender.com/", short:"Identidad premium.", info:"Estética limpia y profesional."},
-  {category:"casino", img:"https://iili.io/f9a9Fdx.jpg", link:"https://giraygana-ijae.onrender.com", short:"Máxima rapidez para captar curiosos.", info:"Diseño simple y efectivo."}
+{category:"casino",img:"https://iili.io/KPygQXS.jpg",link:"https://facu-casino.onrender.com/",short:"Diseño directo para captar jugadores.",info:"Estética intensa y conversiones rápidas."}
 ];
 
-let index = 0;
-
-/* --- GENERAR BOTONES DINÁMICOS --- */
-const categories = [
-  {id:"estetica", name:"Estética"},
-  {id:"barber", name:"Barberías"},
-  {id:"food", name:"Gastronomía"},
-  {id:"evento", name:"Eventos"},
-  {id:"radio", name:"Radios"},
-  {id:"casino", name:"Casinos"}
+const categories=[
+{id:"radio",name:"Radios"},
+{id:"construccion",name:"Construcciones / Refacciones"},
+{id:"casino",name:"Casinos"}
 ];
 
-let catContainer = document.getElementById("category-buttons");
+let index=0;
+const catContainer=document.getElementById("category-buttons");
 
-categories.forEach(cat => {
-  let btn = document.createElement("button");
-  btn.innerText = cat.name;
-
-  btn.onclick = () => {
-    jumpToCategory(cat.id, btn);
-  };
-
-  catContainer.appendChild(btn);
+categories.forEach(cat=>{
+let b=document.createElement("button");
+b.innerText=cat.name;
+b.onclick=()=>{index=allSlides.findIndex(s=>s.category===cat.id);update();}
+catContainer.appendChild(b);
 });
 
-/* --- ACTUALIZAR CLASE ACTIVA --- */
-function updateCategoryHighlight(){
-  const activeCat = allSlides[index].category;
-
-  document.querySelectorAll(".categories button")
-    .forEach(btn => {
-      btn.classList.remove("active");
-      if(btn.innerText === categories.find(c=>c.id===activeCat).name){
-        btn.classList.add("active");
-      }
-    });
-}
-
-/* --- SALTO A CATEGORÍA --- */
-function jumpToCategory(cat, btn){
-  index = allSlides.findIndex(x => x.category === cat);
-  updateCarousel();
-}
-
-/* --- ACTUALIZAR CARRUSEL --- */
-function updateCarousel(){
-  const s = allSlides[index];
-  if(!s) return;
-
-  document.getElementById("carousel-img").src = s.img;
-  document.getElementById("carousel-short").innerText = s.short;
-  document.getElementById("carousel-info").innerText = s.info;
-  document.getElementById("carousel-btn").href = s.link;
-
-  updateCategoryHighlight();
-}
-
-/* --- FLECHAS --- */
-function nextSlide(){
-  index = (index + 1) % allSlides.length;
-  updateCarousel();
-}
-function prevSlide(){
-  index = (index - 1 + allSlides.length) % allSlides.length;
-  updateCarousel();
-}
-
-/* --- SWIPE --- */
-let startX = 0;
-document.getElementById("carousel").addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
+function update(){
+const s=allSlides[index];
+carousel-img.src=s.img;
+carousel-short.innerText=s.short;
+carousel-info.innerText=s.info;
+carousel-btn.href=s.link;
+document.querySelectorAll(".categories button").forEach(btn=>{
+btn.classList.toggle("active",btn.innerText===categories.find(c=>c.id===s.category).name);
 });
-document.getElementById("carousel").addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-  if(endX < startX - 50) nextSlide();
-  if(endX > startX + 50) prevSlide();
-});
-
-/* --- INICIALIZAR --- */
-updateCarousel();
-
-/* --- TIPS ROTATIVOS --- */
-const tips = [
-  "Tip: Una landing clara convierte más clics en ventas.",
-  "Tip: Un CTA fuerte aumenta conversiones hasta un 40%.",
-  "Tip: Las imágenes profesionales venden más.",
-  "Tip: Tu web debe cargar rápido para retener clientes.",
-  "Tip: La primera impresión define si confían en tu negocio."
-];
-
-let tipIndex = 0;
-setInterval(() => {
-  tipIndex = (tipIndex + 1) % tips.length;
-  document.getElementById("tip-text").innerText = tips[tipIndex];
-}, 4000);
+}
+function nextSlide(){index=(index+1)%allSlides.length;update();}
+function prevSlide(){index=(index-1+allSlides.length)%allSlides.length;update();}
+update();
 </script>
 
 </body>
