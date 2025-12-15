@@ -43,8 +43,10 @@ fetch("projects.json")
   .then(res => res.json())
   .then(data => {
     allSlides = data;
+
     generarCategorias();
     updateCarousel();
+    renderPortfolioCategorias(); // ← ESTE ES EL PASO 3
   });
 
 /* GENERAR BOTONES DE CATEGORÍA */
