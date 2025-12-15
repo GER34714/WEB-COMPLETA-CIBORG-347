@@ -4,56 +4,136 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ciborg347™ | Web Agency</title>
-<link rel="icon" href="https://iili.io/KHOiff9.md.png">
+<link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<div id="menu-overlay" onclick="closeMenu()"></div>
+
+<!-- NAV -->
 <nav>
   <div class="logo-nav">Ciborg347™</div>
   <ul>
-    <li><a href="#destacadas">Destacadas</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#quienes">Quiénes Somos</a></li>
+    <li><a href="#quehacemos">Qué Hacemos</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#trabajos">Ejemplos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
 </nav>
 
-<header class="hero">
-  <img src="https://iili.io/fH74EGa.md.png" alt="Ciborg347">
-  <h1>Impulsamos negocios con diseño web estratégico</h1>
-</header>
+<!-- MENÚ MOBILE -->
+<div id="mobile-menu">
+  <span class="close-mobile" onclick="closeMenu()">×</span>
+  <a href="#quienes" onclick="closeMenu()">Quiénes Somos</a>
+  <a href="#quehacemos" onclick="closeMenu()">Qué Hacemos</a>
+  <a href="#servicios" onclick="closeMenu()">Servicios</a>
+  <a href="#trabajos" onclick="closeMenu()">Ejemplos</a>
+  <a href="#contacto" onclick="closeMenu()">Contacto</a>
+</div>
 
-<!-- DESTACADAS -->
-<section id="destacadas">
-  <h2>Landings Destacadas</h2>
-  <div class="featured">
-    <button onclick="prevFeatured()">❮</button>
+<!-- HERO -->
+<div class="hero">
+  <img src="https://iili.io/fH74EGa.md.png" alt="Logo Ciborg347">
+  <h1 style="color:#00f7ff; margin-top:20px;">Impulsamos negocios con diseño web estratégico</h1>
+</div>
 
-    <div class="featured-card">
-      <img id="featured-img">
-      <p id="featured-text"></p>
-      <a id="featured-link" target="_blank">Ver proyecto</a>
+<!-- QUIÉNES SOMOS -->
+<section id="quienes">
+  <h2>Quiénes Somos</h2>
+  <p>
+En Ciborg347™ transformamos ideas en páginas que venden.
+Diseñamos landings y sitios web profesionales, modernos y rápidos, pensados para captar clientes y generar confianza desde el primer segundo.
+
+Nos enfocamos en tres pilares esenciales:
+• Presencia online
+• Confianza visual
+• Ventas reales
+
+Cuando tu negocio se ve bien… tus clientes confían más. 🚀
+  </p>
+</section>
+
+<!-- QUÉ HACEMOS -->
+<section id="quehacemos">
+  <h2>Qué Hacemos</h2>
+  <p>
+Creamos landings y webs
+modernas, rápidas
+y optimizadas para convertir.
+
+Tu negocio necesita:
+• Presencia
+• Confianza
+• Ventas
+
+Nosotros te damos las tres. 🚀
+  </p>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <h2>Servicios</h2>
+  <p>
+✔ Landing Pages premium
+✔ Sitios web completos
+✔ Branding visual
+✔ Integración con WhatsApp
+✔ Hosting gratis en Render
+  </p>
+</section>
+
+<!-- EJEMPLOS -->
+<section id="trabajos">
+  <h2>Ejemplos de Landings</h2>
+
+  <div class="tips-bar" id="tip-text">
+    Tip: Una landing clara convierte más clics en ventas.
+  </div>
+
+  <div class="categories" id="category-buttons"></div>
+
+  <div class="carousel-container" id="carousel">
+    <div class="arrow left" onclick="prevSlide()">❮</div>
+    <div class="arrow right" onclick="nextSlide()">❯</div>
+
+    <div class="carousel-image-wrapper">
+      <img id="carousel-img" src="">
     </div>
 
-    <button onclick="nextFeatured()">❯</button>
+    <div class="carousel-short" id="carousel-short"></div>
+    <div class="glass-info" id="carousel-info"></div>
+
+    <a id="carousel-btn" class="carousel-btn" target="_blank">Ver landing completa</a>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <h2>Portfolio</h2>
-  <div id="portfolio-container"></div>
-</section>
-
+<!-- CONTACTO -->
 <section id="contacto">
   <h2>Contacto</h2>
-  <a class="btn"
-     href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20quiero%20mi%20web"
+  <p>
+Escribinos y contanos tu idea.
+Te respondemos rápido para ayudarte a crear tu proyecto.
+  </p>
+
+  <a class="carousel-btn"
+     href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20quiero%20dise%C3%B1ar%20algo%20para%20mi%20negocio."
      target="_blank">WhatsApp</a>
 </section>
 
-<footer>© 2025 Ciborg347™</footer>
+<!-- WHATSAPP FLOAT -->
+<a class="whatsapp-float"
+   href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20mi%20landing."
+   target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+</a>
+
+<footer>© 2025 Ciborg347™ · Web Agency</footer>
 
 <script src="script.js"></script>
 </body>
