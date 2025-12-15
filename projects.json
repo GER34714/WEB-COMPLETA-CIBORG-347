@@ -1,0 +1,34 @@
+[
+  {
+    "title": "J&L Construcciones",
+    "category": "Construcción",
+    "img": "https://iili.io/faOp6hP.jpg",
+    "link": "https://jyl.onrender.com",
+    "featured": true,
+    "text": "Confianza y solidez para empresas constructoras."
+  },
+  {
+    "title": "Facu Casino",
+    "category": "Casinos",
+    "img": "https://iili.io/KPygQXS.jpg",
+    "link": "https://facu-casino.onrender.com",
+    "featured": true,
+    "text": "Diseño directo para captar jugadores."
+  },
+  {
+    "title": "Radio Cannafest",
+    "category": "Radios",
+    "img": "https://iili.io/f9an4yX.jpg",
+    "link": "https://radiocannafest.onrender.com",
+    "featured": true,
+    "text": "Identidad moderna para radios online."
+  },
+  {
+    "title": "Dulce Juana",
+    "category": "Gastronomía",
+    "img": "https://iili.io/fF5pLGf.jpg",
+    "link": "https://dulce-juana.onrender.com",
+    "featured": true,
+    "text": "Imágenes que despiertan ganas de comprar."
+  }
+]
