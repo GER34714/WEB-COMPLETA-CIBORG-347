@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciborg347™ | Web Agency</title>
+<link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
+
 <style>
 /* ------------------------ BASE ------------------------ */
 body {    
@@ -179,12 +187,12 @@ section p {
   max-width:100%;
   max-height:100%;
   object-fit:contain;
-}
-
+}/* Mobile */
 @media(max-width:600px){
   .carousel-image-wrapper { height:240px; }
 }
 
+/* Texto vendedor corto */
 .carousel-short {
   margin-top:18px;
   color:#00f7ff;
@@ -192,6 +200,7 @@ section p {
   font-weight:bold;
 }
 
+/* Caja glass con info extendida */
 .glass-info {
   margin-top:15px;
   padding:20px;
@@ -205,6 +214,7 @@ section p {
   text-align:left;
 }
 
+/* CTA */
 .carousel-btn {
   margin-top:15px;
   padding:10px 22px;
@@ -216,6 +226,7 @@ section p {
   display:inline-block;
 }
 
+/* Flechas */
 .arrow {
   position:absolute;
   top:50%; transform:translateY(-50%);
@@ -251,10 +262,7 @@ footer {
   font-size:.9rem;
 }
 
-/* ========================================================= */
-/* ======= AGREGADO – WEBs DESTACADAS (NO TOCA NADA) ======= */
-/* ========================================================= */
-
+/* ==================== WEBs DESTACADAS (AGREGADO) ==================== */
 .works-grid{
   max-width:1000px;
   margin:20px auto;
@@ -308,7 +316,10 @@ footer {
 .work-short{ color:#00f7ff; font-weight:bold; }
 .work-info{ color:#dff; font-size:.95rem; }
 
-</style><body>
+</style>
+</head>
+
+<body>
 
 <div id="menu-overlay" onclick="closeMenu()"></div>
 
@@ -389,17 +400,15 @@ Nosotros te damos las tres. 🚀
   </p>
 </section>
 
-<!-- ================== WEBs DESTACADAS (AGREGADO) ================== -->
+<!-- WEBs DESTACADAS -->
 <section id="destacadas">
   <h2>Webs Destacadas</h2>
   <p>
 Algunos de nuestros proyectos más fuertes,
 elegidos por diseño, impacto y conversión.
   </p>
-
   <div class="works-grid" id="featured-grid"></div>
 </section>
-<!-- ================================================================ -->
 
 <!-- EJEMPLOS -->
 <section id="trabajos">
@@ -450,9 +459,8 @@ Te respondemos rápido para ayudarte a crear tu proyecto.
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
 </a>
 
-<footer>© 2025 Ciborg347™ · Web Agency</footer>
-
-</body><script>
+<footer>© 2025 Ciborg347™ · Web Agency</footer><!-- ======================= SCRIPTS ======================= -->
+<script>
 /* -------- MENÚ -------- */
 let autoClose;
 function toggleMenu() {
@@ -481,19 +489,19 @@ function closeMenu(){
 let allSlides = [
   {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},
 
-  {category:"barber", img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},
+  {category:"barber", featured:true, img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},
   {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Elegancia y estilo en cada detalle.", info:"Diseño orientado a barberías que quieren diferenciarse."},
 
-  {category:"food", img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},
+  {category:"food", featured:true, img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},
 
   {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Energía y ambiente en un diseño impactante.", info:"Ideal para salones y bailables."},
 
-  {category:"radio", img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},
+  {category:"radio", featured:true, img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},
   {category:"radio", img:"https://iili.io/farGiml.jpg", link:"https://radiocannafest.onrender.com", short:"Radio Cannafest con una estética distinta y moderna.", info:"Landing para radio temática con identidad fuerte, visual atractivo y presencia profesional."},
 
   {category:"refacciones", img:"https://iili.io/farX3hl.jpg", link:"https://jyl-refacciones.onrender.com", short:"REFACCIONES/Construcciónes para mostrar servicios y generar confianza.", info:"Landing profesional para obras, refacciones, construcción y servicios integrales con contacto directo."},
 
-  {category:"casino", img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Diseño directo para captar jugadores.", info:"Estética intensa y conversiones rápidas."},
+  {category:"casino", featured:true, img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Diseño directo para captar jugadores.", info:"Estética intensa y conversiones rápidas."},
   {category:"casino", img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Energía visual para atraer usuarios.", info:"Landing con estilo fuego y dinamismo."},
   {category:"casino", img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Identidad deportiva sólida.", info:"Perfecta para apuestas y deportes."},
   {category:"casino", img:"https://iili.io/KigNdVS.jpg", link:"https://giraygana-fortunaplay.onrender.com/", short:"Diseño veloz y llamativo.", info:"Enfocada en interacción rápida."},
@@ -520,29 +528,23 @@ let catContainer = document.getElementById("category-buttons");
 categories.forEach(cat => {
   let btn = document.createElement("button");
   btn.innerText = cat.name;
-
-  btn.onclick = () => {
-    jumpToCategory(cat.id, btn);
-  };
-
+  btn.onclick = () => { jumpToCategory(cat.id); };
   catContainer.appendChild(btn);
 });
 
 /* --- ACTUALIZAR CLASE ACTIVA --- */
 function updateCategoryHighlight(){
   const activeCat = allSlides[index].category;
-
-  document.querySelectorAll(".categories button")
-    .forEach(btn => {
-      btn.classList.remove("active");
-      if(btn.innerText === categories.find(c=>c.id===activeCat).name){
-        btn.classList.add("active");
-      }
-    });
+  document.querySelectorAll(".categories button").forEach(btn => {
+    btn.classList.remove("active");
+    if(btn.innerText === categories.find(c=>c.id===activeCat).name){
+      btn.classList.add("active");
+    }
+  });
 }
 
 /* --- SALTO A CATEGORÍA --- */
-function jumpToCategory(cat, btn){
+function jumpToCategory(cat){
   index = allSlides.findIndex(x => x.category === cat);
   updateCarousel();
 }
@@ -599,10 +601,7 @@ setInterval(() => {
   document.getElementById("tip-text").innerText = tips[tipIndex];
 }, 4000);
 
-/* ========================================================= */
-/* ======= AGREGADO – WEBs DESTACADAS (NO TOCA NADA) ======= */
-/* ========================================================= */
-
+/* ===================== WEBs DESTACADAS ===================== */
 function renderFeatured(){
   const grid = document.getElementById("featured-grid");
   if(!grid) return;
@@ -615,47 +614,21 @@ function renderFeatured(){
 
     const card = document.createElement("div");
     card.className = "work-card";
-
     card.innerHTML = `
-      <div class="work-thumb">
-        <img src="${s.img}">
-      </div>
+      <div class="work-thumb"><img src="${s.img}"></div>
       <div class="work-content">
         <span class="work-badge">${badge}</span>
         <div class="work-short">${s.short}</div>
         <div class="work-info">${s.info}</div>
-        <a class="carousel-btn" href="${s.link}" target="_blank">
-          Ver landing completa
-        </a>
+        <a class="carousel-btn" href="${s.link}" target="_blank">Ver landing completa</a>
       </div>
     `;
-
     grid.appendChild(card);
   });
 }
 
 renderFeatured();
+</script>
 
-</script>let allSlides = [
-  {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},
-
-  {category:"barber", featured:true, img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},
-  {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Elegancia y estilo en cada detalle.", info:"Diseño orientado a barberías que quieren diferenciarse."},
-
-  {category:"food", featured:true, img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},
-
-  {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Energía y ambiente en un diseño impactante.", info:"Ideal para salones y bailables."},
-
-  {category:"radio", featured:true, img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},
-  {category:"radio", img:"https://iili.io/farGiml.jpg", link:"https://radiocannafest.onrender.com", short:"Radio Cannafest con una estética distinta y moderna.", info:"Landing para radio temática con identidad fuerte, visual atractivo y presencia profesional."},
-
-  {category:"refacciones", img:"https://iili.io/farX3hl.jpg", link:"https://jyl-refacciones.onrender.com", short:"REFACCIONES/Construcciónes para mostrar servicios y generar confianza.", info:"Landing profesional para obras, refacciones, construcción y servicios integrales con contacto directo."},
-
-  {category:"casino", featured:true, img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Diseño directo para captar jugadores.", info:"Estética intensa y conversiones rápidas."},
-  {category:"casino", img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Energía visual para atraer usuarios.", info:"Landing con estilo fuego y dinamismo."},
-  {category:"casino", img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Identidad deportiva sólida.", info:"Perfecta para apuestas y deportes."},
-  {category:"casino", img:"https://iili.io/KigNdVS.jpg", link:"https://giraygana-fortunaplay.onrender.com/", short:"Diseño veloz y llamativo.", info:"Enfocada en interacción rápida."},
-  {category:"casino", img:"https://iili.io/Kigv3Ij.jpg", link:"https://ganamostodosjuntos.onrender.com/", short:"Impacto fuerte para gaming.", info:"Ideal para promociones continuas."},
-  {category:"casino", img:"https://iili.io/KiggTcN.jpg", link:"https://lions-casino.onrender.com/", short:"Identidad premium.", info:"Estética limpia y profesional."},
-  {category:"casino", img:"https://iili.io/f9a9Fdx.jpg", link:"https://giraygana-ijae.onrender.com", short:"Máxima rapidez para captar curiosos.", info:"Diseño simple y efectivo."}
-];
+</body>
+</html>
