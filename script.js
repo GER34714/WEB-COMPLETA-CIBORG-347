@@ -8,8 +8,16 @@ fetch("projects.json")
   .then(data => {
     projects = data;
     featured = projects.filter(p => p.featured);
-    initFeatured();
-    buildPortfolio();
+
+    // Si existe la sección destacadas (index)
+    if (document.getElementById("featured-img")) {
+      initFeatured();
+    }
+
+    // Si existe portfolio (index o portfolio.html)
+    if (document.getElementById("portfolio-container")) {
+      buildPortfolio();
+    }
   });
 
 /* DESTACADAS */
@@ -37,6 +45,8 @@ function prevFeatured(){
 /* PORTFOLIO */
 function buildPortfolio(){
   const container = document.getElementById("portfolio-container");
+  container.innerHTML = "";
+
   const categories = [...new Set(projects.map(p => p.category))];
 
   categories.forEach(cat => {
@@ -53,7 +63,7 @@ function buildPortfolio(){
         const a = document.createElement("a");
         a.href = p.link;
         a.target = "_blank";
-        a.innerHTML = `<img src="${p.img}" alt="${p.title}">`;
+        a.innerHTML = `<img src="${p.img}" alt="${p.title}" title="${p.title}">`;
         grid.appendChild(a);
       });
 
