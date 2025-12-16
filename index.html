@@ -160,7 +160,7 @@ section p {
   color:#000;  
 }  
   
-/* ------------------------ CARRUSEL / GRID x2 ------------------------ */  
+/* ------------------------ CATÁLOGO (SIN FLECHAS) ------------------------ */  
 .carousel-container {  
   max-width:900px;  
   margin:15px auto;  
@@ -196,7 +196,7 @@ section p {
 
   display:flex;
   flex-direction:column;
-  min-height: 420px; /* ayuda a alinear alturas entre cards */
+  min-height: 420px; /* alinea alturas */
 }
 
 .landing-thumb{
@@ -215,7 +215,7 @@ section p {
   max-height:100%;
   width:auto;
   height:auto;
-  object-fit:contain; /* ✅ NO recorta, muestra completa */
+  object-fit:contain; /* ✅ NO recorta */
 }
 
 .landing-short{
@@ -224,7 +224,8 @@ section p {
   font-size:1.05rem;
   font-weight:bold;
   line-height:1.35;
-  min-height: 48px; /* alinea el bloque */
+  min-height: 48px; /* alinea */
+  text-align:center;
 }
 
 .landing-info{
@@ -232,17 +233,18 @@ section p {
   color:#dff;
   font-size:.95rem;
   line-height:1.55;
-  flex:1;           /* empuja CTA abajo */
-  min-height: 90px; /* alinea el bloque */
+  flex:1;
+  min-height: 90px; /* alinea */
+  text-align:left;
 }
 
 .landing-cta{
   margin-top:12px;
   display:flex;
-  justify-content:flex-start;
+  justify-content:center; /* ✅ botón al centro */
 }
 
-/* CTA (ya existente) */  
+/* CTA */  
 .carousel-btn {  
   margin-top:0;  
   padding:10px 22px;  
@@ -258,21 +260,6 @@ section p {
   margin-top:14px;
   text-align:center;
 }
-
-/* Flechas */  
-.arrow {  
-  position:absolute;  
-  top:50%; transform:translateY(-50%);  
-  font-size:1.4rem;  
-  cursor:pointer;  
-  user-select:none;  
-  color:#39ff14;  
-  opacity:0.6;  
-}  
-.arrow:hover { color:#00f7ff; opacity:1; }  
-  
-.left { left:5px; }  
-.right { right:5px; }  
 
 /* Mobile */
 @media(max-width:600px){
@@ -438,13 +425,8 @@ Nosotros te damos las tres. 🚀
   <div class="categories" id="category-buttons"></div>  
 
   <div class="carousel-container" id="carousel">  
-    <div class="arrow left" onclick="prevSlide()">❮</div>  
-    <div class="arrow right" onclick="nextSlide()">❯</div>  
-
-    <!-- GRID 2 LANDINGS -->
     <div class="carousel-grid" id="carousel-grid"></div>
 
-    <!-- VER MÁS -->
     <div class="morebar" id="morebar" style="display:none;">
       <a class="carousel-btn" href="javascript:void(0)" onclick="openMore()">Ver más landings de esta categoría</a>
     </div>
@@ -507,7 +489,7 @@ function closeMenu(){
   clearTimeout(autoClose);  
 }  
   
-/* ===================== CATÁLOGO / 2 POR PANTALLA ===================== */  
+/* ===================== CATÁLOGO (SIN FLECHAS) ===================== */  
   
 let allSlides = [  
   {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},  
@@ -558,14 +540,10 @@ categories.forEach(cat => {
 
 /* --- ESTADO --- */
 let activeCategory = categories[0].id;
-let pageIndex = 0;
 
 /* --- HELPERS --- */
 function getItemsByCategory(cat){
   return allSlides.filter(x => x.category === cat);
-}
-function totalPages(items){
-  return Math.max(1, Math.ceil(items.length / 2));
 }
 
 /* --- ACTUALIZAR CLASE ACTIVA --- */  
@@ -579,29 +557,33 @@ function updateCategoryHighlight(){
   });  
 }  
 
-/* --- RENDER 1 o 2 TARJETAS (SIN RELLENO) --- */
+/* --- RENDER: muestra TODAS las landings de la categoría (sin flechas) --- */
 function renderGrid(){
   const grid = document.getElementById("carousel-grid");
   const morebar = document.getElementById("morebar");
   grid.innerHTML = "";
 
   const items = getItemsByCategory(activeCategory);
-  const pages = totalPages(items);
 
-  if(pageIndex < 0) pageIndex = pages - 1;
-  if(pageIndex >= pages) pageIndex = 0;
-
-  const start = pageIndex * 2;
-  const slice = items.slice(start, start + 2);
-
-  // Si hay 1, se muestra 1 (y listo)
-  if(slice.length === 1){
+  // Si hay 1, se muestra 1 centrada
+  if(items.length === 1){
     grid.classList.add("one");
   } else {
     grid.classList.remove("one");
   }
 
-  slice.forEach(item => {
+  // Si hay más de 2, se muestran igual en 2 columnas (entran más chicas) y activamos "ver más"
+  // (ver más abre modal con todas en grande)
+  if(items.length > 2){
+    morebar.style.display = "block";
+  } else {
+    morebar.style.display = "none";
+  }
+
+  // mostramos hasta 6 en la vista principal para que no explote (las demás quedan en "ver más")
+  const visible = items.length > 2 ? items.slice(0, 6) : items;
+
+  visible.forEach(item => {
     const card = document.createElement("div");
     card.className = "landing-card";
     card.innerHTML = `
@@ -615,43 +597,14 @@ function renderGrid(){
     grid.appendChild(card);
   });
 
-  // Botón "ver más" solo si hay más de 2 en la categoría
-  if(items.length > 2){
-    morebar.style.display = "block";
-  } else {
-    morebar.style.display = "none";
-  }
-
   updateCategoryHighlight();
 }
 
 /* --- SALTO A CATEGORÍA --- */  
 function jumpToCategory(cat){  
   activeCategory = cat;
-  pageIndex = 0;
   renderGrid();  
 }  
-
-/* --- FLECHAS (páginas de 2) --- */  
-function nextSlide(){  
-  pageIndex++;
-  renderGrid();
-}  
-function prevSlide(){  
-  pageIndex--;
-  renderGrid();
-}  
-
-/* --- SWIPE --- */  
-let startX = 0;  
-document.getElementById("carousel").addEventListener("touchstart", e => {  
-  startX = e.touches[0].clientX;  
-});  
-document.getElementById("carousel").addEventListener("touchend", e => {  
-  let endX = e.changedTouches[0].clientX;  
-  if(endX < startX - 50) nextSlide();  
-  if(endX > startX + 50) prevSlide();  
-});  
 
 /* --- MODAL VER MÁS --- */
 function openMore(){
