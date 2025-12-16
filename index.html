@@ -194,32 +194,31 @@ section p {
   .arrow{ display:block; }
 }
 
-/* ✅ CENTRADO REAL + MISMO TAMAÑO SIEMPRE (no se corre a derecha) */
+/* ✅ SIEMPRE 2 COLUMNAS (una al lado de la otra) */
 .carousel-grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 420px)); /* ✅ 2 cards iguales */
-  justify-content:center;                              /* ✅ todo centrado */
+  grid-template-columns: 1fr 1fr;     /* ✅ lado a lado SIEMPRE */
   gap:14px;
   margin-top:10px;
+  align-items:stretch;               /* ✅ mismas alturas */
 }
-
-/* ✅ SI HAY 1 SOLA CARD: no la agrandes, dejala del MISMO ancho y centrada */
 .carousel-grid.one{
-  grid-template-columns: minmax(0, 420px);
-  justify-content:center;
+  grid-template-columns: 1fr;        /* si hay 1 sola, queda sola */
+  max-width:520px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
+/* ✅ MISMO TAMAÑO, GRANDE, TEXTO LEGIBLE */
 .landing-card{
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(0,255,255,.35);
   border-radius:16px;
   padding:12px;
   backdrop-filter:blur(6px);
-
   display:flex;
   flex-direction:column;
-
-  height:560px;          /* ✅ TODAS IGUALES y GRANDES (texto legible) */
+  height:560px;                      /* ✅ todas iguales */
 }
 
 .landing-thumb{
@@ -250,7 +249,7 @@ section p {
   text-align:center;
 }
 
-/* ✅ Texto SIEMPRE legible: si sobra, scrollea dentro sin agrandar la card */
+/* ✅ texto siempre legible: si sobra, scrollea sin deformar */
 .landing-info{
   margin-top:8px;
   color:#dff;
@@ -267,7 +266,7 @@ section p {
 .landing-info::-webkit-scrollbar-thumb:hover{ background:rgba(0,255,255,0.55); }
 
 .landing-cta{
-  margin-top:auto;      /* ✅ botón abajo, parejo */
+  margin-top:auto;
   display:flex;
   justify-content:center;
 }
@@ -298,25 +297,16 @@ section p {
   text-align:center;
 }
 
-/* Mobile */
-@media(max-width:700px){
-  .carousel-grid{
-    grid-template-columns: minmax(0, 520px); /* 1 card centrada */
-    justify-content:center;
-  }
-  .carousel-grid.one{
-    grid-template-columns: minmax(0, 520px);
-  }
-}
+/* Mobile (solo ajustes de tamaño, PERO sigue 2 columnas) */
 @media(max-width:600px){
   .carousel-container{ padding:18px; }
   .carousel-grid{ gap:10px; }
   .landing-thumb{ height:150px; }
-  .landing-card{ height:520px; } /* ✅ grande en mobile también */
+  .landing-card{ height:520px; }
   .landing-short{ font-size:.95rem; }
   .landing-info{ font-size:.90rem; }
   .carousel-btn{ padding:9px 14px; font-size:.95rem; }
-  .landing-cta .carousel-btn{ min-width:170px; height:42px; }
+  .landing-cta .carousel-btn{ min-width:160px; height:40px; }
 }
 
 /* Modal "Ver más" */
@@ -357,12 +347,8 @@ section p {
 }
 .more-grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 420px));
-  justify-content:center;
+  grid-template-columns: 1fr 1fr;   /* ✅ también lado a lado */
   gap:14px;
-}
-@media(max-width:700px){
-  .more-grid{ grid-template-columns: minmax(0, 520px); justify-content:center; }
 }
 
 /* WHATSAPP FLOAT */
@@ -610,7 +596,6 @@ function renderGrid(){
 
   const items = getItemsByCategory(activeCategory);
 
-  // ✅ si hay 1 sola, usa columna fija igual al resto y centrada
   if(items.length === 1){
     grid.classList.add("one");
   } else {
