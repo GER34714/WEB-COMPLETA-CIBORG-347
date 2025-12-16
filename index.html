@@ -3,7 +3,8 @@
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <title>Ciborg347™ | Web Agency</title>  
-<link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">  <style>  
+<link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">  
+<style>  
 
 /* FIX PC: evita que el NAV se corte por width:100% + padding */
 *, *::before, *::after { box-sizing: border-box; }
@@ -168,6 +169,7 @@ section p {
   box-shadow:0 0 15px rgba(0,255,255,.2);  
   position:relative;  
   text-align:center;  
+  overflow:hidden; /* ✅ evita scroll horizontal accidental */
 }  
 
 /* Flechas (solo PC) */
@@ -192,13 +194,14 @@ section p {
   .arrow{ display:block; }
 }
 
-/* ✅ ahora el grid muestra 1 sola tarjeta centrada (adentro van 2 landings) */
+/* 1 sola tarjeta centrada (adentro van 2 landings lado a lado) */
 .carousel-grid{
   display:grid;
   grid-template-columns: minmax(0, 900px);
   justify-content:center;
   gap:14px;
   margin-top:10px;
+  min-width:0;
 }
 
 /* TARJETA CONTENEDORA (una) */
@@ -208,14 +211,16 @@ section p {
   border-radius:16px;
   padding:14px;
   backdrop-filter:blur(6px);
+  min-width:0; /* ✅ clave para que no empuje */
 }
 
 /* ✅ 2 landings dentro de la misma tarjeta */
 .duo-grid{
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); /* ✅ NO desborda */
   gap:14px;
   align-items:stretch;
+  min-width:0;
 }
 
 /* cada landing dentro */
@@ -226,7 +231,8 @@ section p {
   padding:12px;
   display:flex;
   flex-direction:column;
-  min-height: 520px; /* ✅ legible y parejo */
+  min-height: 520px; /* legible */
+  min-width:0;       /* ✅ NO desborda */
 }
 
 .duo-thumb{
@@ -255,6 +261,7 @@ section p {
   font-weight:bold;
   line-height:1.35;
   text-align:center;
+  overflow-wrap:anywhere; /* ✅ por si hay palabras largas */
 }
 
 .duo-info{
@@ -266,6 +273,7 @@ section p {
   overflow:auto;
   padding-right:6px;
   text-align:left;
+  overflow-wrap:anywhere; /* ✅ evita overflow */
 }
 .duo-info::-webkit-scrollbar{ width:8px; }
 .duo-info::-webkit-scrollbar-track{ background:rgba(255,255,255,0.06); border-radius:10px; }
@@ -289,22 +297,22 @@ section p {
   display:inline-block;  
 }  
 
-/* ✅ botones Ver landing iguales SIEMPRE */
+/* ✅ botones Ver landing iguales + SE ADAPTAN para no forzar scroll horizontal */
 .duo-cta .carousel-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-width:180px;
+  width:100%;                 /* ✅ entra sí o sí en la columna */
+  max-width: 220px;           /* ✅ no se hace gigante en pantallas grandes */
   height:44px;
   white-space:nowrap;
+  padding-left:12px;
+  padding-right:12px;
 }
 
-/* Si hay 1 landing sola, que ocupe todo el ancho */
+/* Si hay 1 landing sola */
 .duo-grid.one{
-  grid-template-columns: 1fr;
-}
-.duo-item.empty{
-  display:none;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .morebar{
@@ -312,16 +320,26 @@ section p {
   text-align:center;
 }
 
-/* Mobile */
+/* Mobile: mantiene 2 columnas, pero achica contenidos para que NO haya que mover pantalla */
 @media(max-width:600px){
-  .carousel-container{ padding:18px; }
+  .carousel-container{ padding:16px; }
   .duo-grid{ gap:10px; }
-  .duo-thumb{ height:150px; }
-  .duo-item{ min-height: 480px; }
-  .duo-short{ font-size:.95rem; }
-  .duo-info{ font-size:.90rem; }
-  .carousel-btn{ padding:9px 14px; font-size:.95rem; }
-  .duo-cta .carousel-btn{ min-width:160px; height:40px; }
+
+  .duo-thumb{ height:130px; }       /* ✅ baja altura para que entre todo */
+  .duo-item{ min-height: 460px; }   /* ✅ sigue legible */
+
+  .duo-short{ font-size:.92rem; }
+  .duo-info{ font-size:.88rem; }
+
+  .duo-cta .carousel-btn{
+    max-width: none;                /* ✅ ocupa el ancho de cada columna */
+    width:100%;
+    height:40px;
+    font-size:.92rem;
+  }
+
+  /* ✅ opcional: reduce padding de la tarjeta contenedora interna */
+  .landing-card{ padding:12px; }
 }
 
 /* Modal "Ver más" */
@@ -360,8 +378,6 @@ section p {
   cursor:pointer;
   user-select:none;
 }
-
-/* ✅ en el modal también: tarjetas con 2 landings adentro */
 .more-grid{
   display:grid;
   grid-template-columns: 1fr;
@@ -388,7 +404,10 @@ footer {
   color:#aaa;  
   font-size:.9rem;  
 }  
-</style>  </head>  <body>  <div id="menu-overlay" onclick="closeMenu()"></div>  
+</style>  
+</head>  
+<body>  
+<div id="menu-overlay" onclick="closeMenu()"></div>  
 
 <!-- NAV -->  
 <nav>  
@@ -633,7 +652,6 @@ function renderGrid(){
   if(visible[0]) duo.insertAdjacentHTML("beforeend", duoItemHTML(visible[0]));
   if(visible[1]) duo.insertAdjacentHTML("beforeend", duoItemHTML(visible[1]));
 
-  // si solo hay 1 landing, no agregues la "vacía"
   outer.appendChild(duo);
   grid.appendChild(outer);
 
@@ -734,5 +752,6 @@ setInterval(() => {
   tipIndex = (tipIndex + 1) % tips.length;  
   document.getElementById("tip-text").innerText = tips[tipIndex];  
 }, 4000);  
-</script>  </body>  
+</script>  
+</body>  
 </html>
