@@ -36,7 +36,6 @@ nav {
   font-size:1.3rem;  
   font-weight:bold;  
 }  
-  
 nav ul {  
   display:flex; gap:35px; list-style:none; padding:0; margin:0;  
 }  
@@ -114,7 +113,7 @@ section h2 {
 section p {  
   font-size:1.15rem; line-height:1.7; color:#ccc;  
   text-align:center;  
-  white-space:pre-line; /* respeta los saltos que escribís */  
+  white-space:pre-line;  
 }  
   
 /* ------------------------ TIPS BAR ------------------------ */  
@@ -142,7 +141,6 @@ section p {
   gap:10px;  
   justify-content:center;  
 }  
-  
 .categories button {  
   background:rgba(0,255,255,.1);  
   border:1px solid rgba(0,255,255,.4);  
@@ -153,14 +151,13 @@ section p {
   font-weight:bold;  
   transition:.2s;  
 }  
-  
 .categories button:hover,  
 .categories .active {  
   background:#00f7ff;  
   color:#000;  
 }  
   
-/* ------------------------ CATÁLOGO (SIN FLECHAS) ------------------------ */  
+/* ------------------------ CATÁLOGO (2 visibles si hay 2, si hay más => Ver más) ------------------------ */  
 .carousel-container {  
   max-width:900px;  
   margin:15px auto;  
@@ -172,6 +169,28 @@ section p {
   position:relative;  
   text-align:center;  
 }  
+
+/* Flechas (solo PC) */
+.arrow {  
+  display:none;
+  position:absolute;  
+  top:50%; transform:translateY(-50%);  
+  font-size:1.6rem;  
+  cursor:pointer;  
+  user-select:none;  
+  color:#39ff14;  
+  opacity:0.7;  
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(0,255,255,.25);
+}  
+.arrow:hover { color:#00f7ff; opacity:1; }  
+.arrow.left { left:10px; }  
+.arrow.right { right:10px; }  
+@media(min-width:901px){
+  .arrow{ display:block; }
+}
 
 .carousel-grid{
   display:grid;
@@ -191,12 +210,11 @@ section p {
   border:1px solid rgba(0,255,255,.35);
   border-radius:16px;
   padding:12px;
-  text-align:left;
   backdrop-filter:blur(6px);
 
   display:flex;
   flex-direction:column;
-  min-height: 420px; /* alinea alturas */
+  min-height: 420px;
 }
 
 .landing-thumb{
@@ -215,7 +233,7 @@ section p {
   max-height:100%;
   width:auto;
   height:auto;
-  object-fit:contain; /* ✅ NO recorta */
+  object-fit:contain; /* ✅ completa, sin recorte */
 }
 
 .landing-short{
@@ -224,7 +242,7 @@ section p {
   font-size:1.05rem;
   font-weight:bold;
   line-height:1.35;
-  min-height: 48px; /* alinea */
+  min-height: 48px;
   text-align:center;
 }
 
@@ -234,19 +252,17 @@ section p {
   font-size:.95rem;
   line-height:1.55;
   flex:1;
-  min-height: 90px; /* alinea */
+  min-height: 90px;
   text-align:left;
 }
 
 .landing-cta{
   margin-top:12px;
   display:flex;
-  justify-content:center; /* ✅ botón al centro */
+  justify-content:center; /* ✅ botón centrado */
 }
 
-/* CTA */  
 .carousel-btn {  
-  margin-top:0;  
   padding:10px 22px;  
   background:#39ff14;  
   color:#000;  
@@ -382,7 +398,6 @@ Diseñamos landings y sitios web profesionales, modernos y rápidos, pensados pa
 
 Cada proyecto es único: analizamos tu rubro, tu estilo y tus objetivos para crear una web que represente tu marca al 100%.
 Cuando tu negocio se ve bien… tus clientes confían más. 🚀
-
   </p>  
 </section>  
 
@@ -398,7 +413,6 @@ y optimizadas para convertir.    Tu negocio necesita:
 • Ventas
 
 Nosotros te damos las tres. 🚀
-
   </p>  
 </section>  
 
@@ -425,6 +439,10 @@ Nosotros te damos las tres. 🚀
   <div class="categories" id="category-buttons"></div>  
 
   <div class="carousel-container" id="carousel">  
+    <!-- Flechas SOLO PC para cambiar de categoría -->
+    <div class="arrow left" onclick="prevCategory()">❮</div>  
+    <div class="arrow right" onclick="nextCategory()">❯</div>  
+
     <div class="carousel-grid" id="carousel-grid"></div>
 
     <div class="morebar" id="morebar" style="display:none;">
@@ -471,42 +489,37 @@ let autoClose;
 function toggleMenu() {  
   const menu = document.getElementById("mobile-menu");  
   const overlay = document.getElementById("menu-overlay");  
-  
   if(menu.classList.contains("mobile-active")){  
     closeMenu();  
   } else {  
     menu.classList.add("mobile-active");  
     overlay.style.display = "block";  
-  
     clearTimeout(autoClose);  
     autoClose = setTimeout(() => closeMenu(), 5000);  
   }  
 }  
-  
 function closeMenu(){  
   document.getElementById("mobile-menu").classList.remove("mobile-active");  
   document.getElementById("menu-overlay").style.display="none";  
   clearTimeout(autoClose);  
 }  
-  
-/* ===================== CATÁLOGO (SIN FLECHAS) ===================== */  
-  
+
+/* ===================== CATÁLOGO ===================== */  
 let allSlides = [  
   {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},  
-  
+
   {category:"barber", img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},  
   {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Elegancia y estilo en cada detalle.", info:"Diseño orientado a barberías que quieren diferenciarse."},  
-  
-  {category:"food", img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},  
-  
-  {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Energía y ambiente en un diseño impactante.", info:"Ideal para salones y bailables."},  
-  
-  {category:"radio", img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},  
 
+  {category:"food", img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},  
+
+  {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Energía y ambiente en un diseño impactante.", info:"Ideal para salones y bailables."},  
+
+  {category:"radio", img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},  
   {category:"radio", img:"https://iili.io/farGiml.jpg", link:"https://radiocannafest.onrender.com", short:"Radio Cannafest con identidad propia.", info:"Landing moderna para radio temática con estética fuerte y presencia profesional."},  
 
   {category:"refacciones", img:"https://iili.io/farX3hl.jpg", link:"https://jyl-refacciones.onrender.com", short:"Refacciones y construcciones para captar presupuestos.", info:"Landing para refacciones y construcciones, ideal para mostrar trabajos, servicios y captar presupuestos por WhatsApp."},  
-  
+
   {category:"casino", img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Diseño directo para captar jugadores.", info:"Estética intensa y conversiones rápidas."},  
   {category:"casino", img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Energía visual para atraer usuarios.", info:"Landing con estilo fuego y dinamismo."},  
   {category:"casino", img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Identidad deportiva sólida.", info:"Perfecta para apuestas y deportes."},  
@@ -516,7 +529,7 @@ let allSlides = [
   {category:"casino", img:"https://iili.io/f9a9Fdx.jpg", link:"https://giraygana-ijae.onrender.com", short:"Máxima rapidez para captar curiosos.", info:"Diseño simple y efectivo."}  
 ];  
 
-/* --- BOTONES DE CATEGORÍA --- */  
+/* --- CATEGORÍAS --- */  
 const categories = [  
   {id:"estetica", name:"Estética"},  
   {id:"barber", name:"Barberías"},  
@@ -526,38 +539,33 @@ const categories = [
   {id:"refacciones", name:"Refacciones"},  
   {id:"casino", name:"Casinos"}  
 ];  
-  
+
+let activeCatIndex = 0;
+let activeCategory = categories[activeCatIndex].id;
+
+/* --- BOTONES --- */
 let catContainer = document.getElementById("category-buttons");  
-  
-categories.forEach(cat => {  
+categories.forEach((cat, i) => {  
   let btn = document.createElement("button");  
   btn.innerText = cat.name;  
   btn.onclick = () => {  
-    jumpToCategory(cat.id);  
+    goToCategoryIndex(i);
   };  
   catContainer.appendChild(btn);  
 });  
 
-/* --- ESTADO --- */
-let activeCategory = categories[0].id;
-
-/* --- HELPERS --- */
 function getItemsByCategory(cat){
   return allSlides.filter(x => x.category === cat);
 }
 
-/* --- ACTUALIZAR CLASE ACTIVA --- */  
+/* --- UI active --- */
 function updateCategoryHighlight(){  
-  document.querySelectorAll(".categories button").forEach(btn => {  
-    btn.classList.remove("active");  
-    const match = categories.find(c => c.id === activeCategory);
-    if(match && btn.innerText === match.name){
-      btn.classList.add("active");  
-    }
+  document.querySelectorAll(".categories button").forEach((btn, i) => {  
+    btn.classList.toggle("active", i === activeCatIndex);
   });  
 }  
 
-/* --- RENDER: muestra TODAS las landings de la categoría (sin flechas) --- */
+/* --- RENDER: 1 si hay 1, 2 si hay >=2. Si hay >2 => botón Ver más --- */
 function renderGrid(){
   const grid = document.getElementById("carousel-grid");
   const morebar = document.getElementById("morebar");
@@ -565,24 +573,13 @@ function renderGrid(){
 
   const items = getItemsByCategory(activeCategory);
 
-  // Si hay 1, se muestra 1 centrada
   if(items.length === 1){
     grid.classList.add("one");
   } else {
     grid.classList.remove("one");
   }
 
-  // Si hay más de 2, se muestran igual en 2 columnas (entran más chicas) y activamos "ver más"
-  // (ver más abre modal con todas en grande)
-  if(items.length > 2){
-    morebar.style.display = "block";
-  } else {
-    morebar.style.display = "none";
-  }
-
-  // mostramos hasta 6 en la vista principal para que no explote (las demás quedan en "ver más")
-  const visible = items.length > 2 ? items.slice(0, 6) : items;
-
+  const visible = items.slice(0, 2); // ✅ 2 por “página” (vista)
   visible.forEach(item => {
     const card = document.createElement("div");
     card.className = "landing-card";
@@ -597,24 +594,33 @@ function renderGrid(){
     grid.appendChild(card);
   });
 
+  morebar.style.display = (items.length > 2) ? "block" : "none";
+
   updateCategoryHighlight();
 }
 
-/* --- SALTO A CATEGORÍA --- */  
-function jumpToCategory(cat){  
-  activeCategory = cat;
-  renderGrid();  
-}  
+/* --- NAV CATEGORÍAS --- */
+function goToCategoryIndex(i){
+  activeCatIndex = (i + categories.length) % categories.length;
+  activeCategory = categories[activeCatIndex].id;
+  renderGrid();
+  resetAutoCategory();
+}
+function nextCategory(){
+  goToCategoryIndex(activeCatIndex + 1);
+}
+function prevCategory(){
+  goToCategoryIndex(activeCatIndex - 1);
+}
 
-/* --- MODAL VER MÁS --- */
+/* --- MODAL VER MÁS (muestra todas) --- */
 function openMore(){
   const items = getItemsByCategory(activeCategory);
   const overlay = document.getElementById("more-overlay");
   const grid = document.getElementById("more-grid");
   const title = document.getElementById("more-title");
 
-  const catName = (categories.find(c => c.id === activeCategory) || {name: "Categoría"}).name;
-  title.innerText = "Más landings de " + catName;
+  title.innerText = "Más landings de " + categories[activeCatIndex].name;
 
   grid.innerHTML = "";
   items.forEach(item => {
@@ -632,14 +638,55 @@ function openMore(){
   });
 
   overlay.style.display = "flex";
+  resetAutoCategory();
 }
 function closeMore(){
   document.getElementById("more-overlay").style.display = "none";
 }
 
-/* --- INICIALIZAR --- */  
-renderGrid();  
-  
+/* --- SWIPE: cambiar CATEGORÍA con el dedo --- */
+let startX = 0, startY = 0;
+const carousel = document.getElementById("carousel");
+carousel.addEventListener("touchstart", (e) => {
+  const t = e.touches[0];
+  startX = t.clientX;
+  startY = t.clientY;
+}, {passive:true});
+
+carousel.addEventListener("touchend", (e) => {
+  const t = e.changedTouches[0];
+  const dx = t.clientX - startX;
+  const dy = t.clientY - startY;
+
+  // swipe horizontal claro
+  if(Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)){
+    if(dx < 0) nextCategory();
+    else prevCategory();
+  }
+}, {passive:true});
+
+/* --- AUTO CARRUSEL (cambia categorías solo) --- */
+let autoCatTimer = null;
+function startAutoCategory(){
+  stopAutoCategory();
+  autoCatTimer = setInterval(() => {
+    // si el modal está abierto, no cambies
+    const modalOpen = document.getElementById("more-overlay").style.display === "flex";
+    if(!modalOpen) nextCategory();
+  }, 6500);
+}
+function stopAutoCategory(){
+  if(autoCatTimer) clearInterval(autoCatTimer);
+  autoCatTimer = null;
+}
+function resetAutoCategory(){
+  startAutoCategory();
+}
+
+/* --- INICIALIZAR --- */
+renderGrid();
+startAutoCategory();
+
 /* --- TIPS ROTATIVOS --- */  
 const tips = [  
   "Tip: Una landing clara convierte más clics en ventas.",  
@@ -648,7 +695,6 @@ const tips = [
   "Tip: Tu web debe cargar rápido para retener clientes.",  
   "Tip: La primera impresión define si confían en tu negocio."  
 ];  
-  
 let tipIndex = 0;  
 setInterval(() => {  
   tipIndex = (tipIndex + 1) % tips.length;  
