@@ -1,459 +1,517 @@
-<!DOCTYPE html>  <html lang="es">  
-<head><!-- OPEN GRAPH -->
-<meta property="og:title" content="Ciborg347™ | Web Agency">
-<meta property="og:description" content="Landing pages y sitios web que convierten visitas en clientes reales. Diseño profesional, rápido y estratégico.">
-<meta property="og:image" content="https://iili.io/fcqMequ.jpg">
-<meta property="og:url" content="https://ciborg347.onrender.com">
-<meta property="og:type" content="website">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Ciborg347™ | Web Agency">
+  <meta property="og:description" content="Landing pages y sitios web que convierten visitas en clientes reales. Diseño profesional, rápido y estratégico.">
+  <meta property="og:image" content="https://iili.io/fcqMequ.jpg">
+  <meta property="og:url" content="https://ciborg347.onrender.com">
+  <meta property="og:type" content="website">
 
-<!-- Extra recomendado -->
-<meta property="og:locale" content="es_AR">
-<meta name="twitter:card" content="summary_large_image">  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>Ciborg347™ | Web Agency</title>  
-<link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">  
-<style>  
+  <!-- Extra recomendado -->
+  <meta property="og:locale" content="es_AR">
+  <meta name="twitter:card" content="summary_large_image">
 
-/* FIX PC: evita que el NAV se corte por width:100% + padding */
-*, *::before, *::after { box-sizing: border-box; }
-body { overflow-x: hidden; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciborg347™ | Web Agency</title>
+  <link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
 
-/* ------------------------ BASE ------------------------ */  
-body {  
-  margin: 0;  
-  font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;  
-  background: url("https://iili.io/fH5IORj.jpg") center/cover fixed no-repeat;  
-  color: #fff;  
-  scroll-behavior: smooth;  
-}  
-body::before {  
-  content:""; inset:0; position:fixed;  
-  background:rgba(0,0,0,.80); backdrop-filter:blur(4px);  
-  z-index:-1;  
-}  
-  
-/* ------------------------ NAV ------------------------ */  
-nav {  
-  position:fixed; top:0; left:0; width:100%;  
-  background:rgba(0,0,0,.85);  
-  padding:15px 20px;  
-  display:flex; justify-content:space-between; align-items:center;  
-  z-index:3000;  
-}  
-.logo-nav {  
-  color:#39ff14;  
-  font-size:1.3rem;  
-  font-weight:bold;  
-}  
-nav ul {  
-  display:flex; gap:35px; list-style:none; padding:0; margin:0;  
-}  
-nav li a {  
-  color:#00f7ff; text-decoration:none; font-weight:bold; font-size:1.05rem;  
-}  
-nav li a:hover { color:#39ff14; }  
-  
-/* Hamburguesa */  
-.hamburger {   
-  display:none; width:28px; cursor:pointer;   
-  flex-direction:column; gap:5px;  
-}  
-.hamburger div { height:4px; background:#39ff14; border-radius:4px; }  
-  
-/* Menu móvil */  
-#mobile-menu {  
-  position:fixed; right:-100%; top:0;  
-  height:100%; width:70%;  
-  background:#000;  
-  padding:80px 25px;  
-  display:flex; flex-direction:column; gap:30px;  
-  transition:.3s ease-in-out;  
-  z-index:3500;  
-}  
-#mobile-menu a {  
-  color:#00f7ff; text-decoration:none; font-size:1.3rem; font-weight:bold;  
-}  
-.mobile-active { right:0!important; }  
-  
-.close-mobile {  
-  position:absolute;  
-  top:20px; right:20px;  
-  font-size:2rem;  
-  color:#39ff14;  
-  cursor:pointer;  
-}  
-  
-/* Overlay menú */  
-#menu-overlay {  
-  position:fixed; inset:0;  
-  background:rgba(0,0,0,.6);  
-  display:none;  
-  z-index:3200;  
-}  
-  
-@media(max-width:900px){  
-  nav ul { display:none; }  
-  .hamburger { display:flex; margin-right:8px; }  
-}  
-  
-/* ------------------------ HERO ------------------------ */  
-.hero {  
-  padding-top:140px; text-align:center;  
-}  
-.hero img {  
-  width:260px;  
-  filter:drop-shadow(0 0 15px #39ff14);  
-  animation:glow 3s infinite alternate;  
-}  
-@keyframes glow {  
-  0%{ filter:drop-shadow(0 0 10px #39ff14);}  
-  50%{ filter:drop-shadow(0 0 20px #00f7ff);}  
-  100%{ filter:drop-shadow(0 0 10px #39ff14);}  
-}  
-  
-/* ------------------------ SECCIONES ------------------------ */  
-section {  
-  max-width:1100px; margin:auto; padding:80px 20px;  
-  text-align:center;  
-}  
-section h2 {  
-  font-size:2rem; color:#39ff14; margin-bottom:15px;  
-}  
-section p {  
-  font-size:1.15rem; line-height:1.7; color:#ccc;  
-  text-align:center;  
-  white-space:pre-line;  
-}  
-  
-/* ------------------------ TIPS BAR ------------------------ */  
-.tips-bar {  
-  max-width:900px;  
-  margin:20px auto 0;  
-  padding:12px 18px;  
-  background:rgba(0,255,255,0.08);  
-  border:1px solid rgba(0,255,255,.35);  
-  border-radius:12px;  
-  backdrop-filter:blur(4px);  
-  box-shadow:0 0 12px rgba(0,255,255,.15);  
-  font-size:1.05rem;  
-  text-align:center;  
-  color:#00f7ff;  
-  font-weight:bold;  
-}  
-  
-/* ------------------------ CATEGORÍAS ------------------------ */  
-.categories {  
-  max-width:900px;  
-  margin:25px auto 10px;  
-  display:flex;  
-  flex-wrap:wrap;  
-  gap:10px;  
-  justify-content:center;  
-}  
-.categories button {  
-  background:rgba(0,255,255,.1);  
-  border:1px solid rgba(0,255,255,.4);  
-  color:#00f7ff;  
-  padding:10px 16px;  
-  border-radius:25px;  
-  cursor:pointer;  
-  font-weight:bold;  
-  transition:.2s;  
-}  
-.categories button:hover,  
-.categories .active {  
-  background:#00f7ff;  
-  color:#000;  
-}  
-  
-/* ------------------------ CATÁLOGO (2 LANDINGS DENTRO DE LA MISMA TARJETA) ------------------------ */  
-.carousel-container {  
-  max-width:900px;  
-  margin:15px auto;  
-  background:rgba(0,0,0,.65);  
-  padding:25px;  
-  border-radius:20px;  
-  border:1px solid rgba(57,255,20,.4);  
-  box-shadow:0 0 15px rgba(0,255,255,.2);  
-  position:relative;  
-  text-align:center;  
-  overflow:hidden; /* ✅ evita scroll horizontal accidental */
-}  
+  <style>
+    /* FIX PC: evita que el NAV se corte por width:100% + padding */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { overflow-x: hidden; }
 
-/* Flechas (solo PC) */
-.arrow {  
-  display:none;
-  position:absolute;  
-  top:50%; transform:translateY(-50%);  
-  font-size:1.6rem;  
-  cursor:pointer;  
-  user-select:none;  
-  color:#39ff14;  
-  opacity:0.7;  
-  padding:10px 12px;
-  border-radius:12px;
-  background:rgba(0,0,0,.35);
-  border:1px solid rgba(0,255,255,.25);
-}  
-.arrow:hover { color:#00f7ff; opacity:1; }  
-.arrow.left { left:10px; }  
-.arrow.right { right:10px; }  
-@media(min-width:901px){
-  .arrow{ display:block; }
-}
+    /* ------------------------ BASE ------------------------ */
+    body {
+      margin: 0;
+      font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+      background: url("https://iili.io/fH5IORj.jpg") center/cover fixed no-repeat;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    body::before {
+      content:""; inset:0; position:fixed;
+      background:rgba(0,0,0,.80); backdrop-filter:blur(4px);
+      z-index:-1;
+    }
 
-/* 1 sola tarjeta centrada (adentro van 2 landings lado a lado) */
-.carousel-grid{
-  display:grid;
-  grid-template-columns: minmax(0, 900px);
-  justify-content:center;
-  gap:14px;
-  margin-top:10px;
-  min-width:0;
-}
+    /* ------------------------ NAV ------------------------ */
+    nav {
+      position:fixed; top:0; left:0; width:100%;
+      background:rgba(0,0,0,.85);
+      padding:15px 20px;
+      display:flex; justify-content:space-between; align-items:center;
+      z-index:3000;
+    }
+    .logo-nav {
+      color:#39ff14;
+      font-size:1.3rem;
+      font-weight:bold;
+    }
+    nav ul {
+      display:flex; gap:35px; list-style:none; padding:0; margin:0;
+    }
+    nav li a {
+      color:#00f7ff; text-decoration:none; font-weight:bold; font-size:1.05rem;
+    }
+    nav li a:hover { color:#39ff14; }
 
-/* TARJETA CONTENEDORA (una) */
-.landing-card{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(0,255,255,.35);
-  border-radius:16px;
-  padding:14px;
-  backdrop-filter:blur(6px);
-  min-width:0; /* ✅ clave para que no empuje */
-}
+    /* Hamburguesa */
+    .hamburger {
+      display:none; width:28px; cursor:pointer;
+      flex-direction:column; gap:5px;
+    }
+    .hamburger div { height:4px; background:#39ff14; border-radius:4px; }
 
-/* ✅ 2 landings dentro de la misma tarjeta */
-.duo-grid{
-  display:grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); /* ✅ NO desborda */
-  gap:14px;
-  align-items:stretch;
-  min-width:0;
-}
+    /* Menu móvil */
+    #mobile-menu {
+      position:fixed; right:-100%; top:0;
+      height:100%; width:70%;
+      background:#000;
+      padding:80px 25px;
+      display:flex; flex-direction:column; gap:30px;
+      transition:.3s ease-in-out;
+      z-index:3500;
+    }
+    #mobile-menu a {
+      color:#00f7ff; text-decoration:none; font-size:1.3rem; font-weight:bold;
+    }
+    .mobile-active { right:0!important; }
 
-/* cada landing dentro */
-.duo-item{
-  background:rgba(0,0,0,.35);
-  border:1px solid rgba(0,255,255,.25);
-  border-radius:14px;
-  padding:12px;
-  display:flex;
-  flex-direction:column;
-  min-height: 520px; /* legible */
-  min-width:0;       /* ✅ NO desborda */
-}
+    .close-mobile {
+      position:absolute;
+      top:20px; right:20px;
+      font-size:2rem;
+      color:#39ff14;
+      cursor:pointer;
+    }
 
-.duo-thumb{
-  width:100%;
-  height:210px;
-  background:#000;
-  border-radius:12px;
-  border:2px solid #39ff14;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-.duo-thumb img{
-  max-width:100%;
-  max-height:100%;
-  width:auto;
-  height:auto;
-  object-fit:contain;
-}
+    /* Overlay menú */
+    #menu-overlay {
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.6);
+      display:none;
+      z-index:3200;
+    }
 
-.duo-short{
-  margin-top:10px;
-  color:#00f7ff;
-  font-size:1.05rem;
-  font-weight:bold;
-  line-height:1.35;
-  text-align:center;
-  overflow-wrap:anywhere; /* ✅ por si hay palabras largas */
-}
+    @media(max-width:900px){
+      nav ul { display:none; }
+      .hamburger { display:flex; margin-right:8px; }
+    }
 
-.duo-info{
-  margin-top:8px;
-  color:#dff;
-  font-size:.95rem;
-  line-height:1.55;
-  flex:1;
-  overflow:auto;
-  padding-right:6px;
-  text-align:left;
-  overflow-wrap:anywhere; /* ✅ evita overflow */
-}
-.duo-info::-webkit-scrollbar{ width:8px; }
-.duo-info::-webkit-scrollbar-track{ background:rgba(255,255,255,0.06); border-radius:10px; }
-.duo-info::-webkit-scrollbar-thumb{ background:rgba(0,255,255,0.35); border-radius:10px; }
-.duo-info::-webkit-scrollbar-thumb:hover{ background:rgba(0,255,255,0.55); }
+    /* ------------------------ HERO ------------------------ */
+    .hero {
+      padding-top:140px; text-align:center;
+    }
+    .hero img {
+      width:260px;
+      filter:drop-shadow(0 0 15px #39ff14);
+      animation:glow 3s infinite alternate;
+    }
+    @keyframes glow {
+      0%{ filter:drop-shadow(0 0 10px #39ff14);}
+      50%{ filter:drop-shadow(0 0 20px #00f7ff);}
+      100%{ filter:drop-shadow(0 0 10px #39ff14);}
+    }
 
-.duo-cta{
-  margin-top:12px;
-  display:flex;
-  justify-content:center;
-}
+    /* ------------------------ SECCIONES ------------------------ */
+    section {
+      max-width:1100px; margin:auto; padding:80px 20px;
+      text-align:center;
+    }
+    section h2 {
+      font-size:2rem; color:#39ff14; margin-bottom:15px;
+    }
+    section p {
+      font-size:1.15rem; line-height:1.7; color:#ccc;
+      text-align:center;
+      white-space:pre-line;
+    }
 
-/* Botón base */
-.carousel-btn {  
-  padding:10px 22px;  
-  background:#39ff14;  
-  color:#000;  
-  font-weight:bold;  
-  border-radius:25px;  
-  text-decoration:none;  
-  display:inline-block;  
-}  
+    /* ------------------------ TIPS BAR ------------------------ */
+    .tips-bar {
+      max-width:900px;
+      margin:20px auto 0;
+      padding:12px 18px;
+      background:rgba(0,255,255,0.08);
+      border:1px solid rgba(0,255,255,.35);
+      border-radius:12px;
+      backdrop-filter:blur(4px);
+      box-shadow:0 0 12px rgba(0,255,255,.15);
+      font-size:1.05rem;
+      text-align:center;
+      color:#00f7ff;
+      font-weight:bold;
+    }
 
-/* ✅ botones Ver landing iguales + SE ADAPTAN para no forzar scroll horizontal */
-.duo-cta .carousel-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;                 /* ✅ entra sí o sí en la columna */
-  max-width: 220px;           /* ✅ no se hace gigante en pantallas grandes */
-  height:44px;
-  white-space:nowrap;
-  padding-left:12px;
-  padding-right:12px;
-}
+    /* ------------------------ CATEGORÍAS ------------------------ */
+    .categories {
+      max-width:980px;
+      margin:25px auto 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+    }
+    .categories button {
+      background:rgba(0,255,255,.1);
+      border:1px solid rgba(0,255,255,.4);
+      color:#00f7ff;
+      padding:10px 16px;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:.2s;
+    }
+    .categories button:hover,
+    .categories .active {
+      background:#00f7ff;
+      color:#000;
+    }
 
-/* Si hay 1 landing sola */
-.duo-grid.one{
-  grid-template-columns: minmax(0, 1fr);
-}
+    /* ------------------------ EJEMPLOS (TARJETITAS + MODAL PRO) ------------------------ */
+    .examples-wrap{
+      max-width:980px;
+      margin:18px auto 0;
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(57,255,20,.35);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 0 15px rgba(0,255,255,.18);
+      overflow:hidden;
+    }
 
-.morebar{
-  margin-top:14px;
-  text-align:center;
-}
+    .examples-topbar{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:14px;
+    }
 
-/* Mobile: mantiene 2 columnas, pero achica contenidos para que NO haya que mover pantalla */
-@media(max-width:600px){
-  .carousel-container{ padding:16px; }
-  .duo-grid{ gap:10px; }
+    .examples-count{
+      color:#dff;
+      font-size:.98rem;
+      opacity:.9;
+      text-align:left;
+    }
 
-  .duo-thumb{ height:130px; }       /* ✅ baja altura para que entre todo */
-  .duo-item{ min-height: 460px; }   /* ✅ sigue legible */
+    .examples-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
 
-  .duo-short{ font-size:.92rem; }
-  .duo-info{ font-size:.88rem; }
+    .pill-btn{
+      background:rgba(57,255,20,.12);
+      border:1px solid rgba(57,255,20,.38);
+      color:#39ff14;
+      padding:10px 14px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:.2s;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      user-select:none;
+    }
+    .pill-btn:hover{
+      background:rgba(57,255,20,.22);
+      border-color:rgba(0,255,255,.35);
+      color:#00f7ff;
+    }
 
-  .duo-cta .carousel-btn{
-    max-width: none;                /* ✅ ocupa el ancho de cada columna */
-    width:100%;
-    height:40px;
-    font-size:.92rem;
-  }
+    .examples-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap:12px;
+      min-width:0;
+    }
 
-  /* ✅ opcional: reduce padding de la tarjeta contenedora interna */
-  .landing-card{ padding:12px; }
-}
+    .example-card{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(0,255,255,.26);
+      border-radius:16px;
+      padding:10px;
+      text-align:left;
+      cursor:pointer;
+      transition:.18s;
+      min-width:0;
+      position:relative;
+      overflow:hidden;
+    }
+    .example-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(57,255,20,.45);
+      box-shadow:0 0 16px rgba(0,255,255,.15);
+    }
 
-/* Modal "Ver más" */
-.more-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:6000;
-}
-.more-modal{
-  width:min(980px, 92vw);
-  max-height:85vh;
-  overflow:auto;
-  background:rgba(0,0,0,.88);
-  border:1px solid rgba(0,255,255,.35);
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 0 18px rgba(0,255,255,.15);
-  position:relative;
-}
-.more-title{
-  color:#39ff14;
-  font-size:1.35rem;
-  font-weight:bold;
-  margin:0 0 12px 0;
-  text-align:left;
-}
-.more-close{
-  position:absolute;
-  top:10px; right:14px;
-  font-size:1.8rem;
-  color:#39ff14;
-  cursor:pointer;
-  user-select:none;
-}
-.more-grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap:14px;
-}
+    .example-thumb{
+      width:100%;
+      height:115px;
+      background:rgba(0,0,0,.55);
+      border-radius:12px;
+      border:2px solid rgba(57,255,20,.45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .example-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.02);
+    }
 
-/* WHATSAPP FLOAT */  
-.whatsapp-float {  
-  position:fixed; right:20px; bottom:65px; z-index:4000;  
-}  
-.whatsapp-float img {  
-  width:60px;  
-  height:60px;  
-  object-fit:contain;  
-  filter:drop-shadow(0 0 6px #000);  
-}  
-  
-/* FOOTER */  
-footer {  
-  text-align:center;  
-  padding:20px;  
-  margin-top:50px;  
-  background:rgba(0,0,0,.55);  
-  color:#aaa;  
-  font-size:.9rem;  
-}  
-</style>  
-</head>  
-<body>  
-<div id="menu-overlay" onclick="closeMenu()"></div>  
+    .example-meta{
+      margin-top:10px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width:0;
+    }
 
-<!-- NAV -->  
-<nav>  
-  <div class="logo-nav">Ciborg347™</div>  
-  <ul>  
-    <li><a href="#quienes">Quiénes Somos</a></li>  
-    <li><a href="#quehacemos">Qué Hacemos</a></li>  
-    <li><a href="#servicios">Servicios</a></li>  
-    <li><a href="#trabajos">Ejemplos</a></li>  
-    <li><a href="#contacto">Contacto</a></li>  
-  </ul>  
-  <div class="hamburger" onclick="toggleMenu()">  
-    <div></div><div></div><div></div>  
-  </div>  
-</nav>  
+    .example-badges{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .badge{
+      font-size:.78rem;
+      font-weight:bold;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(0,255,255,.10);
+      border:1px solid rgba(0,255,255,.28);
+      color:#00f7ff;
+      white-space:nowrap;
+    }
+    .badge.green{
+      background:rgba(57,255,20,.10);
+      border-color:rgba(57,255,20,.28);
+      color:#39ff14;
+    }
 
-<!-- MENÚ MOBILE -->  
-<div id="mobile-menu">  
-  <span class="close-mobile" onclick="closeMenu()">×</span>  
-  <a href="#quienes" onclick="closeMenu()">Quiénes Somos</a>  
-  <a href="#quehacemos" onclick="closeMenu()">Qué Hacemos</a>  
-  <a href="#servicios" onclick="closeMenu()">Servicios</a>  
-  <a href="#trabajos" onclick="closeMenu()">Ejemplos</a>  
-  <a href="#contacto" onclick="closeMenu()">Contacto</a>  
-</div>  
+    .example-title{
+      color:#fff;
+      font-size:.95rem;
+      font-weight:bold;
+      line-height:1.25;
+      overflow:hidden;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      opacity:.95;
+      min-height:2.4em;
+    }
 
-<!-- HERO -->  
-<div class="hero">  
-  <img src="https://iili.io/fH74EGa.md.png" alt="Logo Ciborg347">  
-  <h1 style="color:#00f7ff; margin-top:20px;">Impulsamos negocios con diseño web estratégico</h1>  
-</div>  
+    .example-cta-mini{
+      margin-top:6px;
+      color:#00f7ff;
+      font-weight:bold;
+      font-size:.85rem;
+      opacity:.85;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
 
-<!-- QUIÉNES SOMOS -->  
-<section id="quienes">  
-  <h2>Quiénes Somos</h2>  
-  <p>  
-En Ciborg347™ transformamos ideas en páginas que venden.  
+    @media(max-width:600px){
+      .examples-wrap{ padding:14px; }
+      .examples-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .example-thumb{ height:105px; }
+      .example-title{ font-size:.92rem; }
+    }
+
+    /* MODAL DETALLE */
+    .example-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.78);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:6500;
+    }
+    .example-modal{
+      width:min(980px, 92vw);
+      max-height:86vh;
+      overflow:auto;
+      background:rgba(0,0,0,.90);
+      border:1px solid rgba(0,255,255,.35);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 0 20px rgba(0,255,255,.18);
+      position:relative;
+      text-align:left;
+    }
+    .example-close{
+      position:absolute;
+      top:10px; right:14px;
+      font-size:1.9rem;
+      color:#39ff14;
+      cursor:pointer;
+      user-select:none;
+    }
+
+    .example-modal-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media(max-width:860px){
+      .example-modal-grid{ grid-template-columns: 1fr; }
+    }
+
+    .example-preview{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(57,255,20,.28);
+      border-radius:16px;
+      padding:12px;
+      overflow:hidden;
+    }
+    .example-preview img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:12px;
+    }
+
+    .example-details{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(0,255,255,.25);
+      border-radius:16px;
+      padding:14px;
+    }
+
+    .example-details .title{
+      margin:0 0 8px 0;
+      font-size:1.25rem;
+      color:#00f7ff;
+      font-weight:bold;
+      line-height:1.25;
+    }
+    .example-details .sub{
+      margin:0 0 12px 0;
+      color:#dff;
+      opacity:.92;
+      line-height:1.55;
+      font-size:1rem;
+      white-space:pre-line;
+    }
+    .example-details .desc{
+      margin:0 0 14px 0;
+      color:#ccc;
+      line-height:1.65;
+      font-size:.98rem;
+      white-space:pre-line;
+    }
+
+    .example-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-start;
+    }
+
+    /* Botón base */
+    .carousel-btn {
+      padding:10px 22px;
+      background:#39ff14;
+      color:#000;
+      font-weight:bold;
+      border-radius:25px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      cursor:pointer;
+      border:none;
+    }
+    .carousel-btn.secondary{
+      background:rgba(0,255,255,.12);
+      color:#00f7ff;
+      border:1px solid rgba(0,255,255,.35);
+    }
+    .carousel-btn.secondary:hover{
+      background:rgba(0,255,255,.18);
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position:fixed; right:20px; bottom:65px; z-index:4000;
+    }
+    .whatsapp-float img {
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      filter:drop-shadow(0 0 6px #000);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align:center;
+      padding:20px;
+      margin-top:50px;
+      background:rgba(0,0,0,.55);
+      color:#aaa;
+      font-size:.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="menu-overlay" onclick="closeMenu()"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo-nav">Ciborg347™</div>
+    <ul>
+      <li><a href="#quienes">Quiénes Somos</a></li>
+      <li><a href="#quehacemos">Qué Hacemos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#trabajos">Ejemplos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+  </nav>
+
+  <!-- MENÚ MOBILE -->
+  <div id="mobile-menu">
+    <span class="close-mobile" onclick="closeMenu()">×</span>
+    <a href="#quienes" onclick="closeMenu()">Quiénes Somos</a>
+    <a href="#quehacemos" onclick="closeMenu()">Qué Hacemos</a>
+    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <a href="#trabajos" onclick="closeMenu()">Ejemplos</a>
+    <a href="#contacto" onclick="closeMenu()">Contacto</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://iili.io/fH74EGa.md.png" alt="Logo Ciborg347">
+    <h1 style="color:#00f7ff; margin-top:20px;">Impulsamos negocios con diseño web estratégico</h1>
+  </div>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes">
+    <h2>Quiénes Somos</h2>
+    <p>
+En Ciborg347™ transformamos ideas en páginas que venden.
 Diseñamos landings y sitios web profesionales, modernos y rápidos, pensados para captar clientes y generar confianza desde el primer segundo.  Nos enfocamos en tres pilares esenciales para cualquier negocio:
 • Presencia online
 • Confianza visual
@@ -461,306 +519,329 @@ Diseñamos landings y sitios web profesionales, modernos y rápidos, pensados pa
 
 Cada proyecto es único: analizamos tu rubro, tu estilo y tus objetivos para crear una web que represente tu marca al 100%.
 Cuando tu negocio se ve bien… tus clientes confían más. 🚀
-  </p>  
-</section>  
+    </p>
+  </section>
 
-<!-- QUÉ HACEMOS -->  
-<section id="quehacemos">  
-  <h2>Qué Hacemos</h2>  
-  <p>  
-Creamos landings y webs     
-modernas, rápidas     
-y optimizadas para convertir.    
+  <!-- QUÉ HACEMOS -->
+  <section id="quehacemos">
+    <h2>Qué Hacemos</h2>
+    <p>
+Creamos landings y webs
+modernas, rápidas
+y optimizadas para convertir.
 Tu negocio necesita:
 • Presencia
 • Confianza
 • Ventas
 
 Nosotros te damos las tres. 🚀
-  </p>  
-</section>  
+    </p>
+  </section>
 
-<!-- SERVICIOS -->  
-<section id="servicios">  
-  <h2>Servicios</h2>  
-  <p>  
-✔ Landing Pages premium     
-✔ Sitios web completos     
-✔ Branding visual     
-✔ Integración con WhatsApp     
-✔ Hosting gratis en Render     
-  </p>  
-</section>  
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <p>
+✔ Landing Pages premium
+✔ Sitios web completos
+✔ Branding visual
+✔ Integración con WhatsApp
+✔ Hosting gratis en Render
+    </p>
+  </section>
 
-<!-- EJEMPLOS -->  
-<section id="trabajos">  
-  <h2>Ejemplos de sitios web's y landing page's</h2>  
+  <!-- EJEMPLOS -->
+  <section id="trabajos">
+    <h2>Ejemplos de sitios web's y landing page's</h2>
 
-  <div class="tips-bar" id="tip-text">  
-    Tip: Una landing clara convierte más clics en ventas.  
-  </div>  
-
-  <div class="categories" id="category-buttons"></div>  
-
-  <div class="carousel-container" id="carousel">  
-    <!-- Flechas SOLO PC para cambiar de categoría -->
-    <div class="arrow left" onclick="prevCategory()">❮</div>  
-    <div class="arrow right" onclick="nextCategory()">❯</div>  
-
-    <div class="carousel-grid" id="carousel-grid"></div>
-
-    <div class="morebar" id="morebar" style="display:none;">
-      <a class="carousel-btn" href="javascript:void(0)" onclick="openMore()">Ver más landings de esta categoría</a>
+    <div class="tips-bar" id="tip-text">
+      Tip: Una landing clara convierte más clics en ventas.
     </div>
-  </div>  
-</section>  
 
-<!-- MODAL VER MÁS -->
-<div class="more-overlay" id="more-overlay" onclick="closeMore(event)">
-  <div class="more-modal" onclick="event.stopPropagation()">
-    <div class="more-close" onclick="closeMore()">×</div>
-    <div class="more-title" id="more-title">Más landings</div>
-    <div class="more-grid" id="more-grid"></div>
-  </div>
-</div>
+    <div class="categories" id="category-buttons"></div>
 
-<!-- CONTACTO -->  
-<section id="contacto">  
-  <h2>Contacto</h2>  
-  <p>  
-Escribinos y contanos tu idea.     
-Te respondemos rápido para ayudarte a crear tu proyecto.     
-  </p>  
+    <div class="examples-wrap">
+      <div class="examples-topbar">
+        <div class="examples-count" id="examples-count">Mostrando: Todos</div>
 
-  <a class="carousel-btn"  
-href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20quiero%20dise%C3%B1ar%20algo%20para%20mi%20negocio."  
-target="_blank">WhatsApp</a>
-</section>  
+        <div class="examples-actions">
+          <button class="pill-btn" onclick="setCategory('all')">Ver todos los ejemplos</button>
+          <button class="pill-btn" onclick="scrollToContact()">Quiero una similar</button>
+        </div>
+      </div>
 
-<!-- WHATSAPP FLOAT -->  
-<a class="whatsapp-float"   
-href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20mi%20landing."  
-target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
-</a>
+      <div class="examples-grid" id="examples-grid"></div>
+    </div>
+  </section>
 
-<footer>© 2025 Ciborg347™ · Web Agency</footer>  
+  <!-- MODAL DETALLE EJEMPLO -->
+  <div class="example-overlay" id="example-overlay" onclick="closeExampleModal(event)">
+    <div class="example-modal" onclick="event.stopPropagation()">
+      <div class="example-close" onclick="closeExampleModal()">×</div>
 
-<!-- ======================= SCRIPTS ======================= -->  
-<script>  
-/* -------- MENÚ -------- */  
-let autoClose;  
-function toggleMenu() {  
-  const menu = document.getElementById("mobile-menu");  
-  const overlay = document.getElementById("menu-overlay");  
-  if(menu.classList.contains("mobile-active")){  
-    closeMenu();  
-  } else {  
-    menu.classList.add("mobile-active");  
-    overlay.style.display = "block";  
-    clearTimeout(autoClose);  
-    autoClose = setTimeout(() => closeMenu(), 5000);  
-  }  
-}  
-function closeMenu(){  
-  document.getElementById("mobile-menu").classList.remove("mobile-active");  
-  document.getElementById("menu-overlay").style.display="none";  
-  clearTimeout(autoClose);  
-}  
+      <div class="example-modal-grid">
+        <div class="example-preview">
+          <img id="ex-img" src="" alt="">
+        </div>
 
-/* ===================== CATÁLOGO ===================== */  
-let allSlides = [  
-  {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},  
+        <div class="example-details">
+          <div class="example-badges" style="margin-bottom:10px;">
+            <span class="badge green" id="ex-cat">Categoría</span>
+            <span class="badge" id="ex-tag">Ejemplo</span>
+          </div>
 
-  {category:"barber", img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},  
-  {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Elegancia y estilo en cada detalle.", info:"Diseño orientado a barberías que quieren diferenciarse."},  
+          <h3 class="title" id="ex-title">Título</h3>
+          <p class="sub" id="ex-short">Texto corto</p>
+          <p class="desc" id="ex-info">Descripción</p>
 
-  {category:"food", img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},  
-
-  {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Energía y ambiente en un diseño impactante.", info:"Ideal para salones y bailables."},  
-  {category:"evento", img:"https://iili.io/faZQ0Ff.jpg", link:"https://web-mmg-oficial.onrender.com", short:"Showcase potente para eventos y artistas.", info:"Landing con estética pro para presentar el evento/producción, mostrar identidad y llevar tráfico directo a contacto/redes."},  
-
-  {category:"radio", img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},  
-  {category:"radio", img:"https://iili.io/farGiml.jpg", link:"https://radiocannafest.onrender.com", short:"Radio Cannafest con identidad propia.", info:"Landing moderna para radio temática con estética fuerte y presencia profesional."},  
-
-  {category:"refacciones", img:"https://iili.io/farX3hl.jpg", link:"https://jyl-refacciones.onrender.com", short:"Refacciones y construcciones para captar presupuestos.", info:"Landing para refacciones y construcciones, ideal para mostrar trabajos, servicios y captar presupuestos por WhatsApp."},  
-
-  {category:"casino", img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Diseño directo para captar jugadores.", info:"Estética intensa y conversiones rápidas."},  
-  {category:"casino", img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Energía visual para atraer usuarios.", info:"Landing con estilo fuego y dinamismo."},  
-  {category:"casino", img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Identidad deportiva sólida.", info:"Perfecta para apuestas y deportes."},  
-  {category:"casino", img:"https://iili.io/KigNdVS.jpg", link:"https://giraygana-fortunaplay.onrender.com/", short:"Diseño veloz y llamativo.", info:"Enfocada en interacción rápida."},  
-  {category:"casino", img:"https://iili.io/Kigv3Ij.jpg", link:"https://ganamostodosjuntos.onrender.com/", short:"Impacto fuerte para gaming.", info:"Ideal para promociones continuas."},  
-  {category:"casino", img:"https://iili.io/KiggTcN.jpg", link:"https://lions-casino.onrender.com/", short:"Identidad premium.", info:"Estética limpia y profesional."},  
-  {category:"casino", img:"https://iili.io/f9a9Fdx.jpg", link:"https://giraygana-ijae.onrender.com", short:"Máxima rapidez para captar curiosos.", info:"Diseño simple y efectivo."}  
-];  
-
-/* --- CATEGORÍAS --- */  
-const categories = [  
-  {id:"estetica", name:"Estética"},  
-  {id:"barber", name:"Barberías"},  
-  {id:"food", name:"Gastronomía"},  
-  {id:"evento", name:"Eventos"},  
-  {id:"radio", name:"Radios"},  
-  {id:"refacciones", name:"Refacciones"},  
-  {id:"casino", name:"Casinos"}  
-];  
-
-let activeCatIndex = 0;
-let activeCategory = categories[activeCatIndex].id;
-
-/* --- BOTONES --- */
-let catContainer = document.getElementById("category-buttons");  
-categories.forEach((cat, i) => {  
-  let btn = document.createElement("button");  
-  btn.innerText = cat.name;  
-  btn.onclick = () => {  
-    goToCategoryIndex(i);
-  };  
-  catContainer.appendChild(btn);  
-});  
-
-function getItemsByCategory(cat){
-  return allSlides.filter(x => x.category === cat);
-}
-
-/* --- UI active --- */
-function updateCategoryHighlight(){  
-  document.querySelectorAll(".categories button").forEach((btn, i) => {  
-    btn.classList.toggle("active", i === activeCatIndex);
-  });  
-}  
-
-function duoItemHTML(item){
-  return `
-    <div class="duo-item">
-      <div class="duo-thumb"><img src="${item.img}" alt=""></div>
-      <div class="duo-short">${item.short}</div>
-      <div class="duo-info">${item.info}</div>
-      <div class="duo-cta">
-        <a class="carousel-btn" href="${item.link}" target="_blank">Ver landing</a>
+          <div class="example-actions">
+            <a class="carousel-btn" id="ex-link" href="#" target="_blank">Ver landing completa</a>
+            <button class="carousel-btn secondary" onclick="closeExampleModal()">Cerrar</button>
+          </div>
+        </div>
       </div>
     </div>
-  `;
-}
+  </div>
 
-/* --- RENDER: 1 TARJETA (adentro 2 landings lado a lado). Si hay >2 => Ver más --- */
-function renderGrid(){
-  const grid = document.getElementById("carousel-grid");
-  const morebar = document.getElementById("morebar");
-  grid.innerHTML = "";
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>
+Escribinos y contanos tu idea.
+Te respondemos rápido para ayudarte a crear tu proyecto.
+    </p>
 
-  const items = getItemsByCategory(activeCategory);
-  const visible = items.slice(0, 2);
+    <a class="carousel-btn"
+       href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20quiero%20dise%C3%B1ar%20algo%20para%20mi%20negocio."
+       target="_blank">WhatsApp</a>
+  </section>
 
-  const outer = document.createElement("div");
-  outer.className = "landing-card";
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp-float"
+     href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20mi%20landing."
+     target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+  </a>
 
-  const duo = document.createElement("div");
-  duo.className = "duo-grid" + (visible.length === 1 ? " one" : "");
+  <footer>© 2025 Ciborg347™ · Web Agency</footer>
 
-  if(visible[0]) duo.insertAdjacentHTML("beforeend", duoItemHTML(visible[0]));
-  if(visible[1]) duo.insertAdjacentHTML("beforeend", duoItemHTML(visible[1]));
+  <!-- ======================= SCRIPTS ======================= -->
+  <script>
+    /* -------- MENÚ -------- */
+    let autoClose;
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      const overlay = document.getElementById("menu-overlay");
+      if(menu.classList.contains("mobile-active")){
+        closeMenu();
+      } else {
+        menu.classList.add("mobile-active");
+        overlay.style.display = "block";
+        clearTimeout(autoClose);
+        autoClose = setTimeout(() => closeMenu(), 5000);
+      }
+    }
+    function closeMenu(){
+      document.getElementById("mobile-menu").classList.remove("mobile-active");
+      document.getElementById("menu-overlay").style.display="none";
+      clearTimeout(autoClose);
+    }
 
-  outer.appendChild(duo);
-  grid.appendChild(outer);
+    /* ===================== EJEMPLOS (TARJETITAS + MODAL) ===================== */
+    let allSlides = [
+      {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},
 
-  morebar.style.display = (items.length > 2) ? "block" : "none";
-  updateCategoryHighlight();
-}
+      {category:"barber", img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},
+      {category:"barber", img:"https://iili.io/KPyUCn1.jpg", link:"https://barber-shop-rodri.onrender.com/", short:"Elegancia y estilo en cada detalle.", info:"Diseño orientado a barberías que quieren diferenciarse."},
 
-/* --- NAV CATEGORÍAS --- */
-function goToCategoryIndex(i){
-  activeCatIndex = (i + categories.length) % categories.length;
-  activeCategory = categories[activeCatIndex].id;
-  renderGrid();
-  resetAutoCategory();
-}
-function nextCategory(){ goToCategoryIndex(activeCatIndex + 1); }
-function prevCategory(){ goToCategoryIndex(activeCatIndex - 1); }
+      {category:"food", img:"https://iili.io/fF5pLGf.jpg", link:"https://dulce-juana.onrender.com/", short:"Imágenes irresistibles que generan ventas.", info:"Landing cálida y visual, perfecta para gastronomía."},
 
-/* --- MODAL VER MÁS (agrupa de a 2 por tarjeta, igual que arriba) --- */
-function openMore(){
-  const items = getItemsByCategory(activeCategory);
-  const overlay = document.getElementById("more-overlay");
-  const grid = document.getElementById("more-grid");
-  const title = document.getElementById("more-title");
+      {category:"evento", img:"https://iili.io/f9a9K5Q.jpg", link:"https://tio-sergio.onrender.com", short:"Energía y ambiente en un diseño impactante.", info:"Ideal para salones y bailables."},
+      {category:"evento", img:"https://iili.io/faZQ0Ff.jpg", link:"https://web-mmg-oficial.onrender.com", short:"Showcase potente para eventos y artistas.", info:"Landing con estética pro para presentar el evento/producción, mostrar identidad y llevar tráfico directo a contacto/redes."},
 
-  title.innerText = "Más landings de " + categories[activeCatIndex].name;
-  grid.innerHTML = "";
+      {category:"radio", img:"https://iili.io/f9an4yX.jpg", link:"https://radioimagen.onrender.com", short:"Tu radio con presencia moderna.", info:"Streaming integrado y visual profesional."},
+      {category:"radio", img:"https://iili.io/farGiml.jpg", link:"https://radiocannafest.onrender.com", short:"Radio Cannafest con identidad propia.", info:"Landing moderna para radio temática con estética fuerte y presencia profesional."},
 
-  for(let i=0; i<items.length; i+=2){
-    const outer = document.createElement("div");
-    outer.className = "landing-card";
+      {category:"refacciones", img:"https://iili.io/farX3hl.jpg", link:"https://jyl-refacciones.onrender.com", short:"Refacciones y construcciones para captar presupuestos.", info:"Landing para refacciones y construcciones, ideal para mostrar trabajos, servicios y captar presupuestos por WhatsApp."},
 
-    const duo = document.createElement("div");
-    duo.className = "duo-grid" + ((i+1 >= items.length) ? " one" : "");
+      {category:"casino", img:"https://iili.io/KPygQXS.jpg", link:"https://facu-casino.onrender.com/", short:"Diseño directo para captar jugadores.", info:"Estética intensa y conversiones rápidas."},
+      {category:"casino", img:"https://iili.io/KPyrMj2.jpg", link:"https://dragon-casino.onrender.com/", short:"Energía visual para atraer usuarios.", info:"Landing con estilo fuego y dinamismo."},
+      {category:"casino", img:"https://iili.io/KPyDVHP.jpg", link:"https://dinasty-bet.onrender.com/", short:"Identidad deportiva sólida.", info:"Perfecta para apuestas y deportes."},
+      {category:"casino", img:"https://iili.io/KigNdVS.jpg", link:"https://giraygana-fortunaplay.onrender.com/", short:"Diseño veloz y llamativo.", info:"Enfocada en interacción rápida."},
+      {category:"casino", img:"https://iili.io/Kigv3Ij.jpg", link:"https://ganamostodosjuntos.onrender.com/", short:"Impacto fuerte para gaming.", info:"Ideal para promociones continuas."},
+      {category:"casino", img:"https://iili.io/KiggTcN.jpg", link:"https://lions-casino.onrender.com/", short:"Identidad premium.", info:"Estética limpia y profesional."},
+      {category:"casino", img:"https://iili.io/f9a9Fdx.jpg", link:"https://giraygana-ijae.onrender.com", short:"Máxima rapidez para captar curiosos.", info:"Diseño simple y efectivo."}
+    ];
 
-    duo.insertAdjacentHTML("beforeend", duoItemHTML(items[i]));
-    if(items[i+1]) duo.insertAdjacentHTML("beforeend", duoItemHTML(items[i+1]));
+    const categories = [
+      {id:"all", name:"Todos"},
+      {id:"estetica", name:"Estética"},
+      {id:"barber", name:"Barberías"},
+      {id:"food", name:"Gastronomía"},
+      {id:"evento", name:"Eventos"},
+      {id:"radio", name:"Radios"},
+      {id:"refacciones", name:"Refacciones"},
+      {id:"casino", name:"Casinos"}
+    ];
 
-    outer.appendChild(duo);
-    grid.appendChild(outer);
-  }
+    let activeCategory = "all";
 
-  overlay.style.display = "flex";
-  resetAutoCategory();
-}
-function closeMore(){
-  document.getElementById("more-overlay").style.display = "none";
-}
+    const catContainer = document.getElementById("category-buttons");
+    const gridEl = document.getElementById("examples-grid");
+    const countEl = document.getElementById("examples-count");
 
-/* --- SWIPE: cambiar CATEGORÍA con el dedo --- */
-let startX = 0, startY = 0;
-const carousel = document.getElementById("carousel");
-carousel.addEventListener("touchstart", (e) => {
-  const t = e.touches[0];
-  startX = t.clientX;
-  startY = t.clientY;
-}, {passive:true});
+    function getCategoryName(id){
+      const c = categories.find(x => x.id === id);
+      return c ? c.name : id;
+    }
 
-carousel.addEventListener("touchend", (e) => {
-  const t = e.changedTouches[0];
-  const dx = t.clientX - startX;
-  const dy = t.clientY - startY;
+    function updateCategoryHighlight(){
+      document.querySelectorAll(".categories button").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.cat === activeCategory);
+      });
+    }
 
-  if(Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)){
-    if(dx < 0) nextCategory();
-    else prevCategory();
-  }
-}, {passive:true});
+    function setCategory(catId){
+      activeCategory = catId;
+      renderExamples();
+      updateCategoryHighlight();
+      // mini scroll suave a la grilla (prolijo)
+      document.getElementById("examples-grid").scrollIntoView({behavior:"smooth", block:"start"});
+    }
 
-/* --- AUTO CARRUSEL (cambia categorías solo) --- */
-let autoCatTimer = null;
-function startAutoCategory(){
-  stopAutoCategory();
-  autoCatTimer = setInterval(() => {
-    const modalOpen = document.getElementById("more-overlay").style.display === "flex";
-    if(!modalOpen) nextCategory();
-  }, 6500);
-}
-function stopAutoCategory(){
-  if(autoCatTimer) clearInterval(autoCatTimer);
-  autoCatTimer = null;
-}
-function resetAutoCategory(){ startAutoCategory(); }
+    function buildCategoryButtons(){
+      catContainer.innerHTML = "";
+      categories.forEach((cat) => {
+        const btn = document.createElement("button");
+        btn.innerText = cat.name;
+        btn.dataset.cat = cat.id;
+        btn.onclick = () => setCategory(cat.id);
+        catContainer.appendChild(btn);
+      });
+      updateCategoryHighlight();
+    }
 
-/* --- INICIALIZAR --- */
-renderGrid();
-startAutoCategory();
+    function filteredSlides(){
+      if(activeCategory === "all") return allSlides;
+      return allSlides.filter(x => x.category === activeCategory);
+    }
 
-/* --- TIPS ROTATIVOS --- */  
-const tips = [  
-  "Tip: Una landing clara convierte más clics en ventas.",  
-  "Tip: Un CTA fuerte aumenta conversiones hasta un 40%.",  
-  "Tip: Las imágenes profesionales venden más.",  
-  "Tip: Tu web debe cargar rápido para retener clientes.",  
-  "Tip: La primera impresión define si confían en tu negocio."  
-];  
-let tipIndex = 0;  
-setInterval(() => {  
-  tipIndex = (tipIndex + 1) % tips.length;  
-  document.getElementById("tip-text").innerText = tips[tipIndex];  
-}, 4000);  
-</script>  
-</body>  
+    function renderExamples(){
+      const items = filteredSlides();
+
+      countEl.textContent = `Mostrando: ${getCategoryName(activeCategory)} · ${items.length} ejemplo${items.length === 1 ? "" : "s"}`;
+
+      gridEl.innerHTML = "";
+      items.forEach((item, idx) => {
+        // idx real del array original para abrir modal correcto
+        const realIndex = allSlides.indexOf(item);
+
+        const card = document.createElement("div");
+        card.className = "example-card";
+        card.setAttribute("role","button");
+        card.setAttribute("tabindex","0");
+        card.onclick = () => openExampleModal(realIndex);
+        card.onkeydown = (e) => { if(e.key === "Enter" || e.key === " ") openExampleModal(realIndex); };
+
+        card.innerHTML = `
+          <div class="example-thumb">
+            <img loading="lazy" src="${item.img}" alt="">
+          </div>
+
+          <div class="example-meta">
+            <div class="example-badges">
+              <span class="badge green">${getCategoryName(item.category)}</span>
+              <span class="badge">Tap para ver</span>
+            </div>
+
+            <div class="example-title">${item.short}</div>
+
+            <div class="example-cta-mini">Ver detalles · Ver landing completa →</div>
+          </div>
+        `;
+        gridEl.appendChild(card);
+      });
+    }
+
+    /* MODAL */
+    const overlay = document.getElementById("example-overlay");
+    const exImg = document.getElementById("ex-img");
+    const exCat = document.getElementById("ex-cat");
+    const exTag = document.getElementById("ex-tag");
+    const exTitle = document.getElementById("ex-title");
+    const exShort = document.getElementById("ex-short");
+    const exInfo = document.getElementById("ex-info");
+    const exLink = document.getElementById("ex-link");
+
+    function openExampleModal(index){
+      const item = allSlides[index];
+      if(!item) return;
+
+      exImg.src = item.img;
+      exCat.textContent = getCategoryName(item.category);
+      exTag.textContent = "Ejemplo #" + (index + 1);
+      exTitle.textContent = item.short;
+      exShort.textContent = "Resumen:\n" + item.short;
+      exInfo.textContent = "Descripción:\n" + item.info;
+      exLink.href = item.link;
+
+      overlay.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeExampleModal(){
+      overlay.style.display = "none";
+      document.body.style.overflow = "";
+    }
+
+    function closeExampleModalEvent(e){
+      // por si querés usarlo con evento
+      closeExampleModal();
+    }
+
+    function closeExampleModal(e){
+      // si viene event, cerramos igual (click afuera)
+      overlay.style.display = "none";
+      document.body.style.overflow = "";
+    }
+
+    // alias para el onclick del overlay
+    function closeExampleModal(event){
+      // si clickean el overlay, cerramos
+      overlay.style.display = "none";
+      document.body.style.overflow = "";
+    }
+
+    // ESC para cerrar modal
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && overlay.style.display === "flex"){
+        overlay.style.display = "none";
+        document.body.style.overflow = "";
+      }
+    });
+
+    function scrollToContact(){
+      document.getElementById("contacto").scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    /* --- TIPS ROTATIVOS --- */
+    const tips = [
+      "Tip: Una landing clara convierte más clics en ventas.",
+      "Tip: Un CTA fuerte aumenta conversiones hasta un 40%.",
+      "Tip: Las imágenes profesionales venden más.",
+      "Tip: Tu web debe cargar rápido para retener clientes.",
+      "Tip: La primera impresión define si confían en tu negocio."
+    ];
+    let tipIndex = 0;
+    setInterval(() => {
+      tipIndex = (tipIndex + 1) % tips.length;
+      document.getElementById("tip-text").innerText = tips[tipIndex];
+    }, 4000);
+
+    /* --- INIT --- */
+    buildCategoryButtons();
+    renderExamples();
+    updateCategoryHighlight();
+  </script>
+</body>
 </html>
