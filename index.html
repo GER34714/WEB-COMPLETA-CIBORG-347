@@ -145,289 +145,8 @@
       font-weight:bold;
     }
 
-    /* ------------------------ CATEGORÍAS ------------------------ */
-    .categories {
-      max-width:980px;
-      margin:25px auto 10px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:center;
-    }
-    .categories button {
-      background:rgba(0,255,255,.1);
-      border:1px solid rgba(0,255,255,.4);
-      color:#00f7ff;
-      padding:10px 16px;
-      border-radius:25px;
-      cursor:pointer;
-      font-weight:bold;
-      transition:.2s;
-    }
-    .categories button:hover,
-    .categories .active {
-      background:#00f7ff;
-      color:#000;
-    }
-
-    /* ------------------------ EJEMPLOS (TARJETITAS + MODAL PRO) ------------------------ */
-    .examples-wrap{
-      max-width:980px;
-      margin:18px auto 0;
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(57,255,20,.35);
-      border-radius:20px;
-      padding:18px;
-      box-shadow:0 0 15px rgba(0,255,255,.18);
-      overflow:hidden;
-    }
-
-    .examples-topbar{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:14px;
-    }
-
-    .examples-count{
-      color:#dff;
-      font-size:.98rem;
-      opacity:.9;
-      text-align:left;
-    }
-
-    .examples-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      align-items:center;
-    }
-
-    .pill-btn{
-      background:rgba(57,255,20,.12);
-      border:1px solid rgba(57,255,20,.38);
-      color:#39ff14;
-      padding:10px 14px;
-      border-radius:999px;
-      cursor:pointer;
-      font-weight:bold;
-      transition:.2s;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      user-select:none;
-    }
-    .pill-btn:hover{
-      background:rgba(57,255,20,.22);
-      border-color:rgba(0,255,255,.35);
-      color:#00f7ff;
-    }
-
-    .examples-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap:12px;
-      min-width:0;
-    }
-
-    .example-card{
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(0,255,255,.26);
-      border-radius:16px;
-      padding:10px;
-      text-align:left;
-      cursor:pointer;
-      transition:.18s;
-      min-width:0;
-      position:relative;
-      overflow:hidden;
-    }
-    .example-card:hover{
-      transform:translateY(-2px);
-      border-color:rgba(57,255,20,.45);
-      box-shadow:0 0 16px rgba(0,255,255,.15);
-    }
-
-    .example-thumb{
-      width:100%;
-      height:115px;
-      background:rgba(0,0,0,.55);
-      border-radius:12px;
-      border:2px solid rgba(57,255,20,.45);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-    .example-thumb img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
-    }
-
-    .example-meta{
-      margin-top:10px;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      min-width:0;
-    }
-
-    .example-badges{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .badge{
-      font-size:.78rem;
-      font-weight:bold;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(0,255,255,.10);
-      border:1px solid rgba(0,255,255,.28);
-      color:#00f7ff;
-      white-space:nowrap;
-    }
-    .badge.green{
-      background:rgba(57,255,20,.10);
-      border-color:rgba(57,255,20,.28);
-      color:#39ff14;
-    }
-
-    .example-title{
-      color:#fff;
-      font-size:.95rem;
-      font-weight:bold;
-      line-height:1.25;
-      overflow:hidden;
-      display:-webkit-box;
-      -webkit-line-clamp:2;
-      -webkit-box-orient:vertical;
-      opacity:.95;
-      min-height:2.4em;
-    }
-
-    .example-cta-mini{
-      margin-top:6px;
-      color:#00f7ff;
-      font-weight:bold;
-      font-size:.85rem;
-      opacity:.85;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-
-    @media(max-width:600px){
-      .examples-wrap{ padding:14px; }
-      .examples-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .example-thumb{ height:105px; }
-      .example-title{ font-size:.92rem; }
-    }
-
-    /* MODAL DETALLE */
-    .example-overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.78);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:6500;
-    }
-    .example-modal{
-      width:min(980px, 92vw);
-      max-height:86vh;
-      overflow:auto;
-      background:rgba(0,0,0,.90);
-      border:1px solid rgba(0,255,255,.35);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:0 0 20px rgba(0,255,255,.18);
-      position:relative;
-      text-align:left;
-    }
-    .example-close{
-      position:absolute;
-      top:10px; right:14px;
-      font-size:1.9rem;
-      color:#39ff14;
-      cursor:pointer;
-      user-select:none;
-    }
-
-    .example-modal-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-      align-items:start;
-    }
-    @media(max-width:860px){
-      .example-modal-grid{ grid-template-columns: 1fr; }
-    }
-
-    .example-preview{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(57,255,20,.28);
-      border-radius:16px;
-      padding:12px;
-      overflow:hidden;
-    }
-    .example-preview img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:12px;
-    }
-
-    .example-details{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(0,255,255,.25);
-      border-radius:16px;
-      padding:14px;
-    }
-
-    .example-details .title{
-      margin:0 0 8px 0;
-      font-size:1.25rem;
-      color:#00f7ff;
-      font-weight:bold;
-      line-height:1.25;
-    }
-    .example-details .sub{
-      margin:0 0 12px 0;
-      color:#dff;
-      opacity:.92;
-      line-height:1.55;
-      font-size:1rem;
-      white-space:pre-line;
-    }
-    .example-details .desc{
-      margin:0 0 14px 0;
-      color:#ccc;
-      line-height:1.65;
-      font-size:.98rem;
-      white-space:pre-line;
-    }
-
-    .example-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:flex-start;
-    }
-
-    /* Botón base */
-    .carousel-btn {
+    /* ------------------------ BOTONES BASE ------------------------ */
+    .carousel-btn{
       padding:10px 22px;
       background:#39ff14;
       color:#000;
@@ -437,20 +156,394 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
+      border:0;
       cursor:pointer;
-      border:none;
     }
-    .carousel-btn.secondary{
-      background:rgba(0,255,255,.12);
-      color:#00f7ff;
-      border:1px solid rgba(0,255,255,.35);
-    }
-    .carousel-btn.secondary:hover{
-      background:rgba(0,255,255,.18);
+    .carousel-btn:hover{ filter:brightness(1.05); }
+
+    /* ------------------------ EJEMPLOS PRO (tarjetitas + modal) ------------------------ */
+    .examples-wrap{
+      max-width:980px;
+      margin:18px auto 0;
+      background:rgba(0,0,0,.62);
+      border:1px solid rgba(57,255,20,.35);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 0 15px rgba(0,255,255,.16);
+      overflow:hidden;
+      text-align:left;
     }
 
-    /* WHATSAPP FLOAT */
+    .examples-top{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 12px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:12px;
+    }
+
+    .examples-left{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    .examples-note{
+      color:#00f7ff;
+      font-weight:bold;
+      background:rgba(0,255,255,.08);
+      border:1px solid rgba(0,255,255,.25);
+      padding:8px 12px;
+      border-radius:12px;
+      font-size:.98rem;
+    }
+
+    .examples-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn-ghost{
+      background:rgba(0,255,255,.10);
+      border:1px solid rgba(0,255,255,.35);
+      color:#00f7ff;
+      padding:10px 16px;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:bold;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+    }
+    .btn-ghost:hover{ background:rgba(0,255,255,.18); }
+
+    .categories{
+      margin:10px 0 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-start;
+    }
+    .categories button{
+      background:rgba(0,255,255,.10);
+      border:1px solid rgba(0,255,255,.35);
+      color:#00f7ff;
+      padding:10px 14px;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:.2s;
+      font-size:.98rem;
+    }
+    .categories button:hover, .categories .active{
+      background:#00f7ff;
+      color:#000;
+    }
+
+    .cards-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap:12px;
+      min-width:0;
+    }
+
+    .ex-card{
+      border-radius:14px;
+      border:1px solid rgba(0,255,255,.25);
+      background:rgba(255,255,255,0.06);
+      overflow:hidden;
+      cursor:pointer;
+      transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+      min-width:0;
+    }
+    .ex-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(57,255,20,.55);
+      box-shadow:0 0 14px rgba(0,255,255,.12);
+    }
+
+    .ex-thumb{
+      width:100%;
+      height:120px;                /* ✅ tarjetita chica */
+      background:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-bottom:1px solid rgba(0,255,255,.15);
+      overflow:hidden;
+    }
+    .ex-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:contain;          /* ✅ imagen ENTERA dentro del cuadro */
+      padding:8px;
+      display:block;
+    }
+
+    .ex-meta{
+      padding:10px 10px 12px;
+      min-width:0;
+    }
+    .ex-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:.85rem;
+      color:#39ff14;
+      font-weight:bold;
+      margin-bottom:6px;
+      opacity:.95;
+    }
+    .ex-title{
+      color:#00f7ff;
+      font-weight:bold;
+      font-size:.95rem;
+      line-height:1.25;
+      margin:0;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+    }
+    .ex-hint{
+      margin-top:8px;
+      font-size:.85rem;
+      color:#bfefff;
+      opacity:.9;
+      font-weight:bold;
+    }
+
+    .examples-bottom{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .count-text{
+      color:#cfefff;
+      opacity:.9;
+      font-size:.95rem;
+      font-weight:bold;
+    }
+
+    @media(max-width:1000px){
+      .cards-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media(max-width:700px){
+      .cards-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ex-thumb{ height:120px; }
+      .examples-wrap{ padding:14px; }
+    }
+
+    /* ------------------------ MODAL DETALLE (click en tarjeta) ------------------------ */
+    .ex-overlay{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.78);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:6500;
+      padding:14px;
+    }
+    .ex-modal{
+      width:min(980px, 96vw);
+      max-height:88vh;
+      overflow:auto;
+      background:rgba(0,0,0,.90);
+      border:1px solid rgba(0,255,255,.35);
+      border-radius:18px;
+      box-shadow:0 0 18px rgba(0,255,255,.16);
+      position:relative;
+      padding:16px;
+      text-align:left;
+    }
+    .ex-close{
+      position:absolute; top:10px; right:14px;
+      font-size:2rem;
+      color:#39ff14;
+      cursor:pointer;
+      user-select:none;
+    }
+
+    .ex-modal-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+      align-items:start;
+    }
+    .ex-modal-figure{
+      background:#000;
+      border:1px solid rgba(57,255,20,.35);
+      border-radius:16px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:320px;
+    }
+    .ex-modal-figure img{
+      width:100%;
+      height:100%;
+      object-fit:contain;        /* ✅ imagen ENTERA */
+      padding:10px;
+      display:block;
+    }
+
+    .ex-modal-side{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(0,255,255,.22);
+      border-radius:16px;
+      padding:14px;
+    }
+    .ex-modal-cat{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:#39ff14;
+      font-weight:bold;
+      margin-bottom:10px;
+      font-size:.95rem;
+    }
+    .ex-modal-title{
+      color:#00f7ff;
+      font-weight:bold;
+      font-size:1.2rem;
+      line-height:1.25;
+      margin:0 0 10px 0;
+    }
+    .ex-modal-short{
+      color:#dff;
+      font-size:1rem;
+      font-weight:bold;
+      margin:0 0 10px 0;
+      line-height:1.45;
+    }
+    .ex-modal-info{
+      color:#cfcfcf;
+      font-size:.98rem;
+      line-height:1.65;
+      margin:0 0 14px 0;
+      white-space:pre-line;
+    }
+    .ex-modal-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .nav-mini{
+      margin-top:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+    .nav-mini button{
+      background:rgba(0,255,255,.10);
+      border:1px solid rgba(0,255,255,.35);
+      color:#00f7ff;
+      padding:10px 14px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:bold;
+      min-width:120px;
+    }
+    .nav-mini button:hover{ background:rgba(0,255,255,.18); }
+    .nav-mini .pos{
+      color:#cfefff;
+      opacity:.95;
+      font-weight:bold;
+      font-size:.95rem;
+    }
+
+    @media(max-width:820px){
+      .ex-modal-grid{ grid-template-columns: 1fr; }
+      .ex-modal-figure{ min-height:260px; }
+    }
+
+    /* ------------------------ MODAL "VER TODOS" (sin alargar la página) ------------------------ */
+    .catalog-overlay{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.80);
+      display:none;
+      z-index:6600;
+      padding:14px;
+      align-items:center;
+      justify-content:center;
+    }
+    .catalog-modal{
+      width:min(1100px, 96vw);
+      max-height:90vh;
+      overflow:auto;
+      background:rgba(0,0,0,.92);
+      border:1px solid rgba(0,255,255,.35);
+      border-radius:18px;
+      box-shadow:0 0 18px rgba(0,255,255,.16);
+      position:relative;
+      padding:16px;
+      text-align:left;
+    }
+    .catalog-close{
+      position:absolute; top:10px; right:14px;
+      font-size:2rem;
+      color:#39ff14;
+      cursor:pointer;
+      user-select:none;
+    }
+    .catalog-head{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 12px;
+      align-items:center;
+      justify-content:space-between;
+      padding-right:40px;
+      margin-bottom:12px;
+    }
+    .catalog-title{
+      color:#39ff14;
+      font-weight:bold;
+      font-size:1.25rem;
+      margin:0;
+    }
+    .catalog-tools{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .searchbox{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(0,255,255,.35);
+      background:rgba(0,255,255,.08);
+      min-width:min(360px, 86vw);
+    }
+    .searchbox input{
+      width:100%;
+      outline:none;
+      border:0;
+      background:transparent;
+      color:#eaffff;
+      font-weight:bold;
+      font-size:.98rem;
+    }
+    .searchbox input::placeholder{ color:rgba(255,255,255,.55); }
+
+    /* ------------------------ WHATSAPP FLOAT ------------------------ */
     .whatsapp-float {
       position:fixed; right:20px; bottom:65px; z-index:4000;
     }
@@ -558,47 +651,83 @@ Nosotros te damos las tres. 🚀
       Tip: Una landing clara convierte más clics en ventas.
     </div>
 
-    <div class="categories" id="category-buttons"></div>
-
+    <!-- ✅ Ejemplos estilo agencia: tarjetitas + modal detalle, y “Ver todos” en modal para NO alargar la página -->
     <div class="examples-wrap">
-      <div class="examples-topbar">
-        <div class="examples-count" id="examples-count">Mostrando: Todos</div>
+      <div class="examples-top">
+        <div class="examples-left">
+          <div class="examples-note" id="examples-note">Tocá una tarjeta para ver la preview + detalles (sin scrollear de más).</div>
+        </div>
 
         <div class="examples-actions">
-          <button class="pill-btn" onclick="setCategory('all')">Ver todos los ejemplos</button>
-          <button class="pill-btn" onclick="scrollToContact()">Quiero una similar</button>
+          <button class="btn-ghost" type="button" onclick="openCatalog()">Ver todos los ejemplos</button>
+          <button class="carousel-btn" type="button" onclick="loadMoreOnPage()">Cargar más</button>
         </div>
       </div>
 
-      <div class="examples-grid" id="examples-grid"></div>
+      <div class="categories" id="category-buttons"></div>
+
+      <div class="cards-grid" id="cards-grid"></div>
+
+      <div class="examples-bottom">
+        <div class="count-text" id="count-text">Mostrando 0</div>
+        <button class="btn-ghost" type="button" onclick="scrollToTopExamples()">Volver arriba de ejemplos</button>
+      </div>
     </div>
   </section>
 
-  <!-- MODAL DETALLE EJEMPLO -->
-  <div class="example-overlay" id="example-overlay" onclick="closeExampleModal(event)">
-    <div class="example-modal" onclick="event.stopPropagation()">
-      <div class="example-close" onclick="closeExampleModal()">×</div>
+  <!-- MODAL DETALLE (click en tarjeta) -->
+  <div class="ex-overlay" id="ex-overlay" onclick="closeExample(event)">
+    <div class="ex-modal" onclick="event.stopPropagation()">
+      <div class="ex-close" onclick="closeExample()">×</div>
 
-      <div class="example-modal-grid">
-        <div class="example-preview">
-          <img id="ex-img" src="" alt="">
+      <div class="ex-modal-grid">
+        <div class="ex-modal-figure">
+          <img id="ex-modal-img" src="" alt="">
         </div>
 
-        <div class="example-details">
-          <div class="example-badges" style="margin-bottom:10px;">
-            <span class="badge green" id="ex-cat">Categoría</span>
-            <span class="badge" id="ex-tag">Ejemplo</span>
+        <div class="ex-modal-side">
+          <div class="ex-modal-cat" id="ex-modal-cat">Categoría</div>
+          <h3 class="ex-modal-title" id="ex-modal-title">Título</h3>
+          <p class="ex-modal-short" id="ex-modal-short"></p>
+          <p class="ex-modal-info" id="ex-modal-info"></p>
+
+          <div class="ex-modal-actions">
+            <a class="carousel-btn" id="ex-modal-link" href="#" target="_blank">Ver landing completa</a>
+            <button class="btn-ghost" type="button" onclick="openCatalog(true)">Ver en catálogo completo</button>
           </div>
 
-          <h3 class="title" id="ex-title">Título</h3>
-          <p class="sub" id="ex-short">Texto corto</p>
-          <p class="desc" id="ex-info">Descripción</p>
-
-          <div class="example-actions">
-            <a class="carousel-btn" id="ex-link" href="#" target="_blank">Ver landing completa</a>
-            <button class="carousel-btn secondary" onclick="closeExampleModal()">Cerrar</button>
+          <div class="nav-mini">
+            <button type="button" onclick="prevExample()">❮ Anterior</button>
+            <div class="pos" id="ex-pos">1/1</div>
+            <button type="button" onclick="nextExample()">Siguiente ❯</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL "VER TODOS LOS EJEMPLOS" (no alarga la página) -->
+  <div class="catalog-overlay" id="catalog-overlay" onclick="closeCatalog(event)">
+    <div class="catalog-modal" onclick="event.stopPropagation()">
+      <div class="catalog-close" onclick="closeCatalog()">×</div>
+
+      <div class="catalog-head">
+        <h3 class="catalog-title" id="catalog-title">Catálogo completo</h3>
+
+        <div class="catalog-tools">
+          <div class="searchbox">
+            <input id="catalog-search" type="text" placeholder="Buscar (ej: barber, radio, estética, etc.)" oninput="renderCatalog()">
+          </div>
+          <button class="carousel-btn" type="button" onclick="catalogLoadMore()">Cargar más</button>
+        </div>
+      </div>
+
+      <div class="categories" id="catalog-category-buttons"></div>
+      <div class="cards-grid" id="catalog-grid"></div>
+
+      <div class="examples-bottom" style="margin-top:14px;">
+        <div class="count-text" id="catalog-count">Mostrando 0</div>
+        <button class="btn-ghost" type="button" onclick="closeCatalog()">Cerrar</button>
       </div>
     </div>
   </div>
@@ -612,14 +741,14 @@ Te respondemos rápido para ayudarte a crear tu proyecto.
     </p>
 
     <a class="carousel-btn"
-       href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20quiero%20dise%C3%B1ar%20algo%20para%20mi%20negocio."
-       target="_blank">WhatsApp</a>
+      href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20quiero%20dise%C3%B1ar%20algo%20para%20mi%20negocio."
+      target="_blank">WhatsApp</a>
   </section>
 
   <!-- WHATSAPP FLOAT -->
   <a class="whatsapp-float"
-     href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20mi%20landing."
-     target="_blank">
+    href="https://wa.me/541164499481?text=Hola%20Ciborg%2C%20vi%20tus%20trabajos%20y%20quisiera%20mi%20landing."
+    target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
   </a>
 
@@ -647,8 +776,8 @@ Te respondemos rápido para ayudarte a crear tu proyecto.
       clearTimeout(autoClose);
     }
 
-    /* ===================== EJEMPLOS (TARJETITAS + MODAL) ===================== */
-    let allSlides = [
+    /* ===================== DATOS ===================== */
+    const allSlides = [
       {category:"estetica", img:"https://iili.io/KPyCnHu.jpg", link:"https://adda-nails.onrender.com/", short:"Mostrá tu trabajo con un diseño limpio y profesional.", info:"Landing pensada para estudios de belleza que necesitan transmitir prolijidad, estilo y confianza."},
 
       {category:"barber", img:"https://iili.io/KPyvEcx.jpg", link:"https://barberia-elbebu.onrender.com/", short:"Presencia fuerte que posiciona tu barbería como marca.", info:"Estética moderna y masculina que genera autoridad."},
@@ -684,145 +813,223 @@ Te respondemos rápido para ayudarte a crear tu proyecto.
       {id:"casino", name:"Casinos"}
     ];
 
+    const categoryNameById = (id) => (categories.find(c => c.id === id)?.name || id);
+
+    /* ===================== ESTADO (página) ===================== */
     let activeCategory = "all";
+    let pageLimit = 8;           // ✅ no hace la página eterna
+    let pageList = [];           // lista filtrada actual
+    let modalList = [];          // lista dentro del modal (mismo filtro)
+    let modalIndex = 0;
 
-    const catContainer = document.getElementById("category-buttons");
-    const gridEl = document.getElementById("examples-grid");
-    const countEl = document.getElementById("examples-count");
+    /* ===================== ESTADO (catálogo modal) ===================== */
+    let catalogCategory = "all";
+    let catalogLimit = 16;
 
-    function getCategoryName(id){
-      const c = categories.find(x => x.id === id);
-      return c ? c.name : id;
+    /* ===================== HELPERS ===================== */
+    function normalizeText(s){
+      return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
-    function updateCategoryHighlight(){
-      document.querySelectorAll(".categories button").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.cat === activeCategory);
+    function getFilteredList(cat, searchText){
+      let items = allSlides.slice();
+
+      if(cat && cat !== "all"){
+        items = items.filter(x => x.category === cat);
+      }
+
+      if(searchText){
+        const q = normalizeText(searchText);
+        items = items.filter(x => {
+          const hay = normalizeText(x.short + " " + x.info + " " + x.category + " " + x.link);
+          return hay.includes(q);
+        });
+      }
+
+      return items;
+    }
+
+    function cardHTML(item, indexInCurrent){
+      const catName = categoryNameById(item.category);
+      const title = item.short || "Ver ejemplo";
+      return `
+        <div class="ex-card" role="button" tabindex="0" data-idx="${indexInCurrent}">
+          <div class="ex-thumb">
+            <img src="${item.img}" alt="">
+          </div>
+          <div class="ex-meta">
+            <div class="ex-badge">• ${catName}</div>
+            <p class="ex-title">${title}</p>
+            <div class="ex-hint">Tocar para ver</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function wireCardClicks(gridEl, listRef){
+      gridEl.querySelectorAll(".ex-card").forEach(card => {
+        const idx = Number(card.getAttribute("data-idx"));
+        const open = () => openExampleFromList(listRef, idx);
+
+        card.addEventListener("click", open);
+        card.addEventListener("keydown", (e) => {
+          if(e.key === "Enter" || e.key === " "){ e.preventDefault(); open(); }
+        });
       });
     }
 
-    function setCategory(catId){
-      activeCategory = catId;
-      renderExamples();
-      updateCategoryHighlight();
-      // mini scroll suave a la grilla (prolijo)
-      document.getElementById("examples-grid").scrollIntoView({behavior:"smooth", block:"start"});
-    }
+    /* ===================== BOTONES DE CATEGORÍA (página) ===================== */
+    function renderCategoryButtons(){
+      const wrap = document.getElementById("category-buttons");
+      wrap.innerHTML = "";
 
-    function buildCategoryButtons(){
-      catContainer.innerHTML = "";
-      categories.forEach((cat) => {
+      categories.forEach(cat => {
         const btn = document.createElement("button");
-        btn.innerText = cat.name;
-        btn.dataset.cat = cat.id;
-        btn.onclick = () => setCategory(cat.id);
-        catContainer.appendChild(btn);
-      });
-      updateCategoryHighlight();
-    }
-
-    function filteredSlides(){
-      if(activeCategory === "all") return allSlides;
-      return allSlides.filter(x => x.category === activeCategory);
-    }
-
-    function renderExamples(){
-      const items = filteredSlides();
-
-      countEl.textContent = `Mostrando: ${getCategoryName(activeCategory)} · ${items.length} ejemplo${items.length === 1 ? "" : "s"}`;
-
-      gridEl.innerHTML = "";
-      items.forEach((item, idx) => {
-        // idx real del array original para abrir modal correcto
-        const realIndex = allSlides.indexOf(item);
-
-        const card = document.createElement("div");
-        card.className = "example-card";
-        card.setAttribute("role","button");
-        card.setAttribute("tabindex","0");
-        card.onclick = () => openExampleModal(realIndex);
-        card.onkeydown = (e) => { if(e.key === "Enter" || e.key === " ") openExampleModal(realIndex); };
-
-        card.innerHTML = `
-          <div class="example-thumb">
-            <img loading="lazy" src="${item.img}" alt="">
-          </div>
-
-          <div class="example-meta">
-            <div class="example-badges">
-              <span class="badge green">${getCategoryName(item.category)}</span>
-              <span class="badge">Tap para ver</span>
-            </div>
-
-            <div class="example-title">${item.short}</div>
-
-            <div class="example-cta-mini">Ver detalles · Ver landing completa →</div>
-          </div>
-        `;
-        gridEl.appendChild(card);
+        btn.textContent = cat.name;
+        btn.className = (cat.id === activeCategory) ? "active" : "";
+        btn.onclick = () => {
+          activeCategory = cat.id;
+          pageLimit = 8;
+          renderPage();
+        };
+        wrap.appendChild(btn);
       });
     }
 
-    /* MODAL */
-    const overlay = document.getElementById("example-overlay");
-    const exImg = document.getElementById("ex-img");
-    const exCat = document.getElementById("ex-cat");
-    const exTag = document.getElementById("ex-tag");
-    const exTitle = document.getElementById("ex-title");
-    const exShort = document.getElementById("ex-short");
-    const exInfo = document.getElementById("ex-info");
-    const exLink = document.getElementById("ex-link");
+    /* ===================== RENDER PÁGINA (tarjetitas) ===================== */
+    function renderPage(){
+      const grid = document.getElementById("cards-grid");
 
-    function openExampleModal(index){
-      const item = allSlides[index];
+      pageList = getFilteredList(activeCategory, "");
+      const visible = pageList.slice(0, pageLimit);
+
+      grid.innerHTML = visible.map((it, i) => cardHTML(it, i)).join("");
+      wireCardClicks(grid, visible);
+
+      const countText = document.getElementById("count-text");
+      countText.textContent = `Mostrando ${Math.min(pageLimit, pageList.length)} de ${pageList.length} (${categoryNameById(activeCategory)})`;
+
+      const note = document.getElementById("examples-note");
+      note.textContent = (activeCategory === "all")
+        ? "Tocá una tarjeta para ver preview + detalles (la imagen se ve completa)."
+        : `Categoría: ${categoryNameById(activeCategory)} — tocá una tarjeta para ver detalles.`;
+
+      // si ya mostró todo, el botón “Cargar más” igual funciona pero no cambia nada
+    }
+
+    function loadMoreOnPage(){
+      pageLimit += 8;
+      renderPage();
+      // no scrollea solo: evitamos “salto” molesto
+    }
+
+    function scrollToTopExamples(){
+      document.getElementById("trabajos").scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    /* ===================== MODAL DETALLE ===================== */
+    function openExampleFromList(list, idx){
+      modalList = list.slice();      // lista visible del contexto (página o catálogo)
+      modalIndex = Math.max(0, Math.min(idx, modalList.length - 1));
+      paintExample();
+      document.getElementById("ex-overlay").style.display = "flex";
+    }
+
+    function paintExample(){
+      const item = modalList[modalIndex];
       if(!item) return;
 
-      exImg.src = item.img;
-      exCat.textContent = getCategoryName(item.category);
-      exTag.textContent = "Ejemplo #" + (index + 1);
-      exTitle.textContent = item.short;
-      exShort.textContent = "Resumen:\n" + item.short;
-      exInfo.textContent = "Descripción:\n" + item.info;
-      exLink.href = item.link;
+      document.getElementById("ex-modal-img").src = item.img;
+      document.getElementById("ex-modal-cat").textContent = "• " + categoryNameById(item.category);
+      document.getElementById("ex-modal-title").textContent = "Ejemplo " + (modalIndex + 1);
+      document.getElementById("ex-modal-short").textContent = item.short || "";
+      document.getElementById("ex-modal-info").textContent = item.info || "";
+      document.getElementById("ex-modal-link").href = item.link || "#";
 
+      document.getElementById("ex-pos").textContent = `${modalIndex + 1}/${modalList.length}`;
+    }
+
+    function closeExample(){
+      document.getElementById("ex-overlay").style.display = "none";
+    }
+    function prevExample(){
+      if(!modalList.length) return;
+      modalIndex = (modalIndex - 1 + modalList.length) % modalList.length;
+      paintExample();
+    }
+    function nextExample(){
+      if(!modalList.length) return;
+      modalIndex = (modalIndex + 1) % modalList.length;
+      paintExample();
+    }
+
+    /* ===================== CATÁLOGO COMPLETO (modal) ===================== */
+    function renderCatalogButtons(){
+      const wrap = document.getElementById("catalog-category-buttons");
+      wrap.innerHTML = "";
+
+      categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.textContent = cat.name;
+        btn.className = (cat.id === catalogCategory) ? "active" : "";
+        btn.onclick = () => {
+          catalogCategory = cat.id;
+          catalogLimit = 16;
+          renderCatalog();
+        };
+        wrap.appendChild(btn);
+      });
+    }
+
+    function renderCatalog(){
+      const grid = document.getElementById("catalog-grid");
+      const q = document.getElementById("catalog-search").value || "";
+
+      const list = getFilteredList(catalogCategory, q);
+      const visible = list.slice(0, catalogLimit);
+
+      grid.innerHTML = visible.map((it, i) => cardHTML(it, i)).join("");
+      wireCardClicks(grid, visible);
+
+      document.getElementById("catalog-count").textContent =
+        `Mostrando ${Math.min(catalogLimit, list.length)} de ${list.length} (${categoryNameById(catalogCategory)})`;
+
+      document.getElementById("catalog-title").textContent =
+        (q.trim())
+          ? `Catálogo completo — buscando: “${q.trim()}”`
+          : `Catálogo completo — ${categoryNameById(catalogCategory)}`;
+    }
+
+    function openCatalog(fromExample = false){
+      const overlay = document.getElementById("catalog-overlay");
       overlay.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
 
-    function closeExampleModal(){
-      overlay.style.display = "none";
-      document.body.style.overflow = "";
-    }
-
-    function closeExampleModalEvent(e){
-      // por si querés usarlo con evento
-      closeExampleModal();
-    }
-
-    function closeExampleModal(e){
-      // si viene event, cerramos igual (click afuera)
-      overlay.style.display = "none";
-      document.body.style.overflow = "";
-    }
-
-    // alias para el onclick del overlay
-    function closeExampleModal(event){
-      // si clickean el overlay, cerramos
-      overlay.style.display = "none";
-      document.body.style.overflow = "";
-    }
-
-    // ESC para cerrar modal
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape" && overlay.style.display === "flex"){
-        overlay.style.display = "none";
-        document.body.style.overflow = "";
+      if(fromExample){
+        // Si venís desde el ejemplo, setea la categoría según el ejemplo actual para que caiga “en contexto”
+        const current = modalList[modalIndex];
+        if(current?.category){
+          catalogCategory = current.category;
+          document.getElementById("catalog-search").value = "";
+        }
       }
-    });
 
-    function scrollToContact(){
-      document.getElementById("contacto").scrollIntoView({behavior:"smooth", block:"start"});
+      renderCatalogButtons();
+      renderCatalog();
     }
+
+    function closeCatalog(){
+      document.getElementById("catalog-overlay").style.display = "none";
+    }
+
+    function catalogLoadMore(){
+      catalogLimit += 16;
+      renderCatalog();
+    }
+
+    /* ===================== INICIALIZAR ===================== */
+    renderCategoryButtons();
+    renderPage();
+    renderCatalogButtons();
 
     /* --- TIPS ROTATIVOS --- */
     const tips = [
@@ -838,10 +1045,17 @@ Te respondemos rápido para ayudarte a crear tu proyecto.
       document.getElementById("tip-text").innerText = tips[tipIndex];
     }, 4000);
 
-    /* --- INIT --- */
-    buildCategoryButtons();
-    renderExamples();
-    updateCategoryHighlight();
+    /* ===================== UX: cerrar con ESC ===================== */
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape"){
+        if(document.getElementById("ex-overlay").style.display === "flex") closeExample();
+        if(document.getElementById("catalog-overlay").style.display === "flex") closeCatalog();
+      }
+      if(document.getElementById("ex-overlay").style.display === "flex"){
+        if(e.key === "ArrowLeft") prevExample();
+        if(e.key === "ArrowRight") nextExample();
+      }
+    });
   </script>
 </body>
 </html>
