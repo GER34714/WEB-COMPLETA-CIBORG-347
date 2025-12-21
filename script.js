@@ -1,57 +1,45 @@
-/* ===========================
-   MENÚ MOBILE
-=========================== */
+/* ================= MENÚ MOBILE ================= */
 let autoClose;
 function toggleMenu(){
   const menu = document.getElementById("mobile-menu");
   const overlay = document.getElementById("menu-overlay");
   if(menu.classList.contains("mobile-active")){
     closeMenu();
-  } else {
+  }else{
     menu.classList.add("mobile-active");
     overlay.style.display = "block";
     clearTimeout(autoClose);
-    autoClose = setTimeout(() => closeMenu(), 5000);
+    autoClose = setTimeout(closeMenu, 5000);
   }
 }
 function closeMenu(){
   document.getElementById("mobile-menu").classList.remove("mobile-active");
-  document.getElementById("menu-overlay").style.display="none";
+  document.getElementById("menu-overlay").style.display = "none";
   clearTimeout(autoClose);
 }
 
-/* ===========================
-   EJEMPLOS (PRO)
-=========================== */
-const PAGE_SIZE = 10;         // ✅ cantidad inicial (menos scroll)
-const PAGE_STEP = 10;         // ✅ cuánto agrega "Ver más"
+/* ================= EJEMPLOS ================= */
+const PAGE_SIZE = 8;
+const STEP = 8;
 
-const examples = (window.EXAMPLES || []).map((x, idx) => ({
-  ...x,
-  _id: x._id || `ex_${idx}_${(x.title||"").toLowerCase().replace(/\s+/g,"_")}`
-}));
-
-const order = window.CATEGORY_ORDER || [];
-const labels = window.CATEGORY_LABELS || {};
+const examples = window.EXAMPLES || [];
+const categoryOrder = window.CATEGORY_ORDER || [];
+const categoryLabels = window.CATEGORY_LABELS || {};
 
 let activeCategory = "all";
-let searchText = "";
 let visibleCount = PAGE_SIZE;
-let showAll = false;
-
-let filteredList = [];
+let filtered = [];
 let modalIndex = -1;
 
 /* DOM */
 const catContainer = document.getElementById("category-buttons");
 const grid = document.getElementById("examples-grid");
 const meta = document.getElementById("examples-meta");
-const searchInput = document.getElementById("search-input");
 const loadMoreBtn = document.getElementById("load-more-btn");
 const showLessBtn = document.getElementById("show-less-btn");
 const toggleAllBtn = document.getElementById("toggle-all-btn");
 
-/* Modal */
+/* MODAL */
 const modalOverlay = document.getElementById("modal-overlay");
 const modalImg = document.getElementById("modal-img");
 const modalCat = document.getElementById("modal-cat");
@@ -59,220 +47,136 @@ const modalTitle = document.getElementById("modal-title");
 const modalDesc = document.getElementById("modal-desc");
 const modalLink = document.getElementById("modal-link");
 
-/* Categories auto (si agregás una categoría nueva, aparece sola) */
-function getCategoryList(){
-  const set = new Set(examples.map(x => x.category).filter(Boolean));
+/* Helpers */
+function label(cat){
+  return categoryLabels[cat] || cat;
+}
+
+function getCategories(){
+  const set = new Set(examples.map(e => e.category));
   const arr = Array.from(set);
-  arr.sort((a,b) => {
-    const ia = order.indexOf(a);
-    const ib = order.indexOf(b);
-    if(ia === -1 && ib === -1) return a.localeCompare(b);
-    if(ia === -1) return 1;
-    if(ib === -1) return -1;
-    return ia - ib;
-  });
+  arr.sort((a,b) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b));
   return arr;
 }
 
-function catLabel(id){
-  return labels[id] || (id ? id.charAt(0).toUpperCase() + id.slice(1) : "Categoría");
-}
-
 /* Render categorías */
-function renderCategoryButtons(){
+function renderCategories(){
   catContainer.innerHTML = "";
 
   const allBtn = document.createElement("button");
   allBtn.innerText = "Todos";
-  allBtn.onclick = () => { activeCategory = "all"; visibleCount = PAGE_SIZE; showAll=false; syncToggleAllText(); render(); };
+  allBtn.classList.add("active");
+  allBtn.onclick = () => selectCategory("all", allBtn);
   catContainer.appendChild(allBtn);
 
-  getCategoryList().forEach((cat) => {
+  getCategories().forEach(cat => {
     const btn = document.createElement("button");
-    btn.innerText = catLabel(cat);
-    btn.onclick = () => { activeCategory = cat; visibleCount = PAGE_SIZE; showAll=false; syncToggleAllText(); render(); };
+    btn.innerText = label(cat);
+    btn.onclick = () => selectCategory(cat, btn);
     catContainer.appendChild(btn);
   });
 }
 
-function updateCategoryHighlight(){
-  const buttons = catContainer.querySelectorAll("button");
-  buttons.forEach((btn) => btn.classList.remove("active"));
-  const index = (activeCategory === "all") ? 0 : (getCategoryList().indexOf(activeCategory) + 1);
-  if(buttons[index]) buttons[index].classList.add("active");
+function selectCategory(cat, btn){
+  activeCategory = cat;
+  visibleCount = PAGE_SIZE;
+  document.querySelectorAll(".categories button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  render();
 }
 
-function matchesSearch(item){
-  if(!searchText) return true;
-  const s = searchText.toLowerCase().trim();
-  const hay = `${item.title||""} ${item.short||""} ${item.info||""} ${item.category||""}`.toLowerCase();
-  return hay.includes(s);
-}
+/* Render grilla */
+function render(){
+  filtered = activeCategory === "all"
+    ? examples
+    : examples.filter(e => e.category === activeCategory);
 
-function computeFiltered(){
-  filteredList = examples.filter(x => {
-    const catOK = (activeCategory === "all") ? true : x.category === activeCategory;
-    return catOK && matchesSearch(x);
-  });
-}
-
-function cardHTML(item, index){
-  return `
-    <div class="example-card" data-index="${index}">
-      <div class="thumb">
-        <img src="${item.img}" alt="">
-      </div>
-      <div class="card-row">
-        <div class="card-title">${item.title || "Ejemplo"}</div>
-        <div class="card-cat">${catLabel(item.category)}</div>
-      </div>
-      <div class="card-short">${item.short || ""}</div>
-    </div>
-  `;
-}
-
-function renderGrid(){
+  const show = filtered.slice(0, visibleCount);
   grid.innerHTML = "";
 
-  const total = filteredList.length;
-  const canShow = showAll ? total : Math.min(visibleCount, total);
-  const slice = filteredList.slice(0, canShow);
-
-  slice.forEach((item, idx) => {
-    grid.insertAdjacentHTML("beforeend", cardHTML(item, idx));
+  show.forEach((item, i) => {
+    grid.insertAdjacentHTML("beforeend", `
+      <div class="example-card" data-i="${i}">
+        <div class="thumb"><img src="${item.img}" alt=""></div>
+        <div class="card-row">
+          <div class="card-title">${item.title}</div>
+          <div class="card-cat">${label(item.category)}</div>
+        </div>
+        <div class="card-short">${item.short}</div>
+      </div>
+    `);
   });
 
-  meta.innerText = `Mostrando ${canShow} de ${total} ejemplo(s)`;
+  meta.innerText = `Mostrando ${show.length} de ${filtered.length} ejemplos`;
 
-  // botones
-  loadMoreBtn.style.display = (!showAll && total > canShow) ? "inline-flex" : "none";
-  showLessBtn.style.display = (!showAll && canShow > PAGE_SIZE) ? "inline-flex" : "none";
+  loadMoreBtn.style.display = filtered.length > visibleCount ? "inline-flex" : "none";
+  showLessBtn.style.display = visibleCount > PAGE_SIZE ? "inline-flex" : "none";
 }
 
-function bindGridClicks(){
-  grid.addEventListener("click", (e) => {
-    const card = e.target.closest(".example-card");
-    if(!card) return;
-    const idx = Number(card.getAttribute("data-index"));
-    openExampleModal(idx);
-  });
-}
-
-function syncToggleAllText(){
-  toggleAllBtn.innerText = showAll ? "Mostrar menos" : "Ver todos los ejemplos";
-}
+/* Click cards */
+grid.addEventListener("click", e => {
+  const card = e.target.closest(".example-card");
+  if(!card) return;
+  modalIndex = Number(card.dataset.i);
+  openModal();
+});
 
 /* Modal */
-function openExampleModal(idx){
-  modalIndex = idx;
-  const item = filteredList[modalIndex];
-  if(!item) return;
-
-  modalImg.src = item.img || "";
-  modalCat.innerText = catLabel(item.category);
-  modalTitle.innerText = item.title || "Ejemplo";
-  modalDesc.innerText = item.info || item.short || "";
-  modalLink.href = item.link || "#";
-
+function openModal(){
+  const item = filtered[modalIndex];
+  modalImg.src = item.img;
+  modalCat.innerText = label(item.category);
+  modalTitle.innerText = item.title;
+  modalDesc.innerText = item.info;
+  modalLink.href = item.link;
   modalOverlay.style.display = "flex";
-  modalOverlay.setAttribute("aria-hidden","false");
   document.body.style.overflow = "hidden";
 }
-
 function closeExampleModal(){
   modalOverlay.style.display = "none";
-  modalOverlay.setAttribute("aria-hidden","true");
   document.body.style.overflow = "";
 }
-
 function nextExample(){
-  if(filteredList.length === 0) return;
-  modalIndex = (modalIndex + 1) % filteredList.length;
-  openExampleModal(modalIndex);
+  modalIndex = (modalIndex + 1) % filtered.length;
+  openModal();
 }
 function prevExample(){
-  if(filteredList.length === 0) return;
-  modalIndex = (modalIndex - 1 + filteredList.length) % filteredList.length;
-  openExampleModal(modalIndex);
+  modalIndex = (modalIndex - 1 + filtered.length) % filtered.length;
+  openModal();
 }
 
-/* Cerrar modal clic afuera + ESC */
-modalOverlay.addEventListener("click", (e) => {
-  if(e.target === modalOverlay) closeExampleModal();
-});
-document.addEventListener("keydown", (e) => {
-  if(e.key === "Escape") closeExampleModal();
-  if(modalOverlay.style.display === "flex"){
-    if(e.key === "ArrowRight") nextExample();
-    if(e.key === "ArrowLeft") prevExample();
-  }
-});
-
-/* Controls */
-searchInput.addEventListener("input", () => {
-  searchText = searchInput.value || "";
-  visibleCount = PAGE_SIZE;
-  showAll = false;
-  syncToggleAllText();
+/* Botones */
+loadMoreBtn.onclick = () => {
+  visibleCount += STEP;
   render();
-});
-
-loadMoreBtn.addEventListener("click", () => {
-  visibleCount += PAGE_STEP;
-  render();
-});
-
-showLessBtn.addEventListener("click", () => {
+};
+showLessBtn.onclick = () => {
   visibleCount = PAGE_SIZE;
   render();
-  document.getElementById("trabajos").scrollIntoView({behavior:"smooth", block:"start"});
-});
-
-toggleAllBtn.addEventListener("click", () => {
-  showAll = !showAll;
-  if(showAll) {
-    visibleCount = filteredList.length;
-  } else {
-    visibleCount = PAGE_SIZE;
-  }
-  syncToggleAllText();
+};
+toggleAllBtn.onclick = () => {
+  visibleCount = filtered.length;
   render();
-  if(!showAll){
-    document.getElementById("trabajos").scrollIntoView({behavior:"smooth", block:"start"});
-  }
-});
+};
 
-/* Init render */
-function render(){
-  computeFiltered();
-  updateCategoryHighlight();
-  renderGrid();
-}
-
-renderCategoryButtons();
-bindGridClicks();
-syncToggleAllText();
+/* Init */
+renderCategories();
 render();
 
-/* ------------------------ TIPS ROTATIVOS ------------------------ */
+/* Tips */
 const tips = [
   "Tip: Una landing clara convierte más clics en ventas.",
   "Tip: Un CTA fuerte aumenta conversiones.",
-  "Tip: Las imágenes profesionales venden más.",
-  "Tip: Tu web debe cargar rápido para retener clientes.",
-  "Tip: La primera impresión define si confían en tu negocio."
+  "Tip: Las imágenes profesionales venden más."
 ];
-let tipIndex = 0;
+let t = 0;
 setInterval(() => {
-  tipIndex = (tipIndex + 1) % tips.length;
-  const el = document.getElementById("tip-text");
-  if(el) el.innerText = tips[tipIndex];
+  document.getElementById("tip-text").innerText = tips[t++ % tips.length];
 }, 4000);
 
-// Exponer funciones globales usadas en HTML
-window.closeMenu = closeMenu;
+/* Exponer global */
 window.toggleMenu = toggleMenu;
-
+window.closeMenu = closeMenu;
 window.closeExampleModal = closeExampleModal;
 window.nextExample = nextExample;
 window.prevExample = prevExample;
